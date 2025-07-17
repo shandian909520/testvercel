@@ -1,0 +1,100 @@
+.upload {
+    border: 1rpx solid #acc0ff;
+    display: flex;
+    border-radius: 10rpx;
+    width: 240rpx;
+    color: #123dc7;
+    padding: 6rpx 20rpx;
+    margin-bottom: 40rpx;
+}
+
+.answer>image {
+    width: 80rpx;
+    margin-right: 20rpx;
+}
+
+.answer {
+    padding: 20rpx 0;
+}
+
+.body {
+    padding-bottom: 20rpx;
+}
+
+.block {
+    padding: 20rpx;
+}
+
+page {
+    background-color: #f0f8ff;
+}
+
+.frame {
+    background-color: #fff;
+    width: 710rpx;
+    margin: 30rpx auto;
+    border-radius: 25rpx;
+    padding: 40rpx 0;
+}
+
+.frame_one {
+    background-color: #fff;
+    width: 710rpx;
+    margin: 30rpx auto;
+    border-radius: 25rpx;
+    padding: 20rpx 0;
+}
+
+.frame_one>view {
+    padding: 0 20rpx;
+}
+
+.input {
+    border: 1rpx solid #acc0ff;
+    border-radius: 10rpx;
+    margin-bottom: 44rpx;
+}
+
+.title {
+    width: 130rpx;
+    line-height: 72rpx!important;
+}
+
+uni-forms>view {
+    padding-left: 20rpx;
+}
+
+.zi-four {
+    line-height: 50rpx;
+}
+
+.uni-forms-item {
+    width: 500rpx;
+}
+
+button {
+    background-color: #123dc7;
+    width: 600rpx;
+    height: 70rpx;
+    border-radius: 36rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    line-height: 70rpx;
+}
+
+uni-segmented-control .segmented-control__text {
+    font-size: 32rpx!important;
+}
+
+.content {
+    padding-top: 20rpx;
+    margin-top: 10rpx;
+    border-top: 1rpx solid #acc0ff;
+}
+
+.agreement {
+    text-align: center;
+    font-size: 24rpx;
+    padding: 20rpx 0;
+    color: #092b99;
+}

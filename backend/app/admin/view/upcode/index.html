@@ -1,0 +1,54 @@
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">上传小程序代码</li>
+                <li>小程序设置</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <h3>上传小程序代码</h3>
+                    <hr>
+                    <input type="hidden" name="now_group" value="site">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最新版本</label>
+                        <div class="layui-input-block">
+                            <input type="text" disabled name="version" class="layui-input version" lay-verify="required"
+                                value="{$sourceMap['version']}">
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="layui-form-item">
+                        <label class="layui-form-label">更新时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" disabled name="site_version" class="layui-input" lay-verify="required"
+                                value="">
+                        </div>
+                    </div> -->
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label required">备注</label>
+                        <div class="layui-input-block ">
+                            <textarea rows="8" name="desc" lay-verify="required" placeholder="填写上传备注"
+                                class="layui-textarea">{$sourceMap['desc']}</textarea>
+                            <tip>注意！注意！注意！ 记得关闭ip白名单 【开发-开发管理-开发设置-小程序代码上传】</tip>
+                        </div>
+                    </div>
+
+
+                    <div class="hr-line"></div>
+                    <div class="layui-form-item text-center">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm upcode"
+                            data-refresh="false">上传</button>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    {include file="upcode/xcxset" /}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

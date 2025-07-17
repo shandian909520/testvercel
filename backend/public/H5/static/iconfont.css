@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3248340 */
+ src: url('/static/iconfont.ttf') format('truetype');
+}
+/* // 版权信息：晓江云计算有限公司
+	// 官方网址：www.xiaojiangy.com
+	// 本系统未经授权严禁使用，盗版必究。
+	// 通过技术手段盗版本系统或者通过其他非商业渠道获取到项目代码的请联系官方人员购买正版授权。 */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-baocuntupianzhonggaoban:before {
+  content: "\e674";
+}
+
+.icon-riqi:before {
+  content: "\e629";
+}
+
+.icon-shangchuantupian1:before {
+  content: "\e68d";
+}
+
+.icon-jihuoma:before {
+  content: "\e639";
+}
+
+.icon-weixinzhifu:before {
+  content: "\e618";
+}
+
+.icon-weizhifu:before {
+  content: "\e6f2";
+}
+
+.icon-yiwancheng:before {
+  content: "\e60f";
+}
+
+.icon-shalou1:before {
+  content: "\e632";
+}
+
+.icon-shangchuan:before {
+  content: "\e631";
+}
+
+.icon-kefu:before {
+  content: "\e608";
+}
+
+.icon-24gl-circle:before {
+  content: "\ea97";
+}
+
+.icon-shalou:before {
+  content: "\e605";
+}
+

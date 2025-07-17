@@ -1,0 +1,13 @@
+<view bindtap="__e" class="uni-load-more" data-event-opts="{{[ [ 'tap',[ [ 'onClick',['$event'] ] ] ] ]}}">
+    <view class="uni-load-more__img uni-load-more__img--android-MP" style="{{'width:'+iconSize+'px'+';'+'height:'+iconSize+'px'+';'}}" wx:if="{{!webviewHide&&(iconType==='circle'||iconType==='auto'&&platform==='android')&&status==='loading'&&showIcon}}">
+        <view class="uni-load-more__img-icon" style="{{'border-top-color:'+color+';'+'border-top-width:'+iconSize/12+';'}}"></view>
+        <view class="uni-load-more__img-icon" style="{{'border-top-color:'+color+';'+'border-top-width:'+iconSize/12+';'}}"></view>
+        <view class="uni-load-more__img-icon" style="{{'border-top-color:'+color+';'+'border-top-width:'+iconSize/12+';'}}"></view>
+    </view>
+    <block wx:else>
+        <view class="uni-load-more__img uni-load-more__img--ios-H5" style="{{'width:'+iconSize+'px'+';'+'height:'+iconSize+'px'+';'}}" wx:if="{{!webviewHide&&status==='loading'&&showIcon}}">
+            <image mode="widthFix" src="{{imgBase64}}"></image>
+        </view>
+    </block>
+    <text class="uni-load-more__text" style="{{'color:'+color+';'}}" wx:if="{{showText}}">{{status==='more'?contentdownText:status==='loading'?contentrefreshText:contentnomoreText}}</text>
+</view>

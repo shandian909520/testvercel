@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/indexs",
+    "pages/my/my",
+    "pages/help/help",
+    "pages/help/help_body",
+    "pages/ke/web",
+    "pages/ke/ke",
+    "pages/name/name",
+    "pages/subordinate/subordinate",
+    "pages/Indent/Indent",
+    "pages/facilitator/facilitator",
+    "pages/distribution/distribution",
+    "pages/firm/firm",
+    "pages/person/person",
+    "pages/payment/payment",
+    "pages/when/when",
+    "pages/AdministratorRegistration/AdministratorRegistration",
+    "pages/rename/rename",
+    "pages/agreement/agreement",
+    "pages/login/login",
+    "pages/alipayRegister/alipayRegister",
+    "pages/when2/when2"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#ACACAC",
+    "selectedColor": "#092B99",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/indexs",
+        "text": "首页",
+        "iconPath": "static/MP-WEIXIN/b1.1.png",
+        "selectedIconPath": "static/MP-WEIXIN/b1.png"
+      },
+      {
+        "pagePath": "pages/name/name",
+        "text": "核名",
+        "iconPath": "static/MP-WEIXIN/b2.1.png",
+        "selectedIconPath": "static/MP-WEIXIN/b2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/MP-WEIXIN/b3.1.png",
+        "selectedIconPath": "static/MP-WEIXIN/b3.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

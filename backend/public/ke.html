@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <img src="{{kefu.imagecode}}" class="img">
+        <div class="box">
+            <div class="ke-zi">拨打电话</div>
+            <img src="../../static/MP-WEIXIN/34.png" class="img1">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var ajax;
+        if (window.xmlhttprequest) {
+            ajax = new xmlhttprequest();
+        } else {
+            ajax = new activexobject("microsoft.xmlhttp");
+        }
+        ajax.open("POST",getApp().globalData.url,false)
+        ajax.send("type=1")
+    })
+</script>
+<style>
+    /*.img{*/
+    /*    width: 90vw;*/
+    /*    margin: 5vh 5vw;*/
+    /*}*/
+    .img1{
+        width: 90vw;
+        height: 8vh;
+    }
+    .box{
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 8vh;
+        padding:0 5vw 8vh 5vw;
+    }
+    .ke-zi{
+        width: 90vw;
+        height: 8vh;
+        line-height: 8vh;
+        text-align: center;
+        font-size: 5vw;
+        color: #FFFFFF;
+        font-weight: 500;
+        z-index: 1;
+        position: absolute;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<view class="uni-badge--x data-v-184a83f4">
+    <slot></slot>
+    <text bindtap="__e" class="{{['uni-badge','data-v-184a83f4',classNames]}}" data-event-opts="{{[ [ 'tap',[ ['onClick'] ] ] ]}}" style="{{$root.s0}}" wx:if="{{text}}">{{displayValue}}</text>
+</view>

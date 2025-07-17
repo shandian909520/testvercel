@@ -1,0 +1,31 @@
+<view>
+    <view class="body">
+        <view class="zi-four font-one center">订单还需支付：</view>
+        <view class="font-two center">{{'￥'+price}}</view>
+    </view>
+    <view class="body">
+        <view class="zi-one">支付方式</view>
+        <view bindtap="__e" class="flex side wx" data-event-opts="{{[ [ 'tap',[ [ 'payments',['$event'] ] ] ] ]}}" data-payment="weixin" wx:if="{{wx_pay_status==1}}">
+            <view class="flex vertical">
+                <uni-icons bind:__l="__l" color="#36E352" customPrefix="iconfont" size="20" type="icon-weixinzhifu" vueId="60968672-1"></uni-icons>
+                <view class="name">微信</view>
+            </view>
+            <uni-icons bind:__l="__l" color="#36E352" size="24" type="checkbox-filled" vueId="60968672-2" wx:if="{{payment=='weixin'}}"></uni-icons>
+            <uni-icons bind:__l="__l" color="#707070" size="24" type="circle" vueId="60968672-3" wx:else></uni-icons>
+        </view>
+        <view bindtap="__e" class="code" data-event-opts="{{[ [ 'tap',[ [ 'payments',['$event'] ] ] ] ]}}" data-payment="code" wx:if="{{code_status}}">
+            <view class="flex side ">
+                <view class="flex vertical" hidden="{{!code_s}}">
+                    <uni-icons bind:__l="__l" color="#123DC7" customPrefix="iconfont" size="22" type="icon-jihuoma" vueId="60968672-4"></uni-icons>
+                    <view class="name">激活码</view>
+                </view>
+                <uni-icons bind:__l="__l" color="#36E352" size="24" type="checkbox-filled" vueId="60968672-5" wx:if="{{payment=='code'}}"></uni-icons>
+                <uni-icons bind:__l="__l" color="#707070" size="24" type="circle" vueId="60968672-6" wx:else></uni-icons>
+            </view>
+            <input bindinput="__e" class="zi-two" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','code','$event',[] ] ] ] ] ]}}" placeholder="请输入激活码" type="text" value="{{code}}" wx:if="{{payment!='weixin'}}"></input>
+        </view>
+    </view>
+    <view class="body bodymTop">
+        <button bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'submit',['$event'] ] ] ] ]}}" type="default">{{payment=='weixin'?'立即支付':'立即兑换'}}</button>
+    </view>
+</view>

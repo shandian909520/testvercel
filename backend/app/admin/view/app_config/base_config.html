@@ -1,0 +1,254 @@
+<form id="app-form" class="layui-form layuimini-form">
+    <input type="hidden" name="now_group" value="base_config">
+    <h3>客服设置</h3>
+
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">客服开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="kefu_type{:session('admin.id')}" value="1" lay-filter='kefu_type' title="小程序" {if
+                sysconfig( 'base_config' , 'kefu_type'.session('admin.id') )==1 } checked {/if}>
+            <input type="radio" name="kefu_type{:session('admin.id')}" value="2" lay-filter='kefu_type' title="微信客服" {if
+                sysconfig( 'base_config' , 'kefu_type'.session('admin.id') )==2} checked {/if}>
+            <input type="radio" name="kefu_type{:session('admin.id')}" value="3" lay-filter='kefu_type' title="客服" {if
+                sysconfig( 'base_config' , 'kefu_type'.session('admin.id') )==3} checked {/if}>
+        </div>
+    </div>
+    <div id='company_info1'>
+        <div class="layui-form-item">
+            <label class="layui-form-label">客服二维码</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="share_images{:session('admin.id')}" class="layui-input layui-col-xs6" placeholder="请上传首页图片"
+                    value="{:sysconfig('base_config','share_images'.session('admin.id'))}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="share_images{:session('admin.id')}" data-upload-number="1"
+                            data-upload-exts="ico|png|jpg|jpeg"><i class="fa fa-upload"></i> 上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">客服手机号</label>
+            <div class="layui-input-block layuimini-upload">
+                <input type="text" name="kefu_company_ids{:session('admin.id')}" class="layui-input"
+                    placeholder="请输入客服手机号" value="{:sysconfig('base_config','kefu_company_ids'.session('admin.id'))}">
+                <tip>请填写客服手机号</tip>
+            </div>
+        </div>
+    </div>
+    <div id="company_info">
+        <div class="layui-form-item">
+            <label class="layui-form-label">企业id</label>
+            <div class="layui-input-block layuimini-upload">
+                <input type="text" name="kefu_company_id{:session('admin.id')}" class="layui-input"
+                    placeholder="请输入企业id" value="{:sysconfig('base_config','kefu_company_id'.session('admin.id'))}">
+                <tip>请填写企业id</tip>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">客服链接</label>
+            <div class="layui-input-block">
+                <input type="text" name="kefu_url{:session('admin.id')}" class="layui-input" placeholder="请输入客服url"
+                    value="{:sysconfig('base_config','kefu_url'.session('admin.id'))}">
+                <tip>请填写客服url</tip>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<h3>首页banner</h3>-->
+    <!--<hr>-->
+    <!--<div class="layui-form-item">-->
+    <!--    <label class="layui-form-label">首页banner</label>-->
+    <!--    <div class="layui-input-block layuimini-upload">-->
+    <!--        <input name="banner" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传首页banner" value="{:sysconfig('base_config','banner')}">-->
+    <!--        <div class="layuimini-upload-btn">-->
+    <!--            <span><a class="layui-btn" data-upload="banner" data-upload-number="5" data-upload-exts="ico|png|jpg|jpeg"><i class="fa fa-upload"></i> 上传</a></span>-->
+    <!--            <span><a class="layui-btn layui-btn-normal" id="select_banner" data-upload-select="banner" data-upload-number="5"><i class="fa fa-list"></i> 选择</a></span>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <h3>注册费用</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label">注册费用开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="register_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="开" value="1" {if sysconfig( 'base_config' , 'register_status'.session('admin.id') ) eq 1} checked {/if}>
+            <input type="radio" name="register_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="关" value="0" {if sysconfig( 'base_config' , 'register_status'.session('admin.id') ) eq 0} checked {/if}>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">注册金额</label>
+        <div class="layui-input-block">
+            <input type="number" name="register_num{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="填写注册金额。" value="{:sysconfig('base_config','register_num'.session('admin.id'))}">
+            <tip>填写注册金额。</tip>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">小程序注册开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="xcx_pian_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="开" value="1" {if sysconfig( 'base_config' , 'xcx_pian_status'.session('admin.id') ) eq 1} checked {/if}>
+            <input type="radio" name="xcx_pian_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="关" value="0" {if sysconfig( 'base_config' , 'xcx_pian_status'.session('admin.id') ) eq 0||!sysconfig( 'base_config'
+                , 'xcx_pian_status'.session('admin.id') )} checked {/if}>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">微信支付开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="wx_pay_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="开" value="1" {if sysconfig( 'base_config' , 'wx_pay_status'.session('admin.id') ) eq 1} checked {/if}>
+            <input type="radio" name="wx_pay_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="关" value="0" {if sysconfig( 'base_config' , 'wx_pay_status'.session('admin.id') ) eq 0||!sysconfig( 'base_config'
+                , 'wx_pay_status'.session('admin.id') )} checked {/if}>
+        </div>
+    </div>
+
+
+
+    <!-- <h3>过审设置</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label">过审开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="pian_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="开" value="1" {if sysconfig( 'base_config' , 'pian_status'.session('admin.id') ) eq 1} checked {/if}>
+            <input type="radio" name="pian_status{:session('admin.id')}" class="layui-input" lay-verify="required"
+                title="关" value="0" {if sysconfig( 'base_config' , 'pian_status'.session('admin.id') ) eq 0||!sysconfig( 'base_config'
+                , 'pian_status'.session('admin.id') )} checked {/if}>
+        </div>
+    </div> -->
+
+
+    <h3>服务商手机号</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务商手机号</label>
+        <div class="layui-input-block">
+            <input type="text" name="service_phone{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入服务商手机号" value="{:sysconfig('base_config','service_phone'.session('admin.id'))}">
+            <tip>填写服务商手机号。</tip>
+        </div>
+    </div>
+    <h3>分享设置</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分享标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="share_title{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入分享标题" value="{:sysconfig('base_config','share_title'.session('admin.id'))}">
+            <tip>填写分享标题。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分享描述</label>
+        <div class="layui-input-block">
+            <input type="text" name="share_msg{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入分享描述" value="{:sysconfig('base_config','share_msg'.session('admin.id'))}">
+            <tip>填写分享描述。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分享图片</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="share_image{:session('admin.id')}" class="layui-input layui-col-xs6" lay-verify="required"
+                placeholder="请上传首页图片" value="{:sysconfig('base_config','share_image'.session('admin.id'))}">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="share_image{:session('admin.id')}" data-upload-number="1"
+                        data-upload-exts="ico|png|jpg|jpeg"><i class="fa fa-upload"></i> 上传</a></span>
+                <span><a class="layui-btn layui-btn-normal" id="select_share_image" data-upload-select="share_image{:session('admin.id')}"
+                        data-upload-number="1"><i class="fa fa-list"></i> 选择</a></span>
+            </div>
+        </div>
+    </div>
+    <h3>前端首页标题设置</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label">程序认证标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="index1_title{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入程序认证标题" value="{:sysconfig('base_config','index1_title'.session('admin.id'))}">
+            <tip>填写程序认证标题。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商户注册标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="index2_title{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入商户注册标题" value="{:sysconfig('base_config','index2_title'.session('admin.id'))}">
+            <tip>填写商户注册标题。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">支付宝商户注册标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="index3_title{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入支付宝商户注册" value="{:sysconfig('base_config','index3_title'.session('admin.id'))}">
+            <tip>填写支付宝商户注册。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系我们标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="index4_title{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入联系我们标题" value="{:sysconfig('base_config','index4_title'.session('admin.id'))}">
+            <tip>填写联系我们标题。</tip>
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save"
+            data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>
+
+<script>
+    let pf_if = "{:session('admin.id')}"
+    window.onload = function () {
+        var form = layui.form
+
+        var kefu_type = "{:sysconfig('base_config','kefu_type'.session('admin.id'))}"
+        if (kefu_type == 1) {
+            $('#company_info').hide()
+            $('#company_info1').hide()
+            form.render()
+        }
+        if (kefu_type == 2) {
+            $('#company_info').show()
+            $('#company_info1').hide()
+            form.render()
+        }
+
+        if (kefu_type == 3) {
+            $('#company_info').hide()
+            $('#company_info1').show()
+            form.render()
+        }
+
+        form.on('radio(kefu_type)', function (data) {
+            if (data.value == '1') {
+                $('input[name=kefu_company_id' + pf_if + ']').val('')
+                $('input[name=kefu_url' + pf_if + ']').val('')
+                $('#company_info').hide()
+                $('#company_info1').hide();
+                form.render()
+            } else if (data.value == '2') {
+                $('#company_info').show()
+                $('#company_info1').hide();
+                form.render()
+            } else {
+                $('#company_info1').show();
+                $('#company_info').hide();
+                form.render()
+            }
+        })
+    }
+</script>

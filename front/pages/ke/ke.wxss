@@ -1,0 +1,32 @@
+.img {
+    width: 650rpx;
+    margin: 20rpx 50rpx;
+}
+
+.img1 {
+    width: 690rpx;
+    height: 112rpx;
+}
+
+.box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 112rpx;
+    margin: 30rpx;
+}
+
+.ke-zi {
+    width: 690rpx;
+    height: 112rpx;
+    line-height: 118rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 40rpx;
+    font-weight: 500;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 30rpx;
+}

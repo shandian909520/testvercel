@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "帮助中心",
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 20,
+    "usingComponents": {}
+}

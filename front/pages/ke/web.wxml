@@ -1,0 +1,135 @@
+<view>
+    <view wx:if="{{url==''}}">
+        <view class="swiperBanner">
+            <swiper autoplay="{{true}}" indicatorDots="{{true}}" indicatorActiveColor="#fff" indicatorColor="rgba(0, 0, 0, .8)">
+                <swiper-item wx:for="{{img_urls}}" wx:key="index">
+                    <view class="slide-nav">
+                        <image class="pic" mode="widthFix" src="{{item}}"></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="banner">
+            <text>不断迭代的极速系统</text>
+            <text>致力于帮助更多的中小企业开展线上线下O2O、B2C、新零售业务，实现互联网转型</text>
+        </view>
+        <view class="box_list">
+            <view class="content">
+                <view class="top">
+                    <view class="box_pic">
+                        <image class="pic" src="../../static/m_images/system1.png"></image>
+                    </view>
+                    <view class="name">商城系统</view>
+                </view>
+                <view class="list">
+                    <view class="item">
+                        <text>1、</text>拖拽设计</view>
+                    <view class="item">
+                        <text>2、</text>商品管理</view>
+                    <view class="item">
+                        <text>3、</text>物流查询</view>
+                    <view class="item">
+                        <text>4、</text>物流查询</view>
+                </view>
+            </view>
+            <view class="content">
+                <view class="top">
+                    <view class="box_pic">
+                        <image class="pic" src="../../static/m_images/system2.png"></image>
+                    </view>
+                    <view class="name">营销系统</view>
+                </view>
+                <view class="list">
+                    <view class="item">
+                        <text>1、</text>多人拼团</view>
+                    <view class="item">
+                        <text>2、</text>砍价助力</view>
+                    <view class="item">
+                        <text>3、</text>限时秒杀</view>
+                    <view class="item">
+                        <text>4、</text>红包裂变</view>
+                </view>
+            </view>
+        </view>
+        <view class="public_one">
+            <view class="title">
+                <view class="name">解锁更多系统特权</view>
+                <view class="info">购买商业旗舰店版，获得更多功能系统，版本免费升级</view>
+            </view>
+            <view class="public_list">
+                <view class="item one">
+                    <view class="name">无忧商业运营</view>
+                    <view class="info">官方售后，7x12小时，保障系统安全可靠</view>
+                </view>
+                <view class="item two">
+                    <view class="name">会员群服务</view>
+                    <view class="info">技术群指导服务，帮助运营者快速熟悉系统框架</view>
+                </view>
+                <view class="item three">
+                    <view class="name">更过营销功能</view>
+                    <view class="info">升级拼团、砍价等营销功能促进粉丝快速裂变转化</view>
+                </view>
+                <view class="item four">
+                    <view class="name">免费更新</view>
+                    <view class="info">免费更新升级，解决系统维护难题</view>
+                </view>
+                <view class="picture">
+                    <view class="pic">
+                        <image src="../../static/m_images/v.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="public_two">
+            <view class="public_title">
+                <view class="name">安全可靠系统支持</view>
+                <view class="info">致力于帮助更过的中小企业开展线上线下O2O、B2C、新零售业务，实现互联网转型</view>
+            </view>
+        </view>
+        <view class="content_list">
+            <view class="item">
+                <view class="text">
+                    <view class="name">支持源码部署</view>
+                    <view class="info">商家拥有源码，轻松掌握商城的运营权</view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <view class="name">节约运营成本</view>
+                    <view class="info">极速是一套成熟的电商系统省去上百万的开发费用</view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <view class="name">支持定制开发</view>
+                    <view class="info">根据企业的需求个性化定制商城功能</view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <view class="name">系统持续更新</view>
+                    <view class="info">每周都有新的系统更新，开发永无止境</view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <view class="name">系统适用广泛</view>
+                    <view class="info">系统可以广泛适用于各行各业</view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <view class="name">系统稳定可靠</view>
+                    <view class="info">系统已持续开发三年多，累计服务1000+客户</view>
+                </view>
+            </view>
+        </view>
+        <view class="public_three">
+            <view class="title1">企业官网</view>
+            <view class="title2">抢占海量用户红利</view>
+        </view>
+    </view>
+    <view wx:else>
+        <web-view src="{{url}}"></web-view>
+    </view>
+</view>

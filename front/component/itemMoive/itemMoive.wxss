@@ -1,0 +1,26 @@
+.kuang {
+    align-items: center;
+    margin: auto;
+    width: 460rpx;
+    border-radius: 20rpx;
+    padding: 68rpx 60rpx;
+    background: #fff;
+}
+
+.body {
+    line-height: 52rpx!important;
+}
+
+.no,.ok {
+    text-align: center;
+    line-height: 70rpx;
+    width: 188rpx;
+    height: 70rpx;
+    border-radius: 35.5rpx;
+    margin-top: 40rpx;
+    font-size: 30rpx;
+}
+
+.no {
+    color: #fff;
+}

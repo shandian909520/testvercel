@@ -1,0 +1,56 @@
+.lauwen-select.data-v-ba8b115a {
+    position: relative;
+}
+
+.lauwen-select-box.data-v-ba8b115a {
+    width: 100%;
+}
+
+.lauwen-select-input.data-v-ba8b115a {
+    width: 100%;
+    display: flex;
+}
+
+.lauwen-select-input-text.data-v-ba8b115a {
+    width: 70%;
+    flex-grow: 1;
+}
+
+.lauwen-select-input-icon.data-v-ba8b115a {
+    width: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lauwen-icon.data-v-ba8b115a {
+    content: " ";
+    display: inline-block;
+    transform: rotate(45deg);
+    border-right: 1rpx solid #123dc7;
+    border-top: 1rpx solid #123dc7;
+    height: 20rpx;
+    width: 20rpx;
+}
+
+.lauwen-selecting-icon.data-v-ba8b115a {
+    transform: rotate(90deg);
+}
+
+.lauwen-options.data-v-ba8b115a {
+    width: 100%;
+    position: absolute;
+    background-color: #fff;
+    border: 1rpx solid #acc0ff;
+}
+
+.lauwen-option.data-v-ba8b115a {
+    width: 100%;
+}
+
+.lauwen-option-active.data-v-ba8b115a {
+    font-weight: 600;
+    background-color: #007bff;
+    color: #fff;
+}

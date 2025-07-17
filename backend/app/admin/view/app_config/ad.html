@@ -1,0 +1,50 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <input type="hidden" name="now_group" value="ad_config">
+    <!--<div class="layui-form-item">-->
+    <!--    <label class="layui-form-label required">激励广告开关</label>-->
+    <!--    <div class="layui-input-block">-->
+    <!--        <input type="radio" name="check_name_status" value="0" title="关" {if sysconfig( 'check_name', 'check_name_status')==0 } checked {/if}>-->
+    <!--        <input type="radio" name="check_name_status" value="1" title="开" {if sysconfig( 'check_name', 'check_name_status')==1} checked {/if}>-->
+    <!--        <tip>超过次数限制后，需看广告才能继续使用，每次查询观看一次广告，仅支持小程序</tip>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">弹窗广告id</label>
+        <div class="layui-input-block">
+            <input type="text" name="ad_popup{:session('admin.id')}" class="layui-input" placeholder="请输入弹窗广告id" value="{:sysconfig('ad_config','ad_popup'.session('admin.id'))}">
+            <tip>填写弹窗广告id。</tip>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">开屏广告id</label>
+        <div class="layui-input-block">
+            <input type="text" name="ad_open{:session('admin.id')}" class="layui-input" placeholder="请输入开屏广告id" value="{:sysconfig('ad_config','ad_open'.session('admin.id'))}">
+            <tip>填写开屏广告id。</tip>
+        </div>
+    </div>
+    <!--<div class="layui-form-item">-->
+    <!--    <label class="layui-form-label">激励广告id</label>-->
+    <!--    <div class="layui-input-block">-->
+    <!--        <input type="text" name="ad_reward" class="layui-input" placeholder="请输入激励广告id" value="{:sysconfig('ad_config','ad_reward')}">-->
+    <!--        <tip>填写激励广告id。</tip>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">banner广告id</label>
+        <div class="layui-input-block">
+            <input type="text" name="ad_banner{:session('admin.id')}" class="layui-input" placeholder="请输入banner广告id" value="{:sysconfig('ad_config','ad_banner'.session('admin.id'))}">
+            <tip>填写banner广告id。</tip>
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save" data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+
+</form>

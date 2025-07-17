@@ -1,0 +1,31 @@
+<view>
+    <uni-popup bind:__l="__l" class="vue-ref" data-ref="popup" type="bottom" vueId="84f31062-1" vueSlots="{{['default']}}">
+        <view class="diqu_tc">
+            <view bindtouchmove="__e" bindtouchstart="__e" class="yi_1" data-event-opts="{{[ [ 'touchmove',[ [ 'move',['$event'] ] ] ],[ 'touchstart',[ [ 'start',['$event'] ] ] ] ]}}">
+                <view class="yi"></view>
+            </view>
+            <view class="diqu_tc_header">
+                <view>地区设置</view>
+                <uni-icons bind:__l="__l" bind:click="__e" class="tc_close" data-event-opts="{{[ [ '^click',[ ['close'] ] ] ]}}" size="22" type="close" vueId="{{'84f31062-2'+','+'84f31062-1'}}"></uni-icons>
+            </view>
+            <picker-view bindchange="__e" class="address-picker-box" data-event-opts="{{[ [ 'change',[ [ 'bindChange',['$event'] ] ] ] ]}}" indicatorClass="dq_xuanzhong" indicatorStyle="height: 76rpx;" value="{{value}}">
+                <picker-view-column class="center">
+                    <view class="address-picker-item center _div" wx:for="{{provinceList}}" wx:key="value">
+                        <text class="address-picker-item-text">{{item.label}}</text>
+                    </view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view class="address-picker-item center _div" wx:for="{{cityList}}" wx:key="index">
+                        <text class="address-picker-item-text">{{item.label}}</text>
+                    </view>
+                </picker-view-column>
+                <picker-view-column wx:if="{{district}}">
+                    <view class="address-picker-item center _div" wx:for="{{areaList}}" wx:key="index">
+                        <text class="address-picker-item-text">{{item.label}}</text>
+                    </view>
+                </picker-view-column>
+            </picker-view>
+            <view bindtap="__e" class="queding" data-event-opts="{{[ [ 'tap',[ [ 'confirmChange',['$0'],['value'] ] ] ] ]}}">确定</view>
+        </view>
+    </uni-popup>
+</view>

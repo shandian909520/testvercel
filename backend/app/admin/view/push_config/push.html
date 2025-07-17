@@ -1,0 +1,176 @@
+<style>
+    .main_div {
+        height: 450px;
+        text-align: center;
+    }
+    
+    .main_div .code_a {
+        margin-top: 400px;
+    }
+</style>
+
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div id="stepForm">
+        </div>
+        <div id="step1" class="main_div">
+            <a href="javaScript:void(0)" class="layui-btn layui-bg-blue code_a" onclick="get_auth_code(this)">获取授权码</a>
+        </div>
+        <div id="step2" class="main_div" hidden>
+            <div class="layui-form layuimini-form">
+                <div class="layui-form-item" hidden>
+                    <label class="layui-form-label required">小程序标识</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="ident" name="ident" class="layui-input" lay-verify="required" placeholder="请输入小程序标识" value="yxbqd">
+                        <tip>小程序标识</tip>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label required">版本</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="version" name="version" class="layui-input" lay-verify="required" placeholder="请输入版本" value="">
+                        <tip>填写版本。</tip>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label required">描述</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="desc" name="desc" class="layui-input" lay-verify="required" placeholder="请输入描述" value="">
+                        <tip>填写描述。</tip>
+                    </div>
+                </div>
+                <div class="layui-form-item text-center">
+                    <a href='javaScript:void(0)' class="layui-btn layui-btn-normal layui-btn-sm" onclick="push_code()">确认</a>
+                    <a href='javaScript:void(0)' onclick="clear_form()" class="layui-btn layui-btn-primary layui-btn-sm">重置</a>
+                </div>
+            </div>
+        </div>
+        <div id="step3" class="main_div" hidden>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var request_id = ''
+
+    function get_auth_code(that) {
+        $.post('get_auth_code').then(res => {
+
+            let data = res
+            if (data.code) {
+                img = '<img src="' + data.data.qrcode + '"></img>'
+                $('#step1').html(img)
+                request_id = data.data.request_id
+                var timeId = setInterval(function() {
+
+                    $.post('is_login', {
+                        request_id: request_id
+                    }).then(res => {
+                        let data = res
+                        if (data.code) {
+                            if (data.data.login) {
+                                window.clearInterval(timeId)
+                                layui.steps.next();
+                                $('#step1').hide()
+                                $('#step2').show()
+                            }
+                        }
+                    })
+                }, 2000);
+            } else {
+                layer.msg(data.message, {
+                    icon: 2
+                })
+            }
+        })
+    }
+
+
+    function push_code(that) {
+        let ident = $('#ident').val()
+        let version = $('#version').val()
+        let desc = $('#desc').val()
+        var index = layer.load(2, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        $.post('upload', {
+            request_id: request_id,
+            ident: ident,
+            version: version,
+            desc: desc
+        }).then(res => {
+            layer.close(index)
+            let data = res;
+            if (data.code) {
+                layui.steps.next();
+                $('#step2').hide()
+                $('#step3').show()
+                var div = '<div><h1>上传成功！</h1>   <a href="javaScript:void(0)" class="layui-btn layui-bg-blue code_a" onclick="go_push()">前往发布</a></div>'
+                $('#step3').html(div)
+            } else {
+                layer.msg(data.message, {
+                    icon: 2
+                })
+            }
+
+
+        })
+    }
+
+    function clear_form() {
+        $('#ident').val('')
+        $('#version').val('')
+        $('#desc').val('')
+    }
+
+    function go_push() {
+        window.open('https://mp.weixin.qq.com/')
+    }
+
+
+    window.onload = function() {
+        var form = layui.form
+        layui.extend({
+            steps: '/static/plugs/lay-module/steps/steps'
+        });
+        layui.use('steps', function() {
+            var steps = layui.steps;
+            steps.render({
+                ele: '#stepForm',
+                data: [{
+                    'title': "第一步",
+                    "desc": "获取授权码"
+                }, {
+                    'title': "第二步",
+                    "desc": "填写上传信息"
+                }, {
+                    'title': "第三步",
+                    "desc": "上传结果"
+                }, ],
+                current: 0
+            });
+
+            form.on('submit(formStep)', function(data) {
+                steps.next();
+                return false;
+            });
+
+            form.on('submit(formStep2)', function(data) {
+                steps.next();
+                return false;
+            });
+
+            $('.pre').click(function() {
+                steps.pre();
+            });
+
+            $('.next').click(function() {
+                steps.next();
+            });
+
+
+        })
+
+    }
+</script>

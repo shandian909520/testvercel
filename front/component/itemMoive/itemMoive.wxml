@@ -1,0 +1,17 @@
+<view style="{{da?'display: flex; height: 100vh; width: 100vw;font-weight: 500;':'height: 0'}}">
+    <uni-popup bind:__l="__l" class="vue-ref" data-ref="popup" vueId="1c4360df-1" vueSlots="{{['default']}}">
+        <view style="display:flex;height:100vh;width:100vw;font-weight:500;">
+            <view class="kuang">
+                <view class="center zi-eight body" wx:if="{{title}}">{{title}}</view>
+                <view class="center zi-eight body" wx:if="{{body!=1&&body}}">{{body}}</view>
+                <block wx:else>
+                    <view class="center zi-eight body" wx:if="{{body==1}}">观看广告可以获得检测<text style="color:#FF0000;">1</text>次</view>
+                </block>
+                <view class=" flex average">
+                    <view bindtap="__e" class="ok" data-event-opts="{{[ [ 'tap',[ [ 'hidepopup',['ok'] ] ] ] ]}}" style="{{'border:1rpx solid'+s_style+';background-color:'+s_style+';color:#ffffff'}}" wx:if="{{ok}}">{{ok}}</view>
+                    <view bindtap="__e" class="no" data-event-opts="{{[ [ 'tap',[ [ 'hidepopup',['no'] ] ] ] ]}}" style="{{'color:'+s_style+'; border:1rpx solid'+s_style}}" wx:if="{{no}}">{{no+''}}</view>
+                </view>
+            </view>
+        </view>
+    </uni-popup>
+</view>

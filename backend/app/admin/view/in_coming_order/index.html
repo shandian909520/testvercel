@@ -1,0 +1,10 @@
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <table id="currentTable" class="layui-table layui-hide" data-auth-add="{:auth('orders/add')}" data-auth-edit="{:auth('orders/edit')}" data-auth-delete="{:auth('orders/delete')}" lay-filter="currentTable">
+        </table>
+    </div>
+</div>
+
+<script>
+    var user_id = '{:input("user_id")}'
+</script>

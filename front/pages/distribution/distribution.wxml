@@ -1,0 +1,30 @@
+<view>
+    <view class="bei"></view>
+    <view>
+        <view class="head">
+            <view class="money_head">总收益</view>
+            <view class="money">{{retail_num}}</view>
+        </view>
+        <view class="navigation">
+            <view class="navigation_one">收益明细</view>
+            <uni-segmented-control activeColor="#123DC7" bind:__l="__l" bind:clickItem="__e" current="{{current}}" data-event-opts="{{[ [ '^clickItem',[ ['onClickItem'] ] ] ]}}" styleType="text" values="{{items}}" vueId="7f462340-1"></uni-segmented-control>
+        </view>
+        <view class="frame" wx:for="{{array}}" wx:key="index">
+            <view class="flex vertical side frame_one">
+                <view class="flex vertical">
+                    <image class="img" mode="widthFix" src="{{item.user_head}}"></image>
+                    <text class="name">{{item.user_nickname}}</text>
+                </view>
+                <text class="right color_status_o" wx:if="{{item.retail_status==1}}">已打款</text>
+                <text class="right color_status" wx:else>未打款</text>
+            </view>
+            <view class="flex side vertical">
+                <view class="frame_boday">
+                    <view class="classify">{{'注册类型：'+item.register_type}}</view>
+                    <view class="time">{{'下单时间：'+item.create_time}}</view>
+                </view>
+                <view class="frame_z color_status">{{'+'+item.retail_num}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,45 @@
+.body {
+    width: 684rpx;
+    margin: auto;
+    border-radius: 10rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    box-shadow: 0 0 4rpx 2rpx #dcdcdc;
+}
+
+.body>view {
+    padding-left: 32rpx;
+}
+
+.By-law>view {
+    margin-top: 30rpx;
+}
+
+.segmented-control {
+    background-color: #fff!important;
+    margin-bottom: 30rpx;
+}
+
+button {
+    background-color: #123dc7;
+    color: #fff;
+    height: 56rpx;
+    width: 200rpx;
+    line-height: 56rpx!important;
+    margin: 0 30rpx;
+}
+
+.err {
+    line-height: 52rpx;
+}
+
+.order_id {
+    padding: 26rpx 0;
+    border-bottom: 1rpx solid #d2d2d2;
+}
+
+.below {
+    padding: 20rpx 0;
+    border-top: 1rpx solid #d2d2d2;
+    margin-top: 30rpx;
+}

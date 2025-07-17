@@ -1,0 +1,93 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">小程序名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="xcxname" placeholder="请输入小程序名称"
+                    value="{$row.xcxname|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">组织机构代码证或营业执照照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="license_link" lay-verify="required" class="layui-input layui-col-xs6" placeholder="请上传组织机构代码证或营业执照"
+                    value="{$row->license_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="license_link" data-upload-number="one" data-upload-sign=","
+                            data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其他证明材料1照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="naming_other_stuff_1_link" class="layui-input layui-col-xs6" placeholder="请上传其他证明材料1"
+                    value="{$row->naming_other_stuff_1_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="naming_other_stuff_1_link" data-upload-sign=","
+                            data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其他证明材料2照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="naming_other_stuff_2_link" class="layui-input layui-col-xs6" placeholder="请上传其他证明材料2"
+                    value="{$row->naming_other_stuff_2_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="naming_other_stuff_2_link" data-upload-sign=","
+                            data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其他证明材料3照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="naming_other_stuff_3_link" class="layui-input layui-col-xs6" placeholder="请上传其他证明材料3"
+                    value="{$row->naming_other_stuff_3_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="naming_other_stuff_3_link" data-upload-sign=","
+                            data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其他证明材料4照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="naming_other_stuff_4_link" class="layui-input layui-col-xs6" placeholder="请上传其他证明材料4"
+                    value="{$row->naming_other_stuff_4_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="naming_other_stuff_4_link" data-upload-sign=","
+                            data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其他证明材料5照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="naming_other_stuff_5_link" class="layui-input layui-col-xs6" placeholder="请上传其他证明材料5"
+                    value="{$row->naming_other_stuff_5_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="naming_other_stuff_5_link" data-upload-sign=","
+                            data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>确认更名</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+
+    </form>
+</div>
+<script>
+    var user_id = null;
+</script>

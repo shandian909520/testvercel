@@ -1,0 +1,4 @@
+canvas {
+    position: absolute!important;
+    top: -10000px;
+}

@@ -1,0 +1,155 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">小程序类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" lay-filter='type' value="1" title="个人">
+            <input type="radio" name="type" lay-filter='type' value="2" title="企业" checked>
+            <input type="radio" name="type" lay-filter='type' value="3" title="管理员注册">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label id="name" class="layui-form-label required">企业名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label id="wx_type" class="layui-form-label required">法人微信号</label>
+        <div class="layui-input-block">
+            <input type="text" name="wx_code" class="layui-input">
+        </div>
+    </div>
+    <div id="company">
+        <!-- <div class="layui-form-item openiddiv" style="display: none;">
+            <label class="layui-form-label required">选择用户</label>
+            <div class="layui-input-block">
+                <select name="city" lay-verify="">
+                    <option value="">请选择一个用户</option>
+                    <option value="010">北京</option>
+                    <option value="021">上海</option>
+                    <option value="0571">杭州</option>
+                </select>
+            </div>
+        </div> -->
+        <div class="layui-form-item openiddiv">
+            <label id="openid" class="layui-form-label required">用户openid</label>
+            <div class="layui-input-block">
+                <input type="text" name="openid" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item openiddiv">
+            <label id="xcxname" class="layui-form-label required">小程序名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="xcxname" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item openiddiv">
+            <label id="legal_persona_idcard" class="layui-form-label required">法人身份证号</label>
+            <div class="layui-input-block">
+                <input type="text" name="legal_persona_idcard" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">识别营业执照</label>
+            <div class="layui-input-block">
+                <a href="javaScript:void(0);" class="layui-btn layui-bg-blue" id="business_pic">
+                    <i class="layui-icon layui-icon-upload"></i> 上传图片
+                </a>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">企业代码类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="code_type" value="18" title="统一社会信用代码(18位)" checked>
+                <input type="radio" name="code_type" value="9" title="组织机构代码(9位)">
+                <input type="radio" name="code_type" value="15" title="营业执照注册号(15位)">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">企业代码</label>
+            <div class="layui-input-block">
+                <input type="text" name="code" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">法人姓名</label>
+            <div class="layui-input-block">
+                <input type="text" name="person_name" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>
+
+<script>
+    var form = layui.form
+    form.on('radio(type)', function (data) {
+        if (data.value == '1') {
+            $('#wx_type').html('个人微信号')
+            $('#name').html('个人名称')
+            $('input[name=code_type]').attr('checked', false);
+            $('input[name=name]').val('')
+            $('input[name=code]').val('')
+            $('input[name=person_name]').val('')
+            $('.openiddiv').hide()
+            $('#company').hide()
+            form.render()
+        } else if (data.value == '2') {
+            $('#wx_type').html('法人微信号')
+            $('input[name=code_type]').attr('checked', false);
+            $('input[name=code_type][value=18]').attr('checked', true);
+            $('#name').html('企业名称')
+            $('.openiddiv').hide()
+            $('#company').show()
+            form.render()
+        } else {
+            $('#wx_type').html('法人微信号')
+            $('input[name=code_type]').attr('checked', false);
+            $('input[name=code_type][value=18]').attr('checked', true);
+            $('#name').html('企业名称')
+            $('.openiddiv').show()
+            $('#company').show()
+            form.render()
+        }
+    })
+    var upload = layui.upload;
+    //执行实例
+    var uploadInst = upload.render({
+        elem: '#business_pic' //绑定元素
+        ,
+        url: 'get_business_info' //上传接口
+        ,
+        done: function (res) {
+            if (res.code) {
+                layer.msg(res.message, {
+                    icon: 1
+                })
+                $('input[name=code_type][value=' + res.data.code_type + ']').attr('checked', true);
+                $('input[name=name]').val(res.data.name)
+                $('input[name=code]').val(res.data.code)
+                $('input[name=person_name]').val(res.data.person_name)
+                form.render()
+            } else {
+                layer.msg(res.message, {
+                    icon: 2
+                })
+            }
+        },
+        error: function (err) { },
+
+    });
+</script>
+<style>
+    #app-form .openiddiv {
+        display: none;
+    }
+</style>

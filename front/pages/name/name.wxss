@@ -1,0 +1,107 @@
+page {
+    background-color: #fff;
+}
+
+.background {
+    width: 750rpx;
+    z-index: 1;
+}
+
+.nei {
+    z-index: 2;
+    width: 750rpx;
+}
+
+.niu {
+    width: 134rpx;
+    height: 50rpx;
+    background-color: #128beb;
+    border-radius: 7.5rpx;
+    color: #fff;
+    margin: auto;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    text-align: center;
+}
+
+.da {
+    color: #949494;
+    font-size: 22rpx;
+    margin-left: 20rpx;
+    margin-right: 28rpx;
+    line-height: 34rpx;
+    letter-spacing: 6rpx;
+}
+
+.input .uni-icons {
+    font-size: 32px!important;
+}
+
+.input .uni-easyinput {
+    width: 710rpx!important;
+}
+
+.re>view {
+    height: 50rpx;
+    padding: 0 18rpx;
+    font-size: 24rpx;
+    line-height: 50rpx;
+}
+
+.jie {
+    width: 344rpx;
+    height: 230rpx;
+    border-radius: 10rpx;
+    background-color: #f8f8f8;
+}
+
+.wai {
+    margin: auto;
+    width: 705rpx;
+    margin-bottom: 28rpx;
+}
+
+.an {
+    width: 705rpx;
+    padding-top: 16rpx;
+    height: 66rpx;
+    border-radius: 10rpx;
+    background-color: #e5f1fd;
+    margin: 38rpx auto;
+}
+
+.input {
+    position: absolute;
+    left: 20rpx;
+    bottom: 124rpx;
+}
+
+.input input {
+    padding-left: 80rpx!important;
+}
+
+input {
+    height: 85rpx;
+}
+
+.tou {
+    height: 108rpx;
+    margin-left: 20rpx;
+    margin-right: 24rpx;
+}
+
+button {
+    width: 354rpx;
+    height: 84rpx;
+    border-radius: 41.5rpx;
+    background-color: #123dc7;
+    line-height: 83rpx!important;
+    margin-top: 21rpx;
+}
+
+.agreement {
+    text-align: center;
+    font-size: 24rpx;
+    padding: 20rpx 0;
+    color: #092b99;
+}

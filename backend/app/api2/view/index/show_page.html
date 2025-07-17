@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=yes" />
+    <title>链接信息</title>
+</head>
+<style>
+    html,
+    body,
+    .box {
+        width: 100%;
+        margin: 0;
+    }
+
+    .box {
+        position: relative;
+    }
+
+    .code {
+      
+    }
+
+    .btn {
+        margin: 20px auto;
+        width: 310px;
+        height: 48px;
+        background-image: url('/static/admin/images/back.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .btn span {
+        position: relative;
+        top: 11px;
+        left: 111px;
+        font-weight: 400;
+        font-size: 20px;
+        height: 36px;
+        letter-spacing: 100;
+        color: white;
+    }
+</style>
+
+<body>
+<div class="box">
+    {if $info['type'] ==2 }
+
+
+    {/if}
+
+
+    {if $info['type'] == 3 }
+
+    <div class="code" id="code">
+        <img style="width: 100%;" src="{$info['qr_path']}" alt="">
+    </div>
+
+    {/if}
+    
+     <div class="btn" onclick="callPhone()">
+        <span>拨打电话</span>
+    </div>
+</div>
+</body>
+<script>
+    var phone ='{$user["tel"]}';
+
+    function callPhone() {
+        window.location.href = 'tel:' + phone
+    }
+
+</script>
+
+</html>

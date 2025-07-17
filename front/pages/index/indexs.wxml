@@ -1,0 +1,149 @@
+<view>
+    <view class="frame">
+        <swiper autoplay="{{true}}" class="test" duration="{{1000}}" indicatorActiveColor="#fff" indicatorColor="rgba(255,255,255,0.5)" indicatorDots="{{true}}" interval="{{3000}}" style="{{$root.s0}}" wx:if="{{imgs}}">
+            <swiper-item style="border-radius:20rpx;" wx:for="{{banners}}" wx:key="index">
+                <image mode bindtap="__e" class="img _img" data-event-opts="{{[ [ 'tap',[ [ 'swiper',['$0',index,'$1'],[ [ ['banners','',index,'type'] ],[ ['banners','',index] ] ] ] ] ] ]}}" src="{{item.img_url}}" style="{{$root.s1}}"></image>
+            </swiper-item>
+        </swiper>
+        <block wx:if="{{registeredSwitch==1}}">
+            <view class="ti_t">
+                <view class="shu"></view>{{(indexTitle.index1_title||'程序认证')+''}}</view>
+            <view class="img_o">
+                <view>
+                    <view class="flex side" style="margin-bottom:30rpx;">
+                        <view bindtap="__e" class="groud_1" data-event-opts="{{[ [ 'tap',[ [ 'skip',['$event'] ] ] ] ]}}" data-sort="firm">
+                            <image class="image" src="../../static/MP-WEIXIN/1.png"></image>
+                            <view class="groud_2">
+                                <view class="text_1">法人注册通道</view>
+                                <view class="text_2">企业/有限公司</view>
+                            </view>
+                        </view>
+                        <view bindtap="__e" class="relative groud_1" data-event-opts="{{[ [ 'tap',[ [ 'adminUrl',['$event'] ] ] ] ]}}">
+                            <image class="image" src="../../static/MP-WEIXIN/2.png"></image>
+                            <view class="groud_2">
+                                <view class="text_1">管理员注册通道</view>
+                                <view class="text_2">企业/有限公司</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="flex side">
+                        <view bindtap="__e" class="groud_1" data-event-opts="{{[ [ 'tap',[ [ 'skip',['$event'] ] ] ] ]}}" data-sort="firm">
+                            <image class="image" src="../../static/MP-WEIXIN/3.png"></image>
+                            <view class="groud_2">
+                                <view class="text_1">法人注册通道</view>
+                                <view class="text_2">个体工商户</view>
+                            </view>
+                        </view>
+                        <view bindtap="__e" class="groud_1" data-event-opts="{{[ [ 'tap',[ [ 'skip',['$event'] ] ] ] ]}}" data-sort="person">
+                            <image class="image" src="../../static/MP-WEIXIN/5.png"></image>
+                            <view class="groud_2">
+                                <view class="text_1">个人注册通道</view>
+                                <view class="text_2">个人</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{pro_status==1}}">
+            <view class="ti_t">
+                <view class="shu"></view>{{(indexTitle.index2_title||'商户注册')+''}}</view>
+            <view class="relative shopzc">
+                <view class="body">
+                    <view bindtap="__e" class="nei" data-event-opts="{{[ [ 'tap',[ [ 'shops',['$event'] ] ] ] ]}}" data-sort="SUBJECT_TYPE_ENTERPRISE">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/6.png" style="width:52rpx;height:auto;"></image>
+                        <view>
+                            <view class="ti_f">企业商家 注册通道</view>
+                        </view>
+                    </view>
+                    <view bindtap="__e" class="nei" data-event-opts="{{[ [ 'tap',[ [ 'shops',['$event'] ] ] ] ]}}" data-sort="SUBJECT_TYPE_INDIVIDUAL">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/8.png" style="width:50rpx;height:auto;"></image>
+                        <view>
+                            <view class="ti_f">个体工商户 注册通道</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="body_o flex side center">
+                    <view class="nei_t">
+                        <view class="cai">在线开通</view>
+                        <view class="jie">提供技术服务</view>
+                    </view>
+                    <view class="xian"></view>
+                    <view class="nei_t">
+                        <view class="cai">企业公司</view>
+                        <view class="jie">支付手续费低至0.2%</view>
+                    </view>
+                    <view class="xian"></view>
+                    <view class="nei_t">
+                        <view class="cai">个体户</view>
+                        <view class="jie">支付手续费低至0.2%</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{aliProStatus==1}}">
+            <view class="ti_t">
+                <view class="shu"></view>{{(indexTitle.index3_title||'支付宝商户注册')+''}}</view>
+            <view class="relative shopzc">
+                <view class="body">
+                    <view bindtap="__e" class="nei" data-event-opts="{{[ [ 'tap',[ [ 'alipayRegister',['$event'] ] ] ] ]}}" data-sort="SUBJECT_TYPE_ENTERPRISE">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/6.png" style="width:52rpx;height:auto;"></image>
+                        <view>
+                            <view class="ti_f">企业商家 注册通道</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="ti_t">
+            <view class="shu"></view>{{(indexTitle.index4_title||'联系我们')+''}}</view>
+        <view class="di">
+            <view class="flex side" wx:if="{{kefu.type==1}}">
+                <button class="bei" hoverClass="btn-hover" openType="contact" style="position:relative;width:320rpx;text-align:left;">
+                    <view class="flex vertical" style="margin-bottom:22rpx;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/7.png" style="width:44rpx;margin-right:28rpx;height:auto;"></image>
+                        <view class="zi_zi">指导服务</view>
+                    </view>
+                    <view>
+                        <view class="bei_zi zi_zi">需要帮助吗？</view>
+                        <view class="bei_zi zi_zi">专业为您解答问题</view>
+                    </view>
+                </button>
+                <view class="bei_o flex side" style="flex-flow:column;">
+                    <view catchtap="__e" class="flex bei_nei vertical" data-event-opts="{{[ [ 'tap',[ [ 'faq',['$event'] ] ] ] ]}}" style="padding-top:23rpx;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/z1.png" style="width:22px;height:auto;"></image>
+                        <view class="zi_zi" style="margin-left:20rpx;">常见问题</view>
+                    </view>
+                    <button class="flex bei_nei vertical" hoverClass="btn-hover" openType="contact" style="padding-top:20rpx;width:318rpx;height:88rpx;position:relative;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/z1.png" style="width:22px;height:auto;"></image>
+                        <view class="zi_zi" style="margin-left:20rpx;">商户注册咨询</view>
+                    </button>
+                </view>
+            </view>
+            <view class="flex side" style="position:relative;" wx:else>
+                <view bindtap="__e" class="bei" data-event-opts="{{[ [ 'tap',[ [ 'ke',['$event'] ] ] ] ]}}">
+                    <view class="flex vertical" style="margin-bottom:35rpx;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/7.png" style="width:44rpx;margin-right:28rpx;height:auto;"></image>
+                        <view class="zi_zi">指导服务</view>
+                    </view>
+                    <view>
+                        <view class="bei_zi zi_zi">需要帮助吗？</view>
+                        <view class="bei_zi zi_zi">专业为您解答问题</view>
+                    </view>
+                </view>
+                <view class="bei_o flex side" style="flex-flow:column;">
+                    <view bindtap="__e" class="flex bei_nei vertical" data-event-opts="{{[ [ 'tap',[ [ 'faq',['$event'] ] ] ] ]}}" style="padding-top:23rpx;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/z1.png" style="width:22px;height:auto;"></image>
+                        <view class="zi_zi" style="margin-left:20rpx;">常见问题</view>
+                    </view>
+                    <view bindtap="__e" class="flex bei_nei vertical" data-event-opts="{{[ [ 'tap',[ [ 'ke',['$event'] ] ] ] ]}}" style="padding-top:20rpx;">
+                        <image mode="widthFix" src="../../static/MP-WEIXIN/z1.png" style="width:22px;height:auto;"></image>
+                        <view class="zi_zi" style="margin-left:20rpx;">商户注册咨询</view>
+                    </view>
+                </view>
+            </view>
+            <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+        </view>
+    </view>
+    <ad unitId="{{ad}}" wx:if="{{ad&&ad!='填你的'}}"></ad>
+</view>

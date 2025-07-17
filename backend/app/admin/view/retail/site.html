@@ -1,0 +1,63 @@
+<form id="app-form" class="layui-form layuimini-form">
+    <input type="hidden" name="now_group" value="retail_config">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">分销开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="retail_status{:session('admin.id')}" value="0" title="关" {if sysconfig( 'retail_config', 'retail_status'.session('admin.id'))==0 } checked {/if}>
+            <input type="radio" name="retail_status{:session('admin.id')}" value="1" title="开" {if sysconfig( 'retail_config', 'retail_status'.session('admin.id'))==1} checked {/if}>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">分销佣金</label>
+        <div class="layui-input-block">
+            <input type="number" name="retail_num{:session('admin.id')}" class="layui-input" lay-verify="required" placeholder="请输入分销佣金" value="{:sysconfig('retail_config','retail_num'.session('admin.id'))}">
+            <tip>填写分销佣金。</tip>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">分销海报</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="retail_image{:session('admin.id')}" class="layui-input layui-col-xs6" placeholder="请上传分销海报" value="{:sysconfig('retail_config','retail_image'.session('admin.id'))}">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="retail_image{:session('admin.id')}" data-upload-number="5" data-upload-exts="ico|png|jpg|jpeg"><i class="fa fa-upload"></i> 上传</a></span>
+                <span><a class="layui-btn layui-btn-normal" id="select_retail_image" data-upload-select="retail_image{:session('admin.id')}" data-upload-number="1"><i class="fa fa-list"></i> 选择</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="layui-form-item">
+        <label class="layui-form-label">二维码位置</label>
+        <div class="layui-input-block ">
+            <div class="layui-col-sm3">
+                <input type="number" name="retail_x" class="layui-input" lay-verify="required" value="{:sysconfig('retail_config','retail_x')}">
+                <tips>二维码x</tips>
+            </div>
+            <div class="layui-col-sm3">
+                <input type="number" name="retail_y" class="layui-input" lay-verify="required" value="{:sysconfig('retail_config','retail_y')}">
+                <tips>二维码y</tips>
+            </div>
+            <div class="layui-col-sm3">
+                <input type="text" name="retail_size" class="layui-input" lay-verify="required" value="{:sysconfig('retail_config','retail_size')}">
+                <tips>二维码大小 1-10</tips>
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <label class="layui-form-label">海报例图</label>
+        <div class="layui-input-block ">
+            <img src="{$haibao}" data-image="海报示例" alt="" width="375px" height="667px">
+        </div>
+    </div> -->
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save" data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>

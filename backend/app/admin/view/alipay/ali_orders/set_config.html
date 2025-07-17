@@ -1,0 +1,90 @@
+<form id="app-form" class="layui-form layuimini-form">
+    <input type="hidden" name="now_group" value="pro_config">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">商户进件开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="ali_pro_status{:session('admin.id')}" value="0" title="关" {if
+                sysconfig( 'pro_config' , 'ali_pro_status' .session('admin.id'))==0 } checked {/if}>
+            <input type="radio" name="ali_pro_status{:session('admin.id')}" value="1" title="开" {if
+                sysconfig( 'pro_config' , 'ali_pro_status' .session('admin.id'))==1 } checked {/if}>
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">第三方appid</label>
+        <div class="layui-input-block">
+            <input type="text" name="ali_pro_mchid{:session('admin.id')}" class="layui-input" lay-verify="required"
+                placeholder="请输入第三方appid" value="{:sysconfig('pro_config','ali_pro_mchid'.session('admin.id'))}">
+            <tip>填写第三方appid。</tip>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">开发者私钥</label>
+        <div class="layui-input-block">
+            <textarea name="ali_rsa_private_key{:session('admin.id')}" lay-verify="required" rows="10"
+                class="layui-textarea"
+                placeholder="请输入开发者私钥">{:sysconfig('pro_config','ali_rsa_private_key'.session('admin.id'))}</textarea>
+            <tip>填写开发者私钥。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">支付宝公钥</label>
+        <div class="layui-input-block">
+            <textarea name="ali_payrsa_public_key{:session('admin.id')}" lay-verify="required" rows="10"
+                class="layui-textarea"
+                placeholder="请输入支付宝公钥">{:sysconfig('pro_config','ali_payrsa_public_key'.session('admin.id'))}</textarea>
+            <tip>填写支付宝公钥。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">应用网关</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" class="layui-input" readonly lay-verify="required" value="{$host}/api/gateway">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyText('{$host}/api/gateway')">点击复制</a>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">授权回调地址</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" class="layui-input" readonly lay-verify="required" value="{$sname}/api/alicb">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyText('{$sname}/api/alicb')">点击复制</a>
+            </div>
+        </div>
+    </div>
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save"
+            data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+
+</form>
+
+<script>
+
+    function copyText(str_file) {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        input.setAttribute('value', str_file);
+        input.select();
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            layer.msg('复制成功！', {
+                icon: 1
+            })
+        }
+        document.body.removeChild(input);
+    }
+</script>

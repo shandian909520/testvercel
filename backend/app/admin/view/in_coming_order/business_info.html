@@ -1,0 +1,118 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">经营场所</label>
+        <div class="layui-input-block onchecks">
+            {foreach :config('inComing.sales_scenes_type') as $key => $vo}
+            <input type="checkbox" name="sales_scenes_type[]" value="{$key}" title="{$vo}" {if
+                in_array($key,explode( ',' ,$order->sales_scenes_type)) } checked {/if}> {/foreach}
+        </div>
+    </div>
+    <div class="sss" {if !in_array($sss,explode( ',' ,$order->sales_scenes_type)) }
+        style="display:none" {/if}>
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="biz_store_name" class="layui-input" placeholder="请输入门店名称"
+                    value="{$order->biz_store_name}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店省市: </label>
+            <div class="layui-input-inline">
+                <select lay-filter="provice">
+                    {foreach $region as $key => $vo}
+                    <option value="{$vo['region']}" {if $order->biz_region()['parent_id'] == $vo['region'] } selected
+                        {/if}>
+                        {$vo['title']} </option> {/foreach}
+                </select>
+            </div>
+
+            <div class="layui-input-inline">
+                <select name="biz_address_code" id="citys">
+                    {foreach $order->biz_region()['regions'] as $key => $vo}
+                    <option value="{$vo['region']}" {if $order->biz_address_code == $vo['region'] } selected {/if}>
+                        {$vo['title']} </option> {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店纤细地址</label>
+            <div class="layui-input-block">
+                <input type="text" name="biz_store_address" class="layui-input" placeholder="请输入服务商商户号"
+                    value="{$order->biz_store_address}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店门头照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="store_entrance_pic_link" class="layui-input layui-col-xs6" placeholder="请上传门店门头照片"
+                    value="{$order->store_entrance_pic_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="store_entrance_pic_link" data-upload-sign=","
+                            data-upload-number="5" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                            上传</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">店内环境照片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="indoor_pic_link" class="layui-input layui-col-xs6" placeholder="请上传店内环境照片"
+                    value="{$order->indoor_pic_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="indoor_pic_link" data-upload-sign="," data-upload-number="5"
+                            data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ssm" {if !in_array($ssm,explode( ',' ,$order->sales_scenes_type)) }style="display:none"{/if}>
+        <div class="layui-form-item">
+            <label class="layui-form-label">公众号appid</label>
+            <div class="layui-input-block">
+                <input type="text" name="mp_appid" class="layui-input" placeholder="请输公众号appid"
+                    value="{$order->mp_appid}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">公众号页面截图</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="mp_pics_link" class="layui-input layui-col-xs6" placeholder="公众号页面截图"
+                    value="{$order->mp_pics_link}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="mp_pics_link" data-upload-sign="," data-upload-number="5"
+                            data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit
+            data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+
+</form>
+
+
+<script>
+    var form = layui.form
+    form.on('select(provice)', function (data) {
+        var all_region = JSON.parse('{:json_encode($region->toArray())}')
+        citys = all_region.filter(el => {
+            return el.region == data.value
+        })
+        $('#citys').html('')
+        citys[0].children.forEach(el => {
+            $('#citys').append('<option value=' + el.region + '>' + el.title + '</option>');
+        });
+        form.render();
+    });
+</script>

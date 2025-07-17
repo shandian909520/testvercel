@@ -1,0 +1,40 @@
+.img {
+    width: 175rpx;
+    height: 175rpx;
+    margin: 15rpx 15rpx 15rpx 0;
+    border-radius: 10rpx;
+}
+
+.body_img {
+    position: relative;
+}
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.del {
+    position: absolute;
+    right: -5rpx;
+    top: -5rpx;
+    opacity: .5;
+    z-index: 10;
+}
+
+.titles {
+    font-size: 24rpx;
+    font-family: PingFang SC-Bold,PingFang SC;
+    font-weight: 700;
+    color: #333;
+    line-height: 35rpx;
+    margin-top: 20rpx;
+}
+
+.title_body {
+    font-size: 16rpx;
+    font-family: PingFang SC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #999;
+    line-height: 35rpx;
+}

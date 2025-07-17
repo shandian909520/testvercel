@@ -1,0 +1,85 @@
+<view class="groud_1" style="overflow:hidden;">
+    <view class="flex displayFlexKo">
+        <view class="header flex vertical">
+            <view bindtap="__e" class="img" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}">
+                <image bindtap="__e" class="img" data-event-opts="{{[ [ 'tap',[ [ 'userSet',['$event'] ] ] ] ]}}" src="{{user.head}}" wx:if="{{user.head!==''}}"></image>
+                <image class="img" src="../../static/MP-WEIXIN/19.png" wx:else></image>
+            </view>
+            <view class="side flex vertical groud_2">
+                <view class="name">{{''+(user.nickname?user.nickname:'Hi，您还未登录')+''}}</view>
+                <view bindtap="__e" class="kuang" data-event-opts="{{[ [ 'tap',[ ['login'] ] ] ]}}" wx:if="{{user.nickname==''}}">登录/注册</view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ ['tui'] ] ] ]}}" wx:else>
+                    <image class="img3" src="../../static/MP-WEIXIN/23.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="box-one">
+            <view class="text_1 ti zi-two">
+                <view class="shu"></view>我的订单</view>
+            <view class="body">
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'Indent',['$event'] ] ] ] ]}}" data-index="0">
+                    <image class="img1" mode="widthFix" src="../../static/MP-WEIXIN/3.3.png"></image>
+                    <view class="zi-one text_1">全部订单</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'Indent',['$event'] ] ] ] ]}}" data-index="1">
+                    <image class="img1" mode="widthFix" src="../../static/MP-WEIXIN/3.1.png"></image>
+                    <view class="zi-one text_1">未支付</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'Indent',['$event'] ] ] ] ]}}" data-index="2">
+                    <image class="img1" mode="widthFix" src="../../static/MP-WEIXIN/3.2.png"></image>
+                    <view class="zi-one text_1">进行中</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'Indent',['$event'] ] ] ] ]}}" data-index="3">
+                    <image class="img1" mode="widthFix" src="../../static/MP-WEIXIN/3.4.png"></image>
+                    <view class="zi-one text_1">已完成</view>
+                </view>
+            </view>
+        </view>
+        <view class="box-two" style="margin-top:20rpx;">
+            <view class="text_1 ti zi-two">
+                <view class="shu"></view>工具</view>
+            <view class="body_1">
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ ['share_qrcode'] ] ] ]}}">
+                    <image class="img2" src="../../static/MP-WEIXIN/18.png"></image>
+                    <view class="text_2">邀请好友</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'distribution',['$event'] ] ] ] ]}}">
+                    <image class="img2" src="../../static/MP-WEIXIN/16.png"></image>
+                    <view class="text_2">分销订单</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'subordinate',['$event'] ] ] ] ]}}">
+                    <image class="img2" src="../../static/MP-WEIXIN/17.png"></image>
+                    <view class="text_2">我的好友</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'help',['$event'] ] ] ] ]}}">
+                    <image class="img2" src="../../static/MP-WEIXIN/22.png"></image>
+                    <view class="text_2">帮助中心</view>
+                </view>
+                <button hoverClass="btn-hover" openType="contact" wx:if="{{kefu.type==1}}">
+                    <image class="img2" src="../../static/MP-WEIXIN/20.png"></image>
+                    <view class="text_2">联系客服</view>
+                </button>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'service',['$event'] ] ] ] ]}}" wx:else>
+                    <image class="img2" src="../../static/MP-WEIXIN/20.png"></image>
+                    <view class="text_2">联系客服</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+    <uni-popup bind:__l="__l" class="vue-ref" data-ref="popup" vueId="704e9d00-1" vueSlots="{{['default']}}">
+        <view>
+            <x-q-generate-poster bind:__l="__l" bind:hide="__e" bind:img="__e" bind:pop="__e" class="vue-ref" data-event-opts="{{[ [ '^img',[ ['bao_val'] ] ],[ '^pop',[ ['popup'] ] ],[ '^hide',[ ['hide'] ] ] ]}}" data-ref="draw" vueId="{{'704e9d00-2'+','+'704e9d00-1'}}"></x-q-generate-poster>
+            <view class="flex bu_kuang side">
+                <view bindtap="__e" class="bu" data-event-opts="{{[ [ 'tap',[ [ 'bao',['$event'] ] ] ] ]}}">
+                    <uni-icons bind:__l="__l" color="#36E352" customPrefix="iconfont" size="30" type="icon-baocuntupianzhonggaoban" vueId="{{'704e9d00-3'+','+'704e9d00-1'}}"></uni-icons>
+                    <view>保存</view>
+                </view>
+                <view bindtap="__e" class="bu" data-event-opts="{{[ [ 'tap',[ [ 'guan',['$event'] ] ] ] ]}}">
+                    <uni-icons bind:__l="__l" color="#f98a8a" size="30" type="clear" vueId="{{'704e9d00-4'+','+'704e9d00-1'}}"></uni-icons>
+                    <view>取消</view>
+                </view>
+            </view>
+        </view>
+    </uni-popup>
+</view>

@@ -1,0 +1,78 @@
+.diqu_tc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+}
+
+.yi_1 {
+    padding: 20rpx;
+}
+
+.yi {
+    width: 121rpx;
+    height: 9rpx;
+    background-color: #dcdcdc;
+    margin-top: 33rpx;
+}
+
+.diqu_tc_header {
+    display: flex;
+    align-items: center;
+    margin: 20rpx 0;
+}
+
+.diqu_tc_header view {
+    font-size: 36rpx;
+    font-weight: 600;
+}
+
+.tc_close {
+    position: absolute;
+    right: 40rpx;
+}
+
+.queding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 386rpx;
+    height: 65rpx;
+    color: #fff;
+    font-size: 30rpx;
+    background-color: red;
+    border-radius: 33rpx;
+    margin: 40rpx 0;
+}
+
+.address-picker-box {
+    width: 750rpx;
+    height: 380rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.address-picker-item {
+    height: 54rpx;
+    line-height: 54rpx;
+}
+
+.address-picker-item-text {
+    color: #444;
+    font-size: 30rpx;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dq_xuanzhong {
+    border-top: 2rpx solid #dcdddd;
+    border-bottom: 2rpx solid #dcdddd;
+}

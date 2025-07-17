@@ -1,0 +1,43 @@
+<form class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">小程序名称</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" id='name' name="name" class="layui-input" value="">
+            </div>
+            <div>
+                <a href="javaScript:void(0);" class="layui-btn layui-bg-blue" style="margin-left:20px" onclick="check_name()">立即检测</a>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    window.onkeydown = function(e) {
+        var event = window.event || arguments.callee.caller.arguments[0];
+        if (event.keyCode == 13) {
+            check_name()
+            return false;
+        }
+    }
+
+    function check_name() {
+        var name = $('#name').val()
+        $.post('check_name', {
+            name: name,
+            // "__token__": window.CONFIG['CSRF_TOKEN']
+        }, function(data) {
+            if (data.code == 0) {
+                layer.msg(data.msg, {
+                    icon: 2
+                })
+            } else {
+                layer.msg(data.msg, {
+                    icon: 1
+                })
+            }
+
+        })
+    }
+</script>

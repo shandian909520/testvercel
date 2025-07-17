@@ -1,0 +1,90 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">主体类型:</label>
+        <div class="layui-input-block">
+            {foreach :config('inComing.subject_type') as $key => $vo}
+            <input type="radio" name="subject_type" value="{$key}" title="{$vo}" {if $order->subject_type== $key } checked {/if}> {/foreach}
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">营业执照</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="license_copy_link" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传营业执照" value="{$order->license_copy_link}">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="license_copy_link" data-upload-number="one" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">商户名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="merchant_name" class="layui-input" lay-verify="required" placeholder="请输入商户名称" value="{$order->merchant_name}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">统一信用代码</label>
+        <div class="layui-input-block">
+            <input type="text" name="license_number" class="layui-input" lay-verify="required" placeholder="请输入统一信用代码" value="{$order->license_number}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商户简称</label>
+        <div class="layui-input-block">
+            <input type="text" name="merchant_shortname" class="layui-input" lay-verify="required" placeholder="请输入商户简称" value="{$order->merchant_shortname}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">客服电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="service_phone" class="layui-input" lay-verify="required" placeholder="请输入客服电话" value="{$order->service_phone}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">行业类别</label>
+        <div class="layui-input-block">
+            <select name="settlement_id" id="" lay-verify="required">
+
+           {if $order->subject_type == 'SUBJECT_TYPE_INDIVIDUAL'}
+            {foreach :config('inComing.persion_trad') as $key => $vo}
+                <option value="{$key}"  {if $order->settlement_id ==$key } selected{/if}>{$vo}</option>
+            {/foreach}
+        {/if} 
+              {if $order->subject_type == 'SUBJECT_TYPE_ENTERPRISE'}
+              {foreach :config('inComing.company_trad') as $key => $vo}
+              <option value="{$key}"  {if $order->settlement_id ==$key } selected{/if}}>{$vo}</option>
+          {/foreach} {/if}
+        </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">行业名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="qualification_type" class="layui-input" lay-verify="required" placeholder="请输入行业名称" value="{$order->qualification_type}">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">优惠费率</label>
+        <div class="layui-input-block">
+            <input type="text" name="activities_rate" class="layui-input" lay-verify="required" placeholder="请输入优惠费率" value="{$order->activities_rate}">
+        </div>
+    </div>
+
+
+
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+
+</form>

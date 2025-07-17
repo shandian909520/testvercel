@@ -1,0 +1,247 @@
+<form id="app-form" class="layui-form layuimini-form">
+    <h3>第三方平台开发信息:</h3>
+    <input type="hidden" name="now_group" value="app_config" />
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">appId</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="app_id{:session('admin.id')}" class="layui-input" lay-verify="required"
+                    placeholder="请输入appId" value="{:sysconfig('app_config','app_id'.session('admin.id'))}">
+                <tip>填写第三方平台appId。</tip>
+            </div>
+
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">appSecret</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="app_secret{:session('admin.id')}" class="layui-input" lay-verify="required"
+                    placeholder="请输入appSecret" value="{:sysconfig('app_config','app_secret'.session('admin.id'))}">
+                <tip>填写第三方平台appSecret。</tip>
+            </div>
+
+        </div>
+    </div>
+    <h3>消息与事件接收:</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">消息校验Token</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="token{:session('admin.id')}" class="layui-input" lay-verify="required"
+                    placeholder="请输入消息校验Token"
+                    value="{:sysconfig('app_config','token'.session('admin.id')) ?: random_str(16,2)}">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyField(this)">点击复制</a>
+                <a href="javaScript:void(0)" class="layui-btn layui-btn-success"
+                    onclick="newWord('token',this)">生成新的</a>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">消息加解密Key</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="key{:session('admin.id')}" class="layui-input" lay-verify="required"
+                    placeholder="请输入消息加解密Key"
+                    value="{:sysconfig('app_config','key'.session('admin.id')) ?: random_str(43,3)}">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyField(this)">点击复制</a>
+                <a href="javaScript:void(0)" class="layui-btn layui-btn-success" onclick="newWord('key',this)">生成新的</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">授权事件接收配置</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="authorize_url{:session('admin.id')}" disabled class="layui-input"
+                    lay-verify="required" placeholder="请输入授权事件接收配置"
+                    value="{:input('server.REQUEST_SCHEME') .'://'. request()->host() .'/sapi/authorize/callback'.'/pf_id/'.session('admin.id')}">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyField(this,2)">点击复制</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">消息与事件接收配置</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" name="events_url{:session('admin.id')}" disabled class="layui-input"
+                    lay-verify="required" placeholder="请输入消息与事件接收配置"
+                    value="{:input('server.REQUEST_SCHEME').'://'. request()->host() .'/sapi/events/callback/$APPID$'.'/pf_id/'.session('admin.id') }">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyField(this,3)">点击复制</a>
+            </div>
+        </div>
+    </div>
+    <h3>域名配置:</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">授权发起页域名</label>
+        <div class="layui-input-block">
+            <div class="layui-col-md5">
+                <input type="text" disabled name="login_domain" class="layui-input" lay-verify="required"
+                    placeholder="请输入授权发起页域名" value="{:request()->host()}">
+            </div>
+            <div class="layui-col-md5">
+                <a href="javaScript:void(0);" class="layui-btn" onclick="copyField(this)">点击复制</a>
+            </div>
+        </div>
+    </div>
+    <h3>授权信息：</h3>
+    <hr>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 200px;">授权结果</label>
+        <div class="layui-input-block">
+            <div>
+                {if count($info) lt 2}
+                <p>无</p>
+                {else}
+                <div>
+                    <div class="layui-col-md1">
+                        <p> appid: </p>
+                    </div>
+                    <div>
+                        <p> {$info['app_id']} </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="layui-col-md1">
+                        <p> 主体名称: </p>
+                    </div>
+                    <div>
+                        <p> {$info['name']} </p>
+                    </div>
+                </div>
+                {/if}
+            </div>
+            {if $auth_url}
+            <a class="layui-btn" href="{$auth_url}">{if count($info) lt 2}开始授权{else}重新授权{/if}</a> {else}
+            <p>暂时无法授权,请等待微信票据推送, 大概10分钟。</p>
+            {/if}
+        </div>
+    </div>
+    <h3>第三方平台独立配置：</h3>
+    <hr>
+    <!-- {if session('admin.id') eq 1}
+    <div class="layui-form-item">
+        <label class="layui-form-label required" style="width: 200px;">第三方平台独立配置开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="independent" value="0" title="关" {if sysconfig( 'app_config' , 'independent' )==0
+                } checked {/if}>
+            <input type="radio" name="independent" value="1" title="开" {if sysconfig( 'app_config' , 'independent' )==1
+                } checked {/if}>
+        </div>
+    </div>
+    {/if} -->
+    <div class="layui-form-item independenttxt">
+        <label class="layui-form-label" style="width: 200px;">上传txt</label>
+        <div class="layui-input-block layuimini-upload">
+            <div class="layui-col-md5" style="display: flex;width:450px">
+                <input name="independenttxt{:session('admin.id')}" readonly style="width: 365px;"
+                    class="layui-input independenttxtvalue"  placeholder="请上传上传txt"
+                    value="{:sysconfig('app_config','independenttxt'.session('admin.id'))}">
+                <button type="button" class="layui-btn" id="independenttxtbtn">
+                    <i class="layui-icon">&#xe67c;</i>上传文件
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save"
+            data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>
+
+
+<script>
+
+    function newWord(type, that) {
+
+        var str = type == 'key' ? '消息加解密Key' : '消息校验Token';
+        layer.confirm('确定要生成新的' + str + '?', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+            if (type == 'key') {
+                var input = $(that).parent().prev().children('input')
+                input.val(randomString(43, 3))
+            }
+            if (type == 'token') {
+                var input = $(that).parent().prev().children('input')
+                input.val(randomString(16, 2))
+            }
+            layer.msg('生成成功', {
+                icon: 1
+            })
+            layer.close(index);
+        });
+    }
+
+    function copyField(that, type) {
+        if (type == 2) {
+            text = "{:request()->host() .'/sapi/authorize/callback'.'/pf_id/'.session('admin.id')}"
+        } else if (type == 3) {
+            text = "{:request()->host() .'/sapi/events/callback/$APPID$'.'/pf_id/'.session('admin.id')}"
+        } else {
+            var input = $(that).parent().prev().children('input')
+            var text = input.val()
+        }
+
+        copyText(text)
+    }
+
+    function copyText(str_file) {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        input.setAttribute('value', str_file);
+        input.select();
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            layer.msg('复制成功！', {
+                icon: 1
+            })
+        }
+        document.body.removeChild(input);
+    }
+
+    //随机字符串
+    function randomString(length, type) {
+        switch (type) {
+            case 1:
+                chars = '1234567890';
+                break;
+            case 2:
+                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                break;
+            case 3:
+                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+                break;
+            case 4:
+                chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789';
+                break;
+            case 5:
+                chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+                break;
+            default:
+                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                break;
+        }
+        var result = '';
+        for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+        return result;
+    }
+</script>

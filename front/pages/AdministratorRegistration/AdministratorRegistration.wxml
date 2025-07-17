@@ -1,0 +1,54 @@
+<view class="page" hidden="{{!(get_p!=1)}}">
+    <view class="frame">
+        <uni-forms bind:__l="__l" class="vue-ref" data-ref="form" modelValue="{{formData}}" rules="{{rules}}" vueId="338e049c-1" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="upload vertical" data-event-opts="{{[ [ 'tap',[ [ 'image',['$event'] ] ] ] ]}}">
+                <image src="../../static/MP-WEIXIN/33.png"></image>
+                <view class="font-two zi-four">上传执照-快速识别信息</view>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">企业名称：</view>
+                <uni-forms-item bind:__l="__l" name="name" vueId="{{'338e049c-2'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" class="uni-forms-item" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','name','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" value="{{formData.name}}" vueId="{{'338e049c-3'+','+'338e049c-2'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">企业类型：</view>
+                <view class="input">
+                    <lauwen-select bind:__l="__l" bind:getValue="__e" data-event-opts="{{[ [ '^getValue',[ ['getValue'] ] ] ]}}" defaultIndex="{{formData.code_type}}" fontSize="24rpx" height="{{50}}" options="{{options}}" padding="{{10}}" vueId="{{'338e049c-4'+','+'338e049c-1'}}" width="{{460}}"></lauwen-select>
+                </view>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">企业代码：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="code" vueId="{{'338e049c-5'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','code','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" value="{{formData.code}}" vueId="{{'338e049c-6'+','+'338e049c-5'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">法人WX号：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="wx_code" vueId="{{'338e049c-7'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','wx_code','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" value="{{formData.wx_code}}" vueId="{{'338e049c-8'+','+'338e049c-7'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">法人姓名：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="person_name" vueId="{{'338e049c-9'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','person_name','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" type="text" value="{{formData.person_name}}" vueId="{{'338e049c-10'+','+'338e049c-9'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">法人身份证号：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="legal_persona_idcard" vueId="{{'338e049c-11'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','legal_persona_idcard','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" type="text" value="{{formData.legal_persona_idcard}}" vueId="{{'338e049c-12'+','+'338e049c-11'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">小程序名称：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="xcxname" vueId="{{'338e049c-13'+','+'338e049c-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','xcxname','$event',[] ],['formData'] ] ] ] ]}}" disabled="{{infoId!=''}}" styles="{{style}}" type="text" value="{{formData.xcxname}}" vueId="{{'338e049c-14'+','+'338e049c-13'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>{{''+aaaa+''}}<button bindtap="__e" class="color-one" data-event-opts="{{[ [ 'tap',[ [ 'submit',['$event'] ] ] ] ]}}">提交</button>
+        </uni-forms>
+    </view>
+    <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+    <item-moive bind:__l="__l" bind:handlePopup="__e" body="请立即前往登录" data-custom-hidden="{{!popup}}" data-event-opts="{{[ [ '^handlePopup',[ ['HidePopup'] ] ] ]}}" no="取消" ok="登录" s_style="#123DC7" title="未登录" vueId="338e049c-15"></item-moive>
+</view>

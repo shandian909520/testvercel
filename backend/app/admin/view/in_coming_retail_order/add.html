@@ -1,0 +1,63 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+        
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户id</label>
+            <div class="layui-input-block">
+                <input type="text" name="user_id" class="layui-input"  placeholder="请输入用户id" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input"  placeholder="请输入名称" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付类型</label>
+            <div class="layui-input-block">
+                <select name="pay_type" >
+                    <option value=''></option>
+                    {foreach $getPayTypeList as $k=>$v}
+                    <option value='{$k}' >{$v}</option>
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">金额</label>
+            <div class="layui-input-block">
+                <input type="text" name="num" class="layui-input"  placeholder="请输入金额" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单状态</label>
+            <div class="layui-input-block">
+                <select name="status" >
+                    <option value=''></option>
+                    {foreach $getStatusList as $k=>$v}
+                    <option value='{$k}' >{$v}</option>
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单详情</label>
+            <div class="layui-input-block">
+                <input type="text" name="info_id" class="layui-input"  placeholder="请输入订单详情" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">错误信息</label>
+            <div class="layui-input-block">
+                <input type="text" name="error" class="layui-input"  placeholder="请输入错误信息" value="">
+            </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+
+    </form>
+</div>

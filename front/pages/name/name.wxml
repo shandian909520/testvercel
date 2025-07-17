@@ -1,0 +1,15 @@
+<view class="tu">
+    <image class="background absolute" mode="widthFix" src="../../static/MP-WEIXIN/21.jpg"></image>
+    <view class="nei absolute">
+        <view style="height:533rpx;position:relative;">
+            <view class="input">
+                <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '','name','$event',[] ] ] ] ] ]}}" inputBorder="{{false}}" value="{{name}}" vueId="28f7d9e0-1"></uni-easyinput>
+            </view>
+        </view>
+        <view bindtap="__e" class="an" data-event-opts="{{[ [ 'tap',[ [ 'submit',['$event'] ] ] ] ]}}">
+            <view class="niu">立即查询</view>
+        </view>
+        <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+        <item-moive bind:__l="__l" bind:handlePopup="__e" body="{{popup.body}}" class="vue-ref" data-event-opts="{{[ [ '^handlePopup',[ ['itemMoive'] ] ] ]}}" data-ref="itemMoive" no="{{popup.no}}" ok="{{popup.ok}}" s_style="#123DC7" title="{{popup.title}}" vueId="28f7d9e0-2"></item-moive>
+    </view>
+</view>

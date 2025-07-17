@@ -1,0 +1,16 @@
+
+===1
+{
+    "id": "9abc9dd7-35df-529e-a8c1-08e63eaf7fbd",
+    "create_time": "2022-05-23T15:42:33+08:00",
+    "resource_type": "encrypt-resource",
+    "event_type": "TRANSACTION.SUCCESS",
+    "summary": "支付成功",
+    "resource": {
+        "original_type": "transaction",
+        "algorithm": "AEAD_AES_256_GCM",
+        "ciphertext": "4R2sO1U2d9Sv8iex5mPpj2KQd3vaTGSIuke6JDcMmOXucEHmHGAmlI8Yc+1BUdvfOPAQGTwdE6yfX9KGezu08tbKUKB5K8NxWakVxSVNyRhujxUxgu\/+x08IjkX+iR7RZsA1y3kliud7RgGv+qjknIkUosEqmkP91Dblt65UcJePIFOaotpp2XCY\/yPuCNy+h820B0YoUaZGkRxg1rRrbD+dGo8FqixZCcuBrkeL50T7sz01I3zbbg23VVPJLeEptBvnZuPgOfAoOhx7TRkZAf1o\/oHBKC42nAE5t4PUregRGSpOYsjK4WVsZL2XWDlcRaMRpO05yRycVDsG4ofJoMgvF9Y64W3QLNwwwDm2BQdkz4UuY09drD08LomGhpjdEIXtcNPxtoeeUHL0bJtg0xZyx3UgeAVrXTytfvP\/\/Hozcbm4Tl64aQf7kA5Y4QZrs61tG4ecKaQRd1cUxSRvvIfsAwhgT94QbYScwkCsVGHOaPOaMuYi5Hqn4WL1uEun4U0LcvJjypcYYbP6Fk8Ij+NutLuxx0JahKWIAKDsSx8LUdovqT9IHLhncZUVkdi5J3TtvrU=",
+        "associated_data": "transaction",
+        "nonce": "EFAoDiKPZril"
+    }
+}

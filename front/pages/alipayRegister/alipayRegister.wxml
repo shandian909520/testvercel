@@ -1,0 +1,97 @@
+<view class="alipayBody">
+    <uni-forms bind:__l="__l" class="vue-ref" data-ref="baseForm" modelValue="{{baseFormData}}" rules="{{fromRules}}" vueId="127b40a0-1" vueSlots="{{['default']}}">
+        <uni-forms-item bind:__l="__l" label="上传营业执照图片" name="business_license_pic" vueId="{{'127b40a0-2'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="flex" data-event-opts="{{[ [ 'tap',[ [ 'selectImage',['$event'] ] ] ] ]}}" data-img="business_license_pic">
+                <image class="imageWH" src="../../static/MP-WEIXIN/24.png" wx:if="{{!baseFormData.business_license_pic}}"></image>
+                <image class="imageWH" src="{{https+baseFormData.business_license_pic}}" wx:if="{{baseFormData.business_license_pic}}"></image>
+            </view>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','business_license_pic','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.business_license_pic}}" vueId="{{'127b40a0-3'+','+'127b40a0-2'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="店铺名称" name="shop_name" vueId="{{'127b40a0-4'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','shop_name','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.shop_name}}" vueId="{{'127b40a0-5'+','+'127b40a0-4'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="营业执照号码" name="business_license_no" vueId="{{'127b40a0-6'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','business_license_no','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.business_license_no}}" vueId="{{'127b40a0-7'+','+'127b40a0-6'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="是否长期" name="long_term" vueId="{{'127b40a0-8'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-data-checkbox bind:__l="__l" bind:change="__e" bind:input="__e" data-event-opts="{{[ [ '^change',[ ['longTermChange'] ] ],[ '^input',[ [ '__set_model',[ '$0','long_term','$event',[] ],['baseFormData'] ] ] ] ]}}" localdata="{{yesOrNoList}}" value="{{baseFormData.long_term}}" vueId="{{'127b40a0-9'+','+'127b40a0-8'}}"></uni-data-checkbox>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!!baseFormData.long_term}}" label="营业期限" name="date_limitation" vueId="{{'127b40a0-10'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <picker bindchange="__e" data-event-opts="{{[ [ 'change',[ [ 'bindDateChange',['$event'] ] ] ] ]}}" mode="date" value="{{baseFormData.date_limitation}}">
+                <view class="uni-input">{{baseFormData.date_limitation}}</view>
+                <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','date_limitation','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.date_limitation}}" vueId="{{'127b40a0-11'+','+'127b40a0-10'}}"></uni-easyinput>
+            </picker>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="店铺内图片" name="shop_scene_pic" vueId="{{'127b40a0-12'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="flex" data-event-opts="{{[ [ 'tap',[ [ 'selectImage',['$event'] ] ] ] ]}}" data-img="shop_scene_pic">
+                <image class="imageWH" src="../../static/MP-WEIXIN/25.png" wx:if="{{!baseFormData.shop_scene_pic}}"></image>
+                <image class="imageWH" src="{{https+baseFormData.shop_scene_pic}}" wx:if="{{baseFormData.shop_scene_pic}}"></image>
+            </view>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','shop_scene_pic','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.shop_scene_pic}}" vueId="{{'127b40a0-13'+','+'127b40a0-12'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="店铺门头照图片" name="shop_sign_board_pic" vueId="{{'127b40a0-14'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="flex" data-event-opts="{{[ [ 'tap',[ [ 'selectImage',['$event'] ] ] ] ]}}" data-img="shop_sign_board_pic">
+                <image class="imageWH" src="../../static/MP-WEIXIN/25.png" wx:if="{{!baseFormData.shop_sign_board_pic}}"></image>
+                <image class="imageWH" src="{{https+baseFormData.shop_sign_board_pic}}" wx:if="{{baseFormData.shop_sign_board_pic}}"></image>
+            </view>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','shop_sign_board_pic','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.shop_sign_board_pic}}" vueId="{{'127b40a0-15'+','+'127b40a0-14'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="签约且授权" name="sign_and_auth" vueId="{{'127b40a0-16'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-data-checkbox bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','sign_and_auth','$event',[] ],['baseFormData'] ] ] ] ]}}" localdata="{{yesOrNoList}}" value="{{baseFormData.sign_and_auth}}" vueId="{{'127b40a0-17'+','+'127b40a0-16'}}"></uni-data-checkbox>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="法人手机号码" name="business_license_mobile" vueId="{{'127b40a0-18'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','business_license_mobile','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.business_license_mobile}}" vueId="{{'127b40a0-19'+','+'127b40a0-18'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="商户账号" name="account" required="{{true}}" vueId="{{'127b40a0-20'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','account','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.account}}" vueId="{{'127b40a0-21'+','+'127b40a0-20'}}"></uni-easyinput>
+            <view class="fromDes">商户账号可以是支付宝账号</view>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="联系人名称" name="contact_name" required="{{true}}" vueId="{{'127b40a0-22'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_name','$event',[] ],['baseFormData'] ] ] ] ]}}" disabled="{{id!=''}}" type="text" value="{{baseFormData.contact_name}}" vueId="{{'127b40a0-23'+','+'127b40a0-22'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="联系人手机号码" name="contact_mobile" required="{{true}}" vueId="{{'127b40a0-24'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_mobile','$event',[] ],['baseFormData'] ] ] ] ]}}" disabled="{{id!=''}}" type="text" value="{{baseFormData.contact_mobile}}" vueId="{{'127b40a0-25'+','+'127b40a0-24'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="联系人邮箱" name="contact_email" vueId="{{'127b40a0-26'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_email','$event',[] ],['baseFormData'] ] ] ] ]}}" disabled="{{id!=''}}" type="text" value="{{baseFormData.contact_email}}" vueId="{{'127b40a0-27'+','+'127b40a0-26'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="省/市/区" name="provinceCityDistrict" vueId="{{'127b40a0-28'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="uni-input" data-event-opts="{{[ [ 'tap',[ [ 'pcdClick',['$event'] ] ] ] ]}}">{{baseFormData.provinceCityDistrict}}</view>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','provinceCityDistrict','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.provinceCityDistrict}}" vueId="{{'127b40a0-29'+','+'127b40a0-28'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!false}}" name="province_code" vueId="{{'127b40a0-30'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','province_code','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.province_code}}" vueId="{{'127b40a0-31'+','+'127b40a0-30'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!false}}" name="city_code" vueId="{{'127b40a0-32'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','city_code','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.city_code}}" vueId="{{'127b40a0-33'+','+'127b40a0-32'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!false}}" name="district_code" vueId="{{'127b40a0-34'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','district_code','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.district_code}}" vueId="{{'127b40a0-35'+','+'127b40a0-34'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="详细地址" name="detail_address" vueId="{{'127b40a0-36'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','detail_address','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.detail_address}}" vueId="{{'127b40a0-37'+','+'127b40a0-36'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="一级类目" name="mcc_code1" required="{{true}}" vueId="{{'127b40a0-38'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-data-select bind:__l="__l" bind:change="__e" bind:input="__e" data-event-opts="{{[ [ '^change',[ ['oneLevelChange'] ] ],[ '^input',[ [ '__set_model',[ '$0','mcc_code1','$event',[] ],['baseFormData'] ] ] ] ]}}" localdata="{{oneLevelRange}}" placeholder="请选择一级类目" value="{{baseFormData.mcc_code1}}" vueId="{{'127b40a0-39'+','+'127b40a0-38'}}"></uni-data-select>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="二级类目" name="mcc_code2" required="{{true}}" vueId="{{'127b40a0-40'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-data-select bind:__l="__l" bind:change="__e" bind:input="__e" data-event-opts="{{[ [ '^change',[ ['twoLevelChange'] ] ],[ '^input',[ [ '__set_model',[ '$0','mcc_code2','$event',[] ],['baseFormData'] ] ] ] ]}}" localdata="{{twoLevelRange}}" placeholder="请选择二级类目" value="{{baseFormData.mcc_code2}}" vueId="{{'127b40a0-41'+','+'127b40a0-40'}}"></uni-data-select>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!(twoLevelDes!='')}}" label="企业特殊资质照片" name="special_license_pic" required="{{twoLevelDes!=''}}" vueId="{{'127b40a0-42'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <view bindtap="__e" class="flex" data-event-opts="{{[ [ 'tap',[ [ 'selectImage',['$event'] ] ] ] ]}}" data-img="special_license_pic">
+                <image class="imageWH" src="../../static/MP-WEIXIN/25.png" wx:if="{{!baseFormData.special_license_pic}}"></image>
+                <image class="imageWH" src="{{https+baseFormData.special_license_pic}}" wx:if="{{baseFormData.special_license_pic}}"></image>
+            </view>
+            <view class="fromDes" wx:if="{{twoLevelDes!=''}}">{{twoLevelDes}}</view>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','special_license_pic','$event',[] ],['baseFormData'] ] ] ] ]}}" type="text" value="{{baseFormData.special_license_pic}}" vueId="{{'127b40a0-43'+','+'127b40a0-42'}}"></uni-easyinput>
+        </uni-forms-item>
+        <uni-forms-item bind:__l="__l" label="开通服务费" name="ali_incoming_parts_id" required="{{true}}" vueId="{{'127b40a0-44'+','+'127b40a0-1'}}" vueSlots="{{['default']}}">
+            <uni-data-select bind:__l="__l" bind:change="__e" bind:input="__e" data-custom-hidden="{{!(id=='')}}" data-event-opts="{{[ [ '^change',[ ['threeLevelChange'] ] ],[ '^input',[ [ '__set_model',[ '$0','ali_incoming_parts_id','$event',[] ],['baseFormData'] ] ] ] ]}}" localdata="{{threeLevelRange}}" placeholder="请选择套餐" value="{{baseFormData.ali_incoming_parts_id}}" vueId="{{'127b40a0-45'+','+'127b40a0-44'}}"></uni-data-select>
+            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!(id!='')}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '','ali_incoming_parts_text','$event',[] ] ] ] ] ]}}" disabled="{{true}}" type="text" value="{{ali_incoming_parts_text}}" vueId="{{'127b40a0-46'+','+'127b40a0-44'}}"></uni-easyinput>
+        </uni-forms-item>
+    </uni-forms>
+    <button bindtap="__e" data-event-opts="{{[ [ 'tap',[ ['submit'] ] ] ]}}" type="primary">提交</button>
+    <compress bind:__l="__l" bind:base="__e" class="vue-ref" data-event-opts="{{[ [ '^base',[ ['compress'] ] ] ]}}" data-ref="compress" vueId="127b40a0-47"></compress>
+    <compress bind:__l="__l" bind:base="__e" class="vue-ref" data-event-opts="{{[ [ '^base',[ ['compre'] ] ] ]}}" data-ref="compre" vueId="127b40a0-48"></compress>
+    <cityld bind:__l="__l" bind:success="__e" bind:value="__e" class="vue-ref" data-event-opts="{{[ [ '^success',[ ['citySuccess'] ] ],[ '^value',[ ['cityValue'] ] ] ]}}" data-ref="citys" vueId="127b40a0-49"></cityld>
+</view>

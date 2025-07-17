@@ -1,0 +1,86 @@
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <h3>数据备份</h3>
+        <hr>
+        <a class="layui-btn layui-bg-blue backup" href="javaScript:void(0)">立即备份</a>
+        <hr>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th width="200">备份时间</th>
+                    <th width="800">文件大小</th>
+                    <th width="420">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {volist name="list" id="item"}
+                <tr>
+                    <td>{$item['addtime']}</td>
+                    <td>{$item['size']}KB</td>
+                    <td>
+                        <a href="{$item['down']}" download="" data-id="{$item['id']}" class="layui-btn layui-bg-cyan down">下载</a>
+                        <a href="javascript:;" data-id="{$item['id']}" class="layui-btn layui-bg-green xiu">恢复</a>
+                        <a href="javascript:;" data-id="{$item['id']}" class="layui-btn layui-bg-red del">删除</a>
+                    </td>
+                </tr>
+                {/volist}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    window.onload = function() {
+        $(document).on('click', '.del', function() {
+            var id = $(this).data('id');
+            layer.confirm('请确认是否删除？', {
+                btn: ['确认', '取消'] //按钮
+            }, function() {
+
+                $.post('{:url("admin/index/delsql")}', {
+                    id: id
+                }, function(e) {
+                    layer.msg(e.msg, {
+                        time: 1200
+                    }, function() {
+                        window.location.reload();
+                    });
+                });
+
+            }, function() {});
+        })
+
+        $('.backup').click(function() {
+            var url = "{:url('admin/index/backup')}";
+            layer.load(2);
+            $.get(url, function(e) {
+                layer.closeAll();
+                console.log(e);
+                layer.msg(e.msg, {
+                    time: 1300
+                }, function() {
+                    window.location.reload();
+                })
+            })
+        })
+
+
+        //恢复
+        $('.xiu').click(function() {
+            var id = $(this).data('id');
+            var url = "{:url('admin/index/xiufu')}";
+            layer.load(2);
+            $.post(url, {
+                id: id
+            }, function(e) {
+                layer.closeAll();
+                layer.msg(e.msg, {
+                    time: 1200
+                }, function() {
+                    window.location.reload()
+                });
+
+            })
+        })
+    }
+</script>

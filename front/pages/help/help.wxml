@@ -1,0 +1,10 @@
+<view>
+    <view class="group_1">Hi~您是否遇到了一些问题<view class="jiao"></view>
+    </view>
+    <view class="groud_2">
+        <view class="text_1">常见问题</view>
+        <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'help_body',[index] ] ] ] ]}}" wx:for="{{array}}" wx:key="index">
+            <view class="text_2" style="{{index==0?'border:none':''}}">{{item.title}}</view>
+        </view>
+    </view>
+</view>

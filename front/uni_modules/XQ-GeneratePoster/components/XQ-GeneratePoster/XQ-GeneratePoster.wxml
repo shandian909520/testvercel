@@ -1,0 +1,6 @@
+<view>
+    <view style="height:100vh;position:relative;">
+        <image bindlongpress="__e" data-event-opts="{{[ [ 'longpress',[ [ 'e0',['$event'] ] ] ] ]}}" mode="widthFix" src="{{canvasToTempFilePath}}" style="{{'width: 74vw;margin: 0 13vw;position: absolute;top:'+top+'vh'}}"></image>
+    </view>
+    <canvas canvasId="myCanvas" style="width:700px;height:1334px;position:absolute;top:-10000px;"></canvas>
+</view>

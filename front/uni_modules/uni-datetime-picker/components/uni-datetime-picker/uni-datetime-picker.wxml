@@ -1,0 +1,65 @@
+<view class="uni-date">
+    <view bindtap="__e" class="uni-date-editor" data-event-opts="{{[ [ 'tap',[ [ 'show',['$event'] ] ] ] ]}}">
+        <slot wx:if="{{$slots.default}}"></slot>
+        <view class="{{['uni-date-editor--x',disabled?'uni-date-editor--x__disabled':'',border?'uni-date-x--border':'']}}" style="{{color?'border: 1px solid'+color:''}}" wx:else>
+            <view class="uni-date-x uni-date-single" wx:if="{{!isRange}}">
+                <uni-icons bind:__l="__l" color="{{color?color:'#e1e1e1'}}" customPrefix="iconfont" size="22" type="icon-riqi" vueId="55cceed7-1"></uni-icons>
+                <input bindinput="__e" class="uni-date__x-input" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','singleVal','$event',[] ] ] ] ] ]}}" disabled="{{true}}" placeholder="{{singlePlaceholderText}}" type="text" value="{{singleVal}}"></input>
+            </view>
+            <view class="uni-date-x uni-date-range" wx:else>
+                <uni-icons bind:__l="__l" color="#e1e1e1" customPrefix="iconfont" size="22" type="icon-riqi" vueId="55cceed7-2"></uni-icons>
+                <input bindinput="__e" class="uni-date__x-input t-c" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','startDate','$event',[] ],['range'] ] ] ] ]}}" disabled="{{true}}" placeholder="{{startPlaceholderText}}" type="text" value="{{range.startDate}}"></input>
+                <slot wx:if="{{$slots.default}}"></slot>
+                <view wx:else>{{rangeSeparator}}</view>
+                <input bindinput="__e" class="uni-date__x-input t-c" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','endDate','$event',[] ],['range'] ] ] ] ]}}" disabled="{{true}}" placeholder="{{endPlaceholderText}}" type="text" value="{{range.endDate}}"></input>
+            </view>
+            <view catchtap="__e" class="uni-date__icon-clear" data-event-opts="{{[ [ 'tap',[ [ 'clear',['$event'] ] ] ] ]}}" wx:if="{{showClearIcon}}">
+                <uni-icons bind:__l="__l" color="#e1e1e1" size="18" type="clear" vueId="55cceed7-3"></uni-icons>
+            </view>
+        </view>
+    </view>
+    <view bindtap="__e" class="uni-date-mask" data-event-opts="{{[ [ 'tap',[ [ 'close',['$event'] ] ] ] ]}}" hidden="{{!popup}}"></view>
+    <view class="uni-date-picker__container vue-ref" data-ref="datePicker" hidden="{{!popup}}" wx:if="{{!isPhone}}">
+        <view class="uni-date-single--x" style="{{popover}}" wx:if="{{!isRange}}">
+            <view class="uni-popper__arrow"></view>
+            <view class="uni-date-changed popup-x-header" wx:if="{{hasTime}}">
+                <input bindinput="__e" class="uni-date__input t-c" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','tempSingleDate','$event',[] ] ] ] ] ]}}" placeholder="{{selectDateText}}" type="text" value="{{tempSingleDate}}"></input>
+                <time-picker bind:__l="__l" bind:input="__e" border="{{false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '','time','$event',[] ] ] ] ] ]}}" disabled="{{!tempSingleDate}}" end="{{reactEndTime}}" hideSecond="{{hideSecond}}" start="{{reactStartTime}}" style="width:100%;" type="time" value="{{time}}" vueId="55cceed7-4" vueSlots="{{['default']}}">
+                    <input bindinput="__e" class="uni-date__input t-c" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','time','$event',[] ] ] ] ] ]}}" disabled="{{!tempSingleDate}}" placeholder="{{selectTimeText}}" type="text" value="{{time}}"></input>
+                </time-picker>
+            </view>
+            <calendar bind:__l="__l" bind:change="__e" class="vue-ref" data-event-opts="{{[ [ '^change',[ ['singleChange'] ] ] ]}}" data-ref="pcSingle" date="{{defSingleDate}}" endDate="{{caleRange.endDate}}" showMonth="{{false}}" startDate="{{caleRange.startDate}}" style="padding:0 8px;" vueId="55cceed7-5"></calendar>
+            <view class="popup-x-footer" wx:if="{{hasTime}}">
+                <text bindtap="__e" class="confirm" data-event-opts="{{[ [ 'tap',[ [ 'confirmSingleChange',['$event'] ] ] ] ]}}">{{okText}}</text>
+            </view>
+            <view class="uni-date-popper__arrow"></view>
+        </view>
+        <view class="uni-date-range--x" style="{{popover}}" wx:else>
+            <view class="uni-popper__arrow"></view>
+            <view class="popup-x-header uni-date-changed" wx:if="{{hasTime}}">
+                <view class="popup-x-header--datetime">
+                    <input bindinput="__e" class="uni-date__input uni-date-range__input" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','startDate','$event',[] ],['tempRange'] ] ] ] ]}}" placeholder="{{startDateText}}" type="text" value="{{tempRange.startDate}}"></input>
+                    <time-picker bind:__l="__l" bind:input="__e" border="{{false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','startTime','$event',[] ],['tempRange'] ] ] ] ]}}" disabled="{{!tempRange.startDate}}" hideSecond="{{hideSecond}}" start="{{reactStartTime}}" type="time" value="{{tempRange.startTime}}" vueId="55cceed7-6" vueSlots="{{['default']}}">
+                        <input bindinput="__e" class="uni-date__input uni-date-range__input" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','startTime','$event',[] ],['tempRange'] ] ] ] ]}}" disabled="{{!tempRange.startDate}}" placeholder="{{startTimeText}}" type="text" value="{{tempRange.startTime}}"></input>
+                    </time-picker>
+                </view>
+                <uni-icons bind:__l="__l" color="#999" style="line-height:40px;" type="arrowthinright" vueId="55cceed7-7"></uni-icons>
+                <view class="popup-x-header--datetime">
+                    <input bindinput="__e" class="uni-date__input uni-date-range__input" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','endDate','$event',[] ],['tempRange'] ] ] ] ]}}" placeholder="{{endDateText}}" type="text" value="{{tempRange.endDate}}"></input>
+                    <time-picker bind:__l="__l" bind:input="__e" border="{{false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','endTime','$event',[] ],['tempRange'] ] ] ] ]}}" disabled="{{!tempRange.endDate}}" end="{{reactEndTime}}" hideSecond="{{hideSecond}}" type="time" value="{{tempRange.endTime}}" vueId="55cceed7-8" vueSlots="{{['default']}}">
+                        <input bindinput="__e" class="uni-date__input uni-date-range__input" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '$0','endTime','$event',[] ],['tempRange'] ] ] ] ]}}" disabled="{{!tempRange.endDate}}" placeholder="{{endTimeText}}" type="text" value="{{tempRange.endTime}}"></input>
+                    </time-picker>
+                </view>
+            </view>
+            <view class="popup-x-body">
+                <calendar bind:__l="__l" bind:change="__e" bind:firstEnterCale="__e" bind:monthSwitch="__e" class="vue-ref" data-event-opts="{{[ [ '^change',[ ['leftChange'] ] ],[ '^firstEnterCale',[ ['updateRightCale'] ] ],[ '^monthSwitch',[ ['leftMonthSwitch'] ] ] ]}}" data-ref="left" endDate="{{caleRange.endDate}}" pleStatus="{{endMultipleStatus}}" range="{{true}}" showMonth="{{false}}" startDate="{{caleRange.startDate}}" style="padding:0 8px;" vueId="55cceed7-9"></calendar>
+                <calendar bind:__l="__l" bind:change="__e" bind:firstEnterCale="__e" bind:monthSwitch="__e" class="vue-ref" data-event-opts="{{[ [ '^change',[ ['rightChange'] ] ],[ '^firstEnterCale',[ ['updateLeftCale'] ] ],[ '^monthSwitch',[ ['rightMonthSwitch'] ] ] ]}}" data-ref="right" endDate="{{caleRange.endDate}}" pleStatus="{{startMultipleStatus}}" range="{{true}}" showMonth="{{false}}" startDate="{{caleRange.startDate}}" style="padding:0 8px;border-left:1px solid #F1F1F1;" vueId="55cceed7-10"></calendar>
+            </view>
+            <view class="popup-x-footer" wx:if="{{hasTime}}">
+                <text bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'clear',['$event'] ] ] ] ]}}">{{clearText}}</text>
+                <text bindtap="__e" class="confirm" data-event-opts="{{[ [ 'tap',[ [ 'confirmRangeChange',['$event'] ] ] ] ]}}">{{okText}}</text>
+            </view>
+        </view>
+    </view>
+    <calendar bind:__l="__l" bind:confirm="__e" class="vue-ref" clearDate="{{false}}" data-custom-hidden="{{!isPhone}}" data-event-opts="{{[ [ '^confirm',[ ['mobileChange'] ] ] ]}}" data-ref="mobile" date="{{defSingleDate}}" defTime="{{reactMobDefTime}}" endDate="{{caleRange.endDate}}" hideSecond="{{hideSecond}}" insert="{{false}}" pleStatus="{{endMultipleStatus}}" range="{{isRange}}" selectableTimes="{{mobSelectableTime}}" showMonth="{{false}}" startDate="{{caleRange.startDate}}" typeHasTime="{{hasTime}}" vueId="55cceed7-11"></calendar>
+</view>

@@ -1,0 +1,28 @@
+<div class="layuimini-container">
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">主体信息</li>
+            <li>经营信息</li>
+            <li>法人信息</li>
+            <li>银行信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                {include file="in_coming_order/subject_info" /}
+            </div>
+            <div class="layui-tab-item">
+                {include file="in_coming_order/business_info" /}
+            </div>
+            <div class="layui-tab-item">
+                {include file="in_coming_order/legal_persion_info" /}
+            </div>
+            <div class="layui-tab-item">
+                {include file="in_coming_order/bank_info" /}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var user_id = '';
+</script>

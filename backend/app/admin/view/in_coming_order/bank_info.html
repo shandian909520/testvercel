@@ -1,0 +1,77 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">账户类型:</label>
+        <div class="layui-input-block">
+            {foreach :config('inComing.bank_account_type') as $key => $vo}
+            <input type="radio" name="bank_account_type" value="{$key}" title="{$vo}" {if $order->bank_account_type== $key } checked {/if}> {/foreach}
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">开户名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="account_name" class="layui-input" lay-verify="required" placeholder="请输入开户名称" value="{$order->account_name}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">开户银行:</label>
+        <div class="layui-input-block">
+            <select name="account_bank" id="">
+                {foreach :config('inComing.account_banks') as $key => $vo}
+                <option value="{$vo}" {if $order->account_bank== $vo } selected {/if}> {$vo}</option> {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">省市: <span style="color: red;">*</span></label>
+        <div class="layui-input-inline">
+            <select lay-filter="provice">
+                {foreach $region as $key => $vo}
+                <option value="{$vo['region']}" {if $order->bank_region()['parent_id'] == $vo['region'] } selected {/if}> {$vo['title']} </option> {/foreach}
+            </select>
+        </div>
+
+        <div class="layui-input-inline">
+            <select name="bank_address_code" id="citys">
+                {foreach $order->bank_region()['regions'] as $key => $vo}
+                <option value="{$vo['region']}" {if $order->bank_address_code == $vo['region'] } selected {/if}> {$vo['title']} </option> {/foreach}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">银行卡号</label>
+        <div class="layui-input-block">
+            <input type="text" name="account_number" class="layui-input" lay-verify="required" placeholder="请输入银行卡号" value="{$order->account_number}">
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+
+</form>
+
+<script>
+    var form = layui.form
+    form.on('select(provice)', function(data) {
+        var all_region = JSON.parse('{:json_encode($region->toArray())}')
+        citys = all_region.filter(el => {
+            return el.region == data.value
+        })
+        $('#citys').html('')
+        citys[0].children.forEach(el => {
+            $('#citys').append('<option value=' + el.region + '>' + el.title + '</option>');
+        });
+        form.render();
+    });
+</script>

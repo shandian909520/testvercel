@@ -1,0 +1,124 @@
+<div class="layui-form-item">
+    <label class="layui-form-label required">主体类型:</label>
+    <div class="layui-input-block">
+        {foreach :config('inComing.subject_type') as $key => $vo}
+        <input type="radio" lay-filter="subject_type" name="subject_type" value="{$key}" title="{$vo}" {if
+            $key=='SUBJECT_TYPE_INDIVIDUAL' } checked {/if}> {/foreach}
+    </div>
+</div>
+
+
+
+
+<!-- <div class="layui-form-item">
+    <label class="layui-form-label">营业执照</label>
+    <div class="layui-input-block layuimini-upload">
+        <input name="license_copy_link" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传营业执照"
+            value="">
+        <div class="layuimini-upload-btn">
+            <span><a class="layui-btn" data-upload="license_copy_link" data-upload-number="one"
+                    data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+        </div>
+    </div>
+</div> -->
+<input name="license_copy_link" type="hidden" value="">
+<div class="layui-form-item">
+    <label class="layui-form-label required">识别营业执照</label>
+    <div class="layui-input-block">
+        <a href="javaScript:void(0);" class="layui-btn layui-bg-blue" id="business_pic">
+            <i class="layui-icon layui-icon-upload"></i> 上传图片
+        </a>
+        <img class="lclimg" src="" />
+    </div>
+</div>
+
+
+<div class="layui-form-item">
+    <label class="layui-form-label">商户名称</label>
+    <div class="layui-input-block">
+        <input type="text" name="merchant_name" class="layui-input" lay-verify="required" placeholder="请输入商户名称"
+            value="">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">统一信用代码</label>
+    <div class="layui-input-block">
+        <input type="text" name="license_number" class="layui-input" lay-verify="required" placeholder="请输入统一信用代码"
+            value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">商户简称</label>
+    <div class="layui-input-block">
+        <input type="text" name="merchant_shortname" class="layui-input" lay-verify="required" placeholder="请输入商户简称"
+            value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">客服电话</label>
+    <div class="layui-input-block">
+        <input type="text" name="service_phone" class="layui-input" lay-verify="required" placeholder="请输入客服电话"
+            value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">行业类别</label>
+    <div class="layui-input-block">
+        <select name="settlement_id" id="persion_trad" lay-filter="persion_trad" lay-verify="required">
+            {foreach :config('inComing.persion_trad') as $key => $vo}
+            <option value="{$key}">{$vo}</option>
+            {/foreach}
+        </select>
+
+
+    </div>
+</div>
+<input type="hidden" name="qualification_type" class="layui-input" value="">
+<!-- <div class="layui-form-item">
+    <label class="layui-form-label">行业名称</label>
+    <div class="layui-input-block">
+        <input type="text" name="qualification_type" class="layui-input" lay-verify="required" placeholder="请输入行业名称"
+            value="">
+    </div>
+</div> -->
+
+
+<div class="layui-form-item">
+    <label class="layui-form-label">优惠费率</label>
+    <div class="layui-input-block">
+        <input type="text" name="activities_rate" class="layui-input" lay-verify="required" placeholder="请输入优惠费率"
+            value="">
+    </div>
+</div>
+
+<div class="layui-form-item qualifications_link">
+    <label class="layui-form-label">特殊资质</label>
+    <div class="layui-input-block layuimini-upload">
+        <p class="special_qualifications"></p>
+        <input name="qualifications_link" class="layui-input layui-col-xs6" placeholder="请上传特殊资质" value="">
+        <div class="layuimini-upload-btn">
+            <span><a class="layui-btn" data-upload="qualifications_link" data-upload-number="2"
+                    data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="hr-line"></div>
+<div class="layui-form-item text-center">
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm oncstep" data-stab="2"
+        data-refresh="false">下一步</button>
+</div>
+
+
+<style>
+    .lclimg {
+        width: 126px;
+        display: none;
+    }
+
+    .qualifications_link {
+        display: none;
+    }
+</style>

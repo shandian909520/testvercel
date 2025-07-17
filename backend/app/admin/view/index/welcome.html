@@ -1,0 +1,238 @@
+<link rel="stylesheet" href="__STATIC__/admin/css/welcome.css?v={:time()}" media="all">
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header"><i class="fa fa-warning icon"></i>数据统计</div>
+                            <div class="layui-card-body">
+                                <div class="welcome-module">
+                                    <div class="layui-row layui-col-space10">
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-blue">实时</span>
+                                                        <h3>会员数</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['user_count']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--<div class="layui-col-xs3">-->
+                                        <!--    <div class="panel layui-bg-number">-->
+                                        <!--        <div class="panel-body">-->
+                                        <!--            <div class="panel-title">-->
+                                        <!--                <span class="label pull-right layui-bg-cyan">实时</span>-->
+                                        <!--                <h3>平台收益</h3>-->
+                                        <!--            </div>-->
+                                        <!--            <div class="panel-content">-->
+                                        <!--                <h1 class="no-margins">{$data['system_num']}</h1>-->
+                                        <!--                <small>&emsp;</small>-->
+                                        <!--            </div>-->
+                                        <!--        </div>-->
+                                        <!--    </div>-->
+                                        <!--</div>-->
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-orange">实时</span>
+                                                        <h3>付款订单数</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['wx_orders']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-green">实时</span>
+                                                        <h3>卡密使用数</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['code_orders']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-green">实时</span>
+                                                        <h3>分销订单数</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['retail_count']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-green">实时</span>
+                                                        <h3>分销金额</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['retail_num']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            <div class="panel layui-bg-number">
+                                                <div class="panel-body">
+                                                    <div class="panel-title">
+                                                        <span class="label pull-right layui-bg-green">实时</span>
+                                                        <h3>注册数</h3>
+                                                    </div>
+                                                    <div class="panel-content">
+                                                        <h1 class="no-margins">{$data['ok_orders']}</h1>
+                                                        <small>&emsp;</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header"><i class="fa fa-line-chart icon"></i>功能模块</div>
+                            <div class="layui-card-body">
+                                <div>
+                                    <a href="javaScript:void(0);" class="layui-btn layui-btn-lg layui-bg-blue"
+                                        data-open='index/xcx_register' data-full='true'>快速注册</a>
+                                    <a href="javaScript:void(0)" class="layui-btn layui-btn-lg layui-bg-blue"
+                                        data-open="index/check_name" data-full='true'>在线核名</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <i class="layui-icon layui-icon-app" style="color: red;"></i> 小程序
+                    </div>
+                </div>
+                <div class="layui-card-body layui-text">
+
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="layui-icon layui-icon-link" style="color: red;"></i> 链接
+                        </div>
+                        <div class="layui-card-body layui-text">
+                            {$data['xcx_url']}
+                        </div>
+
+                    </div>
+
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="layui-icon layui-icon-menu-fill"
+                                style="color: green;"></i> 二维码</div>
+                        <div class="layui-card-body layui-text " style="text-align: center;">
+                            <img style="width: 200px;height: 200px;" src=" {$data['xcx_img']}" alt="请先发布小程序">
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="layui-card">-->
+                <!--    <div class="layui-card-header">-->
+                <!--        <i class="layui-icon layui-icon-app" style="color: red;"></i> 公众号</div>-->
+                <!--</div>-->
+                <!--<div class="layui-card-body layui-text">-->
+
+                <!--    <div class="layui-card">-->
+                <!--        <div class="layui-card-header"><i class="layui-icon layui-icon-link" style="color: red;"></i> 链接</div>-->
+                <!--        <div class="layui-card-body layui-text">-->
+                <!--            {$data['mp_url']}-->
+                <!--        </div>-->
+
+                <!--    </div>-->
+
+                <!--    <div class="layui-card">-->
+                <!--        <div class="layui-card-header"><i class="layui-icon layui-icon-menu-fill" style="color: green;"></i> 二维码</div>-->
+                <!--        <div class="layui-card-body layui-text " style="text-align: center;">-->
+                <!--            <img style="width: 200px;height: 200px;" src=" {$data['mp_img']}" alt="请先发布公众号">-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+
+            </div>
+
+            <div class="layui-col-md3">
+                <!--<div class="layui-card">-->
+                <!--    <div class="layui-card-header">-->
+                <!--        <i class="layui-icon layui-icon-app" style="color: red;"></i> 小程序</div>-->
+                <!--</div>-->
+                <!--<div class="layui-card-body layui-text">-->
+
+                <!--    <div class="layui-card">-->
+                <!--        <div class="layui-card-header"><i class="layui-icon layui-icon-link" style="color: red;"></i> 链接</div>-->
+                <!--        <div class="layui-card-body layui-text">-->
+                <!--            {$data['xcx_url']}-->
+                <!--        </div>-->
+
+                <!--    </div>-->
+
+                <!--    <div class="layui-card">-->
+                <!--        <div class="layui-card-header"><i class="layui-icon layui-icon-menu-fill" style="color: green;"></i> 二维码</div>-->
+                <!--        <div class="layui-card-body layui-text " style="text-align: center;">-->
+                <!--            <img style="width: 200px;height: 200px;" src=" {$data['xcx_img']}" alt="请先发布小程序">-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+
+
+
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <i class="layui-icon layui-icon-app" style="color: red;"></i> 公众号
+                    </div>
+                </div>
+                <div class="layui-card-body layui-text">
+
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="layui-icon layui-icon-link" style="color: red;"></i> 链接
+                        </div>
+                        <div class="layui-card-body layui-text">
+                            {$data['mp_url']}
+                        </div>
+
+                    </div>
+
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="layui-icon layui-icon-menu-fill"
+                                style="color: green;"></i> 二维码</div>
+                        <div class="layui-card-body layui-text " style="text-align: center;">
+                            <img style="width: 200px;height: 200px;" src=" {$data['mp_img']}" alt="请先发布公众号">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

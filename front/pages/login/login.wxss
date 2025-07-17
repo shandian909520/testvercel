@@ -1,0 +1,43 @@
+.userSet {
+    padding: 30rpx;
+}
+
+.userSet .usercontent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+}
+
+.userSet .usercontent .title {
+    font-size: 30rpx;
+    width: 220rpx;
+}
+
+.userSet .userImg image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+
+.userSet .userImg button {
+    margin: 0;
+    line-height: 1;
+    padding: 0;
+}
+
+.userSet .userName input {
+    flex: 1;
+    font-size: 30rpx;
+    border: 1px solid #ddd;
+    padding: 10rpx 15rpx;
+    border-radius: 10rpx;
+    text-align: right;
+}
+
+.userBtn {
+    background-color: #f55;
+    color: #fff;
+    font-size: 30rpx;
+    margin-top: 300rpx;
+}

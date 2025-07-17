@@ -1,0 +1,48 @@
+<view wx:if="{{array}}">
+    <view class="box1">
+        <view class="flex vertical">
+            <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-weizhifu" vueId="66812664-1" wx:if="{{array.status==1}}"></uni-icons>
+            <block wx:else>
+                <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-shalou1" vueId="66812664-2" wx:if="{{array.status<7}}"></uni-icons>
+                <block wx:else>
+                    <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-yiwancheng" vueId="66812664-3" wx:if="{{array.status>6}}"></uni-icons>
+                </block>
+            </block>
+            <view class="color-one zi-eight" wx:if="{{array.status<7}}">进行中</view>
+            <view class="color-one zi-eight" wx:if="{{array.status>6}}">已结束</view>
+        </view>
+    </view>
+    <view class="data">
+        <view class="box2 zi-two font-one">
+            <view>{{'订单编号：'+array.order_id}}</view>
+            <view>{{'订单时间：'+array.create_time}}</view>
+            <view wx:if="{{array.status>1}}">{{'支付方式：'+(array.pay_type=='3'?'激活码':array.pay_type=='2'?'微信支付':array.pay_type=='1'?'平台':'')}}</view>
+            <view wx:if="{{array.status>1&&array.pay_type!=1}}">{{''+(array.pay_type=='3'?'激活码：'+array.code:array.pay_type=='2'?'微信支付：'+array.num:'')+''}}</view>
+        </view>
+        <view class="box3 zi-two font-one">
+            <view>订单信息：</view>
+            <view class="box6">
+                <view>{{'商户账号：'+array.aliOrdersInfo.account}}</view>
+                <view>{{'联系人名称：'+array.aliOrdersInfo.contact_name}}</view>
+                <view>{{'联系人手机号码：'+array.aliOrdersInfo.contact_mobile}}</view>
+            </view>
+        </view>
+        <view class="box3 zi-two font-one">
+            <view>签约状态：</view>
+            <view class="box6" wx:if="{{array.status>4&&array.status!=9}}">
+                <view>{{message}}</view>
+            </view>
+            <view class="box6" wx:if="{{array.status<5||array.status==9}}">
+                <view>{{array.status==1?'待支付':array.sub_msg}}</view>
+            </view>
+        </view>
+        <view class="box5 flex vertical" wx:if="{{array.status==1}}">
+            <button bindtap="__e" class="button zi-one" data-event-opts="{{[ [ 'tap',[ [ 'pay',['$event'] ] ] ] ]}}" type="warn">立即支付</button>
+        </view>
+        <view class="box5 flex  control" wx:if="{{array.status>1&&array.status<5}}">
+            <button bindtap="__e" class="button zi-one" data-event-opts="{{[ [ 'tap',[ [ 'revise',['$event'] ] ] ] ]}}" type="warn" wx:if="{{array.status>2&&array.status<5}}">修改信息</button>
+            <button bindtap="__e" class="button zi-one" data-event-opts="{{[ [ 'tap',[ [ 'reviseTwo',['$event'] ] ] ] ]}}" type="warn" wx:if="{{array.status==2}}">修改信息</button>
+            <button bindtap="__e" class="button zi-one" data-event-opts="{{[ [ 'tap',[ [ 'subincoming',['$event'] ] ] ] ]}}" type="primary" wx:if="{{1<array.status&&array.status<5}}">再次提交</button>
+        </view>
+    </view>
+</view>

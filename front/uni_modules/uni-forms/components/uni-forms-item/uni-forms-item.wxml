@@ -1,0 +1,21 @@
+<view class="{{['uni-forms-item',border?'uni-forms-item--border':'',border&&isFirstBorder?'is-first-border':'',msg?'uni-forms-item-error':'']}}">
+    <view class="uni-forms-item__box">
+        <view class="{{['uni-forms-item__inner','is-direction-'+labelPos]}}">
+            <view class="uni-forms-item__label" style="{{'width:'+labelWid+';'+'justify-content:'+justifyContent+';'}}">
+                <slot name="label" wx:if="{{$slots.label}}"></slot>
+                <block wx:else>
+                    <text class="is-required" wx:if="{{required}}">*</text>
+                    <uni-icons bind:__l="__l" class="label-icon" color="{{iconColor}}" size="16" type="{{leftIcon}}" vueId="12f4546e-1" wx:if="{{leftIcon}}"></uni-icons>
+                    <text class="label-text">{{label}}</text>
+                    <view class="label-seat" wx:if="{{label}}"></view>
+                </block>
+            </view>
+            <view class="{{['uni-forms-item__content',msg?'is-input-error-border':'']}}">
+                <slot></slot>
+            </view>
+        </view>
+        <view class="{{['uni-error-message',border?'uni-error-msg--boeder':'']}}" style="{{'padding-left:'+labelLeft+';'}}" wx:if="{{msg}}">
+            <text class="uni-error-message-text">{{showMsg==='undertext'?msg:''}}</text>
+        </view>
+    </view>
+</view>

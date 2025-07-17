@@ -1,0 +1,12 @@
+<view>
+    <view class="titles" wx:if="{{title}}">{{title+'('+(arr.path.length?arr.path.length:0)+'/'+count+')'}}</view>
+    <view class="title_body" wx:if="{{body}}">{{body}}</view>
+    <view class="body">
+        <view class="body_img" wx:for="{{arr.path}}" wx:key="index">
+            <uni-icons bind:__l="__l" bind:click="__e" class="del" color="#000" data-event-opts="{{[ [ '^click',[ [ 'del',[index] ] ] ] ]}}" size="24" type="clear" vueId="{{'250eb1e2-1-'+index}}"></uni-icons>
+            <image class="img" src="{{item}}"></image>
+        </view>
+        <image bindtap="__e" class="img" data-event-opts="{{[ [ 'tap',[ [ 'chooseImage',['$event'] ] ] ] ]}}" src="../../static/MP-WEIXIN/25.png" wx:if="{{arr.path.length!=count}}"></image>
+    </view>
+    <compress bind:__l="__l" bind:base="__e" class="vue-ref" data-event-opts="{{[ [ '^base',[ ['compress'] ] ] ]}}" data-ref="compress_list" vueId="250eb1e2-2"></compress>
+</view>

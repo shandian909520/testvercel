@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 锐言真体;
+    src: url(../family/锐字真言体.ttf);
+}
+body{
+    overflow: hidden;
+}
+button{
+    outline:none;
+}
+input{
+    padding-left: 0.8vw;
+}
+#zt{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.left{
+    position: absolute;
+    height: 100%;
+    width: 10.5vw;
+    background:url(../images/beijing.png);
+    color:white;
+    padding: 2.0833vw;
+}
+.xcjt{
+    display: flex;
+    align-items: center;
+   font-family: 锐言真体;
+
+}
+.xcjt img{
+    width: 3.0063vw;
+    height: 3.0063vw;
+    margin-right: 0.2688vw;
+}
+.xcjt .p1{
+    font-size: 1.4567vw;
+    font-style: italic;
+    letter-spacing: 0.2vw;
+}
+.xcjt .p2{
+    font-size: 0.4167vw;
+}
+.left2,.left3,.left4,.left5,.left6,.left7{
+    padding-top: 3vw;
+    padding-bottom: 1.5vw;
+    text-align: center;
+    font-size: 0.9vw;
+    font-weight: 400;
+    letter-spacing: 0.2vw;
+    display: flex;
+    align-items: center;
+}
+.left2 img,.left3 img,.left4 img,.left5 img,.left6 img,.left7 img{
+    margin-right:1vw;
+    width: 1.8229vw;
+    height: 1.8229vw;
+    position: relative;
+}
+.i2{
+    display: none;
+}
+#ceng{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+.right{
+    background-color: #F1F9FF;
+    position: absolute;
+    width:85.4vw;
+    height: 100%;
+    left: 14.5vw;
+    text-align: center;
+}
+.dlyz img,.hjjc img,.sjcs img,.dlsz img,.azcg img{
+    width: 18.2292vw;
+    height: 20.5729vw;
+    margin: 1vw 0;
+}
+.xzwj img{
+    width: 25.2292vw;
+    height: 22.5729vw;
+    margin: 1vw 0;
+}
+.dlyz .inp p{
+    font-size: 1.2625vw;
+    width: 5vw;
+    letter-spacing: 0.3125vw;
+}
+.dlyz .inp input{
+    border: 1px solid #e8e8e8;
+    border-radius: 0.5208vw;
+    width: 17.75vw;
+    height: 2vw;
+    outline: none;
+    font-size: 1vw;
+}
+.dlyz .inp>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw 0;
+}
+.dlyz button,.hjjc button,.sjcs button,.dlsz button{
+    background: #8b8b8b;
+    border-radius: 0.5208vw;
+    color: #ffffff;
+    letter-spacing: 0.3125vw;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    padding: 0.8vw 2.3vw;
+    margin-top: 1vw;
+}
+.azcg button{
+    background: #0133F8;
+    border-radius: 0.5208vw;
+    color: #ffffff;
+    letter-spacing: 0.3125vw;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    padding: 0.8vw 2.3vw;
+    margin-top: 1.5vw;
+}
+.hjjc,.xzwj{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hjjc img,.sjcs img{
+    width: 21.5833vw;
+    height: 21.4271vw;
+}
+.jdt{
+    width: 52.3438vw;
+    height: 1.4vw;
+    background: #bee3ff;
+    border-radius: 0.7813vw;
+}
+.jdt11{
+    width: 12.8646vw;
+    height: 1.4vw;
+    background: #008FFA;
+    border-radius: 0.7813vw;
+    box-shadow: 0px 0px 5px 0px rgba(0,123,215,0.63); 
+}
+.jdt1111{
+    width: 52.3438vw;
+    height: 1.4vw;
+    background: #008FFA;
+    border-radius: 0.7813vw;
+    box-shadow: 0px 0px 5px 0px rgba(0,123,215,0.63); 
+}
+.jds,.jds100{
+    font-weight: 700;
+    font-size: 3.125vw;
+    color: #008ffa;
+    letter-spacing: 0.1563vw;
+    margin-top: 2.0833vw;
+}
+.jc,.jcwc,.jccw{
+    font-weight: 400;
+    letter-spacing: 0.1563vw;
+    width: 47vw;
+    margin-top: 1.5vw;
+}
+.jc1,.jc2,.jc3,.jc4{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3vw;
+    font-size: 1.3vw;
+}
+
+.jc1 div,.jc2 div,.jc3 div,.jc4 div{
+    display: flex;
+    align-items: center;
+}
+.jc1,.jc2{
+    color: #000000;
+}
+.jc3,.jc4{
+    color: #8B8B8B;
+}
+.jc3 img,.jc4 img{
+    width: 2vw;
+    height: 0.4167vw;
+}
+.jc img,.jcwc img,.jccw img{
+    width: 2vw;
+    height: 2vw;
+    padding-right: 1vw;
+    margin-left: 0;
+}
+.jc2 a{
+    text-decoration: none;
+    margin-right: -7vw;
+}
+.zq{
+   padding-right: 2.8vw;
+   color: #3BCC95;
+   font-weight: 700;
+}
+.jcz{
+    padding-right: 1.5vw;
+    color: #F1B95B;
+    font-weight: 700;
+}
+.cw{
+    padding-right: 1.2vw;
+    color: #FF6B60;
+    font-weight: 700;
+}
+.jd{
+    color: #5BFA81;
+}
+.imgbor{
+    box-shadow: 0px 0px 6px 4px #5bee7d;
+    border-radius: 50%;
+    padding: 0.1vw;
+    transition: 0.3s;
+}
+.sjcs,.dlsz{
+    text-align: center;
+}
+.sjcs>div,.dlsz>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw 0;
+}
+.sjcs p{
+    font-size: 1.2625vw;
+    width: 9vw;
+    letter-spacing: 0.3125vw;
+}
+.dlsz p{
+    font-size: 1.2625vw;
+    width: 12vw;
+    letter-spacing: 0.3125vw;
+    text-align: left;
+}
+.sjcs input,.dlsz input{
+    border: 1px solid #e8e8e8;
+    border-radius: 0.5208vw;
+    width: 17.75vw;
+    height: 2vw;
+    outline: none;
+    font-size: 1vw;
+}
+.dlyztc,.sjcstc,.dlsztc{
+    width: 16.3229vw;
+    height: 19.5479vw;
+    background: #ffffff;
+    border-radius: 0.5208vw;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.dlyztc img,.sjcstc img,.dlsztc img{
+    width: 6.5625vw;
+    height: 6.5625vw;
+    padding-top: 1.0417vw;
+}
+.dlyztc .p1,.sjcstc2 .p1,.dlsztc .p1{
+    font-weight: 700;
+    font-size:1.5625vw;
+    padding-bottom: 1.0417vw;
+    letter-spacing: 0.2604vw;
+}
+.dlyztc2 .p2,.sjcstc2 .p2,.dlsztc2 .p2{
+    font-size: 1.1417vw;
+    font-weight: 400;
+    letter-spacing: 0.1042vw;
+    padding-bottom: 1.0417vw;
+}
+.dlyztc button,.sjcstc button,.dlsztc button{
+    background-color: #0133F8;
+    font-size: 1.0625vw;
+    letter-spacing: 0.2604vw;
+    padding: 0.3508vw 1.4021vw;
+    border: none;
+    outline: none;
+    border-radius: 0.4604vw;
+    color: #ffffff;
+}
+.azcgt{
+    font-size: 2.7833vw;
+    font-weight: 700;
+    color: #0133f8;
+    letter-spacing: 0.3125vw;
+    margin-top: 1vw;
+}
+.ljdt{
+    height: 19vw;
+    width: 0.4vw;
+    background-color: #797979;
+    position: absolute;
+    top: 9.5vw;
+    left: 2.85vw;
+}
+.ljdtjd{
+    background-color: #58FE95;
+    opacity: 1;
+}

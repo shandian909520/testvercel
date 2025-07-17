@@ -1,0 +1,104 @@
+<div class="layui-form-item">
+    <label class="layui-form-label required">经营场所</label>
+    <div class="layui-input-block onchecks">
+        {foreach :config('inComing.sales_scenes_type') as $key => $vo}
+        <input type="checkbox" lay-filter="sales_scenes_type" name="sales_scenes_type[]" value="{$key}" {if
+            $key=='SALES_SCENES_STORE' }checked{/if} title="{$vo}"> {/foreach}
+    </div>
+</div>
+<div class="sss">
+    <div class="layui-form-item">
+        <label class="layui-form-label">门店名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="biz_store_name" class="layui-input" placeholder="请输入门店名称" value="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">门店省市: </label>
+        <div class="layui-input-inline">
+            <select lay-filter="provice">
+                {foreach $region as $key => $vo}
+                <option value="{$vo['region']}">
+                    {$vo['title']} </option> {/foreach}
+            </select>
+        </div>
+
+        <div class="layui-input-inline">
+            <select name="biz_address_code" id="citys">
+                <option value="">
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">门店详细地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="biz_store_address" class="layui-input" placeholder="请输入营业执照上注册地址" value="">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">门店门头照片</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="store_entrance_pic_link" class="layui-input layui-col-xs6" placeholder="请上传门店门头照片" value="">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="store_entrance_pic_link" data-upload-sign=","
+                        data-upload-number="5" data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i>
+                        上传</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">店内环境照片</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="indoor_pic_link" class="layui-input layui-col-xs6" placeholder="请上传店内环境照片" value="">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="indoor_pic_link" data-upload-sign="," data-upload-number="5"
+                        data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ssm" style="display:none">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">商户服务商选择:</label>
+        <div class="layui-input-block">
+            <select name="sub_type" id="sub_type" lay-filter="sub_type" lay-verify="required">
+                <option value="0">服务商</option>
+                <option value="1">商家</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item mp_appid">
+        <label class="layui-form-label">公众号appid</label>
+        <div class="layui-input-block">
+            <input type="text" name="mp_appid" class="layui-input" placeholder="请输公众号appid" value="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">公众号页面截图</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="mp_pics_link" class="layui-input layui-col-xs6" placeholder="公众号页面截图" value="">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" data-upload="mp_pics_link" data-upload-sign="," data-upload-number="5"
+                        data-upload-exts="jpg|png|jpeg|bmp"><i class="fa fa-upload"></i> 上传</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hr-line"></div>
+<div class="layui-form-item text-center">
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm oncstep" data-stab="1"
+        data-refresh="false">上一步</button>
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm oncstep" data-stab="3"
+        data-refresh="false">下一步</button>
+</div>
+<style>
+    .mp_appid {
+        display: none;
+    }
+</style>

@@ -1,0 +1,54 @@
+<form id="app-form" class="layui-form layuimini-form">
+    <h3>小程序设置</h3>
+    <hr>
+    <input type="hidden" name="now_group" value="push_config">
+    <!-- <div class="layui-form-item">
+        <label class="layui-form-label required">AppID 小程序ID</label>
+        <div class="layui-input-block ">
+            <input type="text" name="xcxid" lay-verify="required"  class="layui-input" placeholder="请输入小程序ID" value="{:sysconfig('wxxcx','xcxid')}">
+            <tip></tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">AppSecret 小程序密钥</label>
+        <div class="layui-input-block ">
+            <input type="text" name="xcxsecret" lay-verify="required"  class="layui-input" placeholder="请输入小程序密钥" value="{:sysconfig('wxxcx','xcxsecret')}">
+            <tip></tip>
+        </div>
+    </div> -->
+    <!-- <div class="layui-form-item">
+        <label class="layui-form-label required">小程序代码上传密钥</label>
+        <div class="layui-input-block ">
+            <textarea rows="8" name="push_app_upsecret" lay-verify="required"  class="layui-textarea" placeholder="请输入小程序代码上传密钥">{:sysconfig('push_config','push_app_upsecret')}</textarea>
+            <tip>注意！注意！注意！ 记得关闭ip白名单 【开发-开发管理-开发设置-小程序代码上传】</tip>
+        </div>
+    </div> -->
+
+    <div class="layui-form-item">
+        <label class="layui-form-label required">小程序代码上传密钥</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="push_app_upsecret{:session('admin.id')}" class="layui-input layui-col-xs6 push_app_upsecret_class"
+                lay-verify="required" placeholder="请上传密钥"
+                value="{:sysconfig('push_config','push_app_upsecret'.session('admin.id'))}">
+            <div class="layuimini-upload-btn">
+                <button type="button" class="layui-btn" id="push_app_upsecret">
+                    <i class="fa fa-upload"></i>上传
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save"
+            data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>
+
+<script>
+    window.onload = function () {
+
+    }
+</script>

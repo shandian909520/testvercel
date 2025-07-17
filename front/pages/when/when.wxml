@@ -1,0 +1,83 @@
+<view wx:if="{{data}}">
+    <view class="box1">
+        <view class="flex vertical">
+            <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-weizhifu" vueId="13902080-1" wx:if="{{array.status==1}}"></uni-icons>
+            <block wx:else>
+                <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-shalou1" vueId="13902080-2" wx:if="{{array.status==2}}"></uni-icons>
+                <block wx:else>
+                    <uni-icons bind:__l="__l" color="#FFFFFF" customPrefix="iconfont" size="26" type="icon-yiwancheng" vueId="13902080-3" wx:if="{{array.status==3}}"></uni-icons>
+                </block>
+            </block>
+            <view class="color-one zi-eight" wx:if="{{class_s==1}}">{{''+array.status_name+''}}</view>
+            <block wx:else>
+                <view class="color-one zi-eight" wx:if="{{class_s==2}}">{{''+(array.status==2?'进行中':'已完成')+''}}</view>
+            </block>
+        </view>
+    </view>
+    <view class="data">
+        <view class="box2 zi-two font-one">
+            <view>{{'订单编号：'+array.order_id}}</view>
+            <view>{{'订单时间：'+array.create_time}}</view>
+            <view wx:if="{{array.status>1}}">{{'支付方式：'+(array.pay_type_name=='卡密'?'激活码':'微信支付')}}</view>
+            <view wx:if="{{array.status>1}}">{{array.pay_type_name=='卡密'?'激活码：'+array.code:'微信支付：'+array.num}}</view>
+        </view>
+        <view class="box3 zi-two font-one">
+            <view>订单信息：</view>
+            <view class="box6" wx:if="{{class_s==1}}">
+                <view>{{'注册类型：'+(array.info.type==1?'个人小程序':array.info.type==2?'企业小程序':array.info.type==3?'管理员注册':'')+''}}</view>
+                <view>{{array.info.type==1?'姓名：'+array.info.name:'企业名：'+array.info.name}}</view>
+                <view>{{array.info.type==1?'微信号：'+array.info.wx_code:'企业类型：'+options[array.info.code_type]}}</view>
+                <view wx:if="{{array.info.type!=1}}">{{'企业代码：'+array.info.code}}</view>
+                <view wx:if="{{array.info.type!=1}}">{{'法人微信号：'+array.info.wx_code}}</view>
+                <view wx:if="{{array.info.type!=1}}">{{'法人姓名：'+array.info.person_name}}</view>
+                <view wx:if="{{array.info.xcxname}}">{{'小程序名：'+array.info.xcxname}}</view>
+            </view>
+            <view class="box6" wx:else>
+                <view>{{'公司名称：'+array.orderInfo.merchant_name}}</view>
+                <view>{{'申请费率：'+array.orderInfo.activities_rate}}</view>
+                <view>{{'法人：'+array.orderInfo.id_card_name}}</view>
+            </view>
+        </view>
+        <view class="box4" wx:if="{{array.status>1}}">
+            <view class="flex vertical">
+                <uni-icons bind:__l="__l" color="#FFAB1A" customPrefix="iconfont" size="20" type="icon-shalou" vueId="13902080-4" wx:if="{{array.status==2}}"></uni-icons>
+                <uni-icons bind:__l="__l" color="#36E352" size="20" type="checkbox-filled" vueId="13902080-5" wx:if="{{array.status==3}}"></uni-icons>
+                <view class="error_msg zi-one">{{option[0].title}}</view>
+            </view>
+            <view wx:if="{{contactTheCustomerService}}">
+                <block wx:if="{{array.info.type!=2}}">
+                    <view class="xian" wx:if="{{class_s==1}}">
+                        <image mode="widthFix" showMenuByLongpress="true" src="{{array.success_url}}" wx:if="{{array.info.type!=2}}"></image>
+                        <view class="but">
+                            <view>长按保存到相册</view>
+                            <view>扫一扫认证</view>
+                        </view>
+                    </view>
+                    <view class="xian" wx:else>
+                        <image mode="widthFix" showMenuByLongpress="true" src="{{array.applyment_result.sign_url}}"></image>
+                        <view class="but" wx:if="{{class_s==2}}">长按扫一扫认证</view>
+                    </view>
+                </block>
+                <view class="xian" style="height:30rpx;" wx:else></view>
+                <view class="flex vertical">
+                    <uni-icons bind:__l="__l" color="#090909" customPrefix="iconfont" size="20" type="icon-24gl-circle" vueId="13902080-6" wx:if="{{array.status==2}}"></uni-icons>
+                    <uni-icons bind:__l="__l" color="#36E352" size="20" type="checkbox-filled" vueId="13902080-7" wx:if="{{array.status==3}}"></uni-icons>
+                    <view class="error_msg zi-one">{{option[1].title}}</view>
+                </view>
+            </view>
+            <view wx:else>
+                <button bindtap="__e" class="amend" data-event-opts="{{[ [ 'tap',[ [ 'service',['$event'] ] ] ] ]}}">联系客服处理</button>
+            </view>
+        </view>
+        <view class="box5 flex vertical" wx:if="{{array.status==1}}">
+            <button bindtap="__e" class="button zi-one" data-event-opts="{{[ [ 'tap',[ [ 'pay',['$event'] ] ] ] ]}}" type="warn">立即支付</button>
+        </view>
+        <block wx:if="{{array.info.xcxname}}">
+            <view class="box4" wx:if="{{array.status>1}}">
+                <button bindtap="__e" class="quick_r" data-event-opts="{{[ [ 'tap',[ [ 'fastAuthentication',['$0'],['array.id'] ] ] ] ]}}" wx:if="{{hiddenAuthentication}}">快速认证</button>
+                <button bindtap="__e" class="amend" data-event-opts="{{[ [ 'tap',[ [ 'amend',['$0','$1'],['array.info','array.info_id'] ] ] ] ]}}" wx:if="{{modifyTheHidden}}">修改企业信息</button>
+                <button bindtap="__e" class="amend" data-event-opts="{{[ [ 'tap',[ [ 'rename',['$event'] ] ] ] ]}}">修改名称</button>
+            </view>
+        </block>
+    </view>
+</view>

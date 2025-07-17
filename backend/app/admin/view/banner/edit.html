@@ -1,0 +1,83 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" name="sort" class="layui-input"  placeholder="请输入排序" value="{$row['sort']|default=''}">
+                <tip>由大到小</tip>
+
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="img_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传图片" value="{$row['img_url']|default=''}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="img_url"  data-upload-exts="ico|png|jpg|jpeg"><i class="fa fa-upload"></i> 上传</a></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">连接方式</label>
+            <div class="layui-input-block">
+                <input type="radio" name="type" value="1" lay-filter='type' title="小程序"  {if $row['type']==1}checked{/if}  >
+                <input type="radio" name="type" value="2" lay-filter='type' title="H5"  {if $row['type']==2}checked{/if}  >
+                <input type="radio" name="type" value="3" lay-filter='type' title="手机号"  {if $row['type']==3}checked{/if}  >
+            </div>
+        </div>
+
+        <h3>H5/手机号需填写</h3>
+        <hr>
+        <div class="layui-form-item">
+
+            <label class="layui-form-label">H5连接/手机号</label>
+            <div class="layui-input-block">
+                <input type="text" name="urls" class="layui-input"  placeholder="请输入H5连接/手机号" value="{$row['urls']|default=''}">
+            </div>
+        </div>
+
+
+        <h3>小程序需填写</h3>
+        <hr>
+        <div class="layui-form-item">
+            <label class="layui-form-label">小程序appid</label>
+            <div class="layui-input-block">
+                <input type="text" name="appid" class="layui-input"  placeholder="请输入小程序appid" value="{$row['appid']|default=''}">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">原始id</label>
+            <div class="layui-input-block">
+                <input type="text" name="gh_no" class="layui-input"  placeholder="请输入原始id" value="{$row['gh_no']|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">打开路径</label>
+            <div class="layui-input-block">
+                <input type="text" name="path" class="layui-input"  placeholder="请输入打开路径" value="{$row['path']|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">参数信息</label>
+            <div class="layui-input-block">
+                <input type="text" name="extradata" class="layui-input"  placeholder="请输入打开路径" value="{$row['extradata']|default=''}">
+                <tip>多参数用|分割,例如<span style="color:red;padding: 0px 9px">id:5|name:join|age:23</span></tip>
+            </div>
+        </div>
+
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>确认</button>
+        </div>
+
+    </form>
+</div>

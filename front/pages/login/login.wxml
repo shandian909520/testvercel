@@ -1,0 +1,15 @@
+<view class="userSet">
+    <form bindsubmit="__e" data-event-opts="{{[ [ 'submit',[ [ 'formSubmit',['$event'] ] ] ] ]}}">
+        <view class="usercontent userImg">
+            <view class="title">设置用户头像</view>
+            <button bindchooseavatar="__e" data-event-opts="{{[ [ 'chooseavatar',[ [ 'chooseavatar',['$event'] ] ] ] ]}}" openType="chooseAvatar">
+                <image mode src="{{userImg||temporary}}"></image>
+            </button>
+        </view>
+        <view class="usercontent userName">
+            <view class="title">设置用户昵称</view>
+            <input bindinput="__e" data-event-opts="{{[ [ 'input',[ [ '__set_model',[ '','userName','$event',[] ] ] ] ] ]}}" name="userName" placeholder="请输入昵称" type="nickname" value="{{userName}}"></input>
+        </view>
+        <button class="userBtn" formType="submit">保存</button>
+    </form>
+</view>

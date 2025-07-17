@@ -1,0 +1,15 @@
+<view class="data-v-ba8b115a">
+    <view class="lauwen-select data-v-ba8b115a">
+        <view class="lauwen-select-box data-v-ba8b115a">
+            <view bindtap="__e" class="lauwen-select-input data-v-ba8b115a" data-event-opts="{{[ [ 'tap',[ ['lauwenSelect'] ] ] ]}}" style="font-size:13px;max-width: 100%;">
+                <view class="lauwen-select-input-text data-v-ba8b115a" data-index="{{selected_index}}" style="{{'height:'+height+'rpx'+';'+'line-height:'+height+'rpx'+';'+'padding:'+padding+'rpx'+';'}}">{{options[selected_index]}}</view>
+                <view class="{{['lauwen-select-input-icon','data-v-ba8b115a',is_selecting?'lauwen-selecting-icon':'']}}" style="margin-right:14rpx;">
+                    <view class="lauwen-icon data-v-ba8b115a"></view>
+                </view>
+            </view>
+        </view>
+        <view class="lauwen-options data-v-ba8b115a" hidden="{{!is_selecting}}" style="z-index:99;">
+            <view bindtap="__e" class="{{['lauwen-option','data-v-ba8b115a',selected_index==index?'lauwen-option-active':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'lauwenSelected',[index] ] ] ] ]}}" style="{{'width:'+width+'rpx'+';'+'height:'+height+'rpx'+';'+'line-height:'+height+'rpx'+';'+'padding:'+padding+'rpx'+';'+'font-size:'+fontSize+';'}}" wx:for="{{options}}" wx:key="index">{{''+item+''}}</view>
+        </view>
+    </view>
+</view>

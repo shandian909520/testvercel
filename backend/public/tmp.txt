@@ -1,0 +1,13 @@
+https://lbs.amap.com/api/track/lieying-kaifa/api/track_fence#t2
+
+更新
+删除 小程序列表菜单
+
+
+数据库更新
+ALTER TABLE `ea_system_admin`
+ADD COLUMN `independent`  int(10) NULL DEFAULT 0 COMMENT '三方开关' AFTER `sort`;
+
+ALTER TABLE `ea_system_admin`
+ADD COLUMN `end_time`  int(11) NULL DEFAULT NULL COMMENT '到期事件' AFTER `delete_time`;
+

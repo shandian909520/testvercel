@@ -1,0 +1,53 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this" lay-id="tab1">主体信息</li>
+                <li lay-id="tab2">经营信息</li>
+                <li lay-id="tab3">法人信息</li>
+                <li lay-id="tab4">银行信息</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    {include file="admin_incoming_parts/tab/subject_info" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="admin_incoming_parts/tab/business_info" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="admin_incoming_parts/tab/legal_persion_info" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="admin_incoming_parts/tab/bank_info" /}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+
+
+    var all_region = JSON.parse('{:json_encode($region->toArray())}')
+    var company_trad = JSON.parse('{:json_encode($company_trad)}')
+    var persion_trad = JSON.parse('{:json_encode($persion_trad)}')
+</script>
+
+<style>
+    .layui-input {
+        height: 30px;
+    }
+
+    /* layui-input 默认太高了，这里固定高度*/
+    label.required:after {
+        /* 给红色的必填项打红色星号（文字后）如果打前面用before*/
+        content: ' *';
+        color: red;
+    }
+
+    .layui-form-label.required:after {
+        /* 这种写法也可以*/
+        content: ' *';
+        color: red;
+    }
+</style>

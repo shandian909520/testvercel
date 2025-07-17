@@ -1,0 +1,189 @@
+page {
+    font-size: 14px;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+.opacity1 {
+    opacity: 1;
+}
+
+.zi {
+    font-size: 20rpx;
+    line-height: 30prx;
+}
+
+.zi-one {
+    font-size: 24rpx;
+    line-height: 24rpx;
+}
+
+.zi-two {
+    font-size: 14px;
+    line-height: 26rpx;
+}
+
+.zi-three {
+    font-size: 28rpx;
+    line-height: 28rpx;
+}
+
+.zi-four {
+    font-size: 30rpx;
+    line-height: 30rpx;
+}
+
+.zi-five {
+    font-size: 32rpx;
+    line-height: 32rpx;
+}
+
+.zi-six {
+    font-size: 40rpx;
+    line-height: 40rpx;
+}
+
+.zi-seven {
+    font-size: 60rpx;
+    line-height: 60rpx;
+}
+
+.zi-eight {
+    font-size: 36rpx;
+    line-height: 36rpx;
+}
+
+.color-one {
+    color: #fff;
+}
+
+.color-two {
+    color: #000;
+}
+
+.color-three {
+    color: #f9f9fb;
+}
+
+.color-four {
+    color: #aaa;
+}
+
+.color-six {
+    color: #a4a4a4;
+}
+
+.color-five {
+    color: red;
+}
+
+.color-seven {
+    color: #09bb07;
+}
+
+.color-eight {
+    color: #aeaeb1;
+}
+
+.color-nine {
+    color: #5686ed;
+}
+
+.font-one {
+    font-weight: 400;
+}
+
+.font-two {
+    font-weight: 500;
+}
+
+.font-three {
+    font-weight: 600;
+}
+
+.font-four {
+    font-weight: 700;
+}
+
+.font-five {
+    font-weight: 800;
+}
+
+.font-six {
+    font-weight: 900;
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    text-align: center;
+}
+
+.average {
+    justify-content: space-around;
+}
+
+.side {
+    justify-content: space-between;
+}
+
+.vertical {
+    align-items: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+page {
+    background-color: #f9f9fb;
+}
+
+button {
+    border: none;
+}
+
+button::after {
+    border: none;
+}
+
+page::after {
+    position: fixed;
+    content: '';
+    left: -1000px;
+    top: -1000px;
+    animation: shadow-preload .1s;
+    animation-delay: 3s;
+}
+
+@-webkit-keyframes shadow-preload {
+    0% {
+        background-image: url(https://cdn1.dcloud.net.cn/img/shadow-grey.png);
+    }
+
+    100% {
+        background-image: url(https://cdn1.dcloud.net.cn/img/shadow-grey.png);
+    }
+}
+
+@keyframes shadow-preload {
+    0% {
+        background-image: url(https://cdn1.dcloud.net.cn/img/shadow-grey.png);
+    }
+
+    100% {
+        background-image: url(https://cdn1.dcloud.net.cn/img/shadow-grey.png);
+    }
+}
+
+[data-custom-hidden="true"],[bind-data-custom-hidden="true"] {
+    display: none!important;
+}

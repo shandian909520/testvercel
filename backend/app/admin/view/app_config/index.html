@@ -1,0 +1,75 @@
+<div class="layuimini-container">
+    <div class="layuimini-main" id="app">
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                {if session('admin.id') == 1}
+                <li class="layui-this">站点设置</li>
+                <li>基础设置</li>
+                <li>上传配置</li>
+                {/if}
+                {if session('admin.id') != 1}
+                <li class="layui-this">基础设置</li>
+                {/if}
+                <li>微信小程序设置</li>
+                <li>微信公众号设置</li>
+                <!-- <li>消息提醒</li> -->
+                <li>广告管理</li>
+                <!--<li>核名设置</li>-->
+                <li>百度识别</li>
+                <!-- <li>授权管理</li> -->
+                <li>用户隐私协议</li>
+            </ul>
+            <div class="layui-tab-content">
+
+                {if session('admin.id') == 1}
+                <div class="layui-tab-item layui-show">
+                    {include file="app_config/site" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="app_config/base_config" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="system/config/upload" /}
+                </div>
+                {/if}
+                {if session('admin.id') != 1}
+                <div class="layui-tab-item layui-show">
+                    {include file="app_config/base_config" /}
+                </div>
+                {/if}
+
+                <div class="layui-tab-item">
+                    {include file="app_config/wx_pay" /}
+                </div>
+                <div class="layui-tab-item">
+                    {include file="app_config/wx_mp_pay" /}
+                </div>
+                <!-- <div class="layui-tab-item">
+                    {include file="app_config/notice" /}
+                </div> -->
+                <div class="layui-tab-item">
+                    {include file="app_config/ad" /}
+                </div>
+                <!--<div class="layui-tab-item">-->
+                <!--    {include file="app_config/check_name" /}-->
+                <!--</div>-->
+                <div class="layui-tab-item">
+                    {include file="app_config/baidu" /}
+                </div>
+                <!-- <div class="layui-tab-item">
+                    {include file="app_config/auth" /}
+                </div> -->
+                <div class="layui-tab-item">
+                    {include file="app_config/privacy_agreement" /}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var upload_type = "{:sysconfig('upload','upload_type')}";
+</script>

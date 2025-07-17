@@ -1,0 +1,57 @@
+<view>
+    <view>
+        <uni-segmented-control activeColor="#123DC7" bind:__l="__l" bind:clickItem="__e" current="{{current}}" data-event-opts="{{[ [ '^clickItem',[ ['onClickItem'] ] ] ]}}" styleType="text" values="{{items}}" vueId="5043cd00-1"></uni-segmented-control>
+        <view class="content">
+            <view wx:for="{{array}}" wx:key="index">
+                <view class="body zi-three" wx:if="{{item.class==1}}">
+                    <view class="order_id zi-one">{{'订单号：'+item.order_id}}</view>
+                    <view class="By-law">
+                        <view>{{'注册类型：\n\t\t\t\t\t\t\t'+(item.info.type==1?'个人小程序':item.info.type==2?'企业小程序':item.info.type==3?'管理员注册':'')+''}}</view>
+                        <view>{{item.info.type==1?'姓名：'+item.info.name:'公司名称：'+item.info.name}}</view>
+                        <view>{{'注册时间：'+item.info.create_time}}</view>
+                    </view>
+                    <view class="below flex vertical side">
+                        <view style="width:50%;overflow:hidden;">{{''+(item.pay_type==3?'激活码：'+item.code:'总金额：￥'+item.num)+''}}</view>
+                        <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" data-type="{{item.info.type}}" style="margin:0;background-color:#009688;" wx:if="{{item.status==3}}">查询详情</button>
+                        <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" data-type="{{item.info.type}}">{{item.status==3?'已完成':'查询详情'}}</button>
+                    </view>
+                </view>
+                <view class="body zi-three" wx:if="{{item.class==2}}">
+                    <view class="order_id zi-one">{{'订单号：'+item.order_id}}</view>
+                    <view class="By-law">
+                        <view>商户注册：微信</view>
+                        <view>{{'公司名称：'+item.orderShortInfo.merchant_name}}</view>
+                        <view>{{'费率：'+item.orderShortInfo.activities_rate+'%'}}</view>
+                        <view>{{'注册时间：'+item.create_time}}</view>
+                        <view class="err" wx:if="{{item.status==4}}">{{'失败原因：'+item.error_msg}}</view>
+                    </view>
+                    <view class="below flex vertical side">
+                        <view>{{item.pay_type==3?'激活码：'+item.code:'总金额：￥'+item.num}}</view>
+                        <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" data-type="{{item.orderShortInfo.subject_type}}" wx:if="{{item.status==1}}">修改信息</button>
+                        <block wx:else>
+                            <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" wx:if="{{item.status==2}}">查看进度</button>
+                            <block wx:else>
+                                <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" wx:if="{{item.status==3}}">已完成</button>
+                                <block wx:else>
+                                    <button bindtap="__e" class="zi-two" data-class="{{item.class}}" data-event-opts="{{[ [ 'tap',[ [ 'when',['$event'] ] ] ] ]}}" data-order="{{item.order_id}}" data-status="{{item.status}}" data-type="{{item.orderShortInfo.subject_type}}" wx:if="{{item.status==4}}">修改重提</button>
+                                </block>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+                <view class="body zi-three" wx:if="{{item.class==3}}">
+                    <view class="order_id zi-one">{{'订单号：'+item.order_id}}</view>
+                    <view class="By-law">
+                        <view>商户注册：支付宝</view>
+                        <view>{{'商户账号：'+item.aliOrdersInfo.account}}</view>
+                        <view>{{'注册时间：'+item.create_time}}</view>
+                    </view>
+                    <view class="below flex vertical side">
+                        <view>{{''+(item.pay_type==3?'激活码：'+item.code:item.pay_type==2?'总金额：￥'+item.num:item.pay_type==1?'平台':'')+'\n\t\t\t\t\t\t\t'+(item.status==1?'待支付':'')+''}}</view>
+                        <button bindtap="__e" class="zi-two" data-event-opts="{{[ [ 'tap',[ [ 'when2',['$0'],[ [ ['array','',index] ] ] ] ] ] ]}}">查看进度</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

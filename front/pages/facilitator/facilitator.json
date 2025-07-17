@@ -1,0 +1,20 @@
+{
+    "navigationBarTitleText": "微信支付快速开通",
+    "navigationBarBackgroundColor": "#F5F5F5",
+    "usingComponents": {
+        "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms",
+        "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item",
+        "uni-easyinput": "/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput",
+        "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+        "more": "/components/more/more",
+        "uni-data-select": "/uni_modules/uni-data-select/components/uni-data-select/uni-data-select",
+        "uni-datetime-picker": "/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker",
+        "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup",
+        "uni-search-bar": "/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
+        "uni-list": "/uni_modules/uni-list/components/uni-list/uni-list",
+        "uni-list-item": "/uni_modules/uni-list/components/uni-list-item/uni-list-item",
+        "compress": "/components/compress/compress",
+        "cityld": "/component/city/cityld",
+        "item-moive": "/component/itemMoive/itemMoive"
+    }
+}

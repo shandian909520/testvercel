@@ -1,0 +1,45 @@
+page {
+    background-color: #f5f5f5;
+}
+
+.group_1 {
+    line-height: 86rpx;
+    height: 86rpx;
+    width: 660rpx;
+    padding-left: 40rpx;
+    margin: 30rpx auto 0;
+    background-color: #2d62de;
+    border-radius: 10rpx;
+    color: #fff;
+    font-weight: 700;
+    font-size: 34rpx;
+    position: relative;
+}
+
+.groud_2 {
+    width: 620rpx;
+    margin: 60rpx auto 40rpx;
+    padding: 0 40rpx 20rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+}
+
+.jiao {
+    position: absolute;
+    border-top: 40rpx solid #2d62de;
+    border-left: 20rpx solid #f5f5f5;
+    border-right: 20rpx solid #f5f5f5;
+    left: 20rpx;
+}
+
+.text_1 {
+    font-size: 34rpx;
+    font-weight: 700;
+    line-height: 110rpx;
+}
+
+.text_2 {
+    font-size: 28rpx;
+    line-height: 100rpx;
+    border-top: 1rpx solid #c9c9c9;
+}

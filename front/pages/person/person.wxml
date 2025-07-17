@@ -1,0 +1,21 @@
+<view class="page" hidden="{{!(get_p!=1)}}">
+    <view class="frame">
+        <uni-forms bind:__l="__l" class="vue-ref" data-ref="form" modelValue="{{formData}}" rules="{{rules}}" vueId="e8437cc0-1" vueSlots="{{['default']}}">
+            <view class="flex">
+                <view class="font-two zi-four title">姓名：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="name" vueId="{{'e8437cc0-2'+','+'e8437cc0-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','name','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" value="{{formData.name}}" vueId="{{'e8437cc0-3'+','+'e8437cc0-2'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">WX号：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="wx_code" vueId="{{'e8437cc0-4'+','+'e8437cc0-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','wx_code','$event',[] ],['formData'] ] ] ] ]}}" styles="{{style}}" type="text" value="{{formData.wx_code}}" vueId="{{'e8437cc0-5'+','+'e8437cc0-4'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <button bindtap="__e" class="color-one" data-event-opts="{{[ [ 'tap',[ [ 'submit',['$event'] ] ] ] ]}}">提交</button>
+        </uni-forms>
+    </view>
+    <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+    <item-moive bind:__l="__l" bind:handlePopup="__e" body="请立即前往登录" data-custom-hidden="{{!popup}}" data-event-opts="{{[ [ '^handlePopup',[ ['HidePopup'] ] ] ]}}" no="取消" ok="登录" s_style="#123DC7" title="未登录" vueId="e8437cc0-6"></item-moive>
+</view>

@@ -1,0 +1,37 @@
+<view class="page">
+    <view class="frame">
+        <view class="explain">
+            <view>说明：</view>
+            <view>小程序发布前可改名的次数为2，当改名次数上限后仍需继续改名时需要重新发起微信认证改名。</view>
+        </view>
+        <uni-forms bind:__l="__l" class="vue-ref" data-ref="form" modelValue="{{formData}}" rules="{{formRules}}" vueId="28b0b5c0-1" vueSlots="{{['default']}}">
+            <view class="flex">
+                <view class="font-two zi-four title">营业执照：</view>
+                <more bind:__l="__l" bind:del="__e" bind:moress="__e" class="vue-ref" count="1" data-event-opts="{{[ [ '^moress',[ ['moress'] ] ],[ '^del',[ ['del'] ] ] ]}}" data-ref="more3" name_dat="license_link" vueId="{{'28b0b5c0-2'+','+'28b0b5c0-1'}}"></more>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title" style="color:transparent;">营业执照：</view>
+                <uni-forms-item bind:__l="__l" class="uploadImgDes uni-forms-item" name="license_link" vueId="{{'28b0b5c0-3'+','+'28b0b5c0-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','license_link','$event',[] ],['formData'] ] ] ] ]}}" type="text" value="{{formData.license_link}}" vueId="{{'28b0b5c0-4'+','+'28b0b5c0-3'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">其他资料：</view>
+                <more bind:__l="__l" bind:del="__e" bind:moress="__e" class="vue-ref" count="5" data-event-opts="{{[ [ '^moress',[ ['moress'] ] ],[ '^del',[ ['del'] ] ] ]}}" data-ref="more3" name_dat="otherDetails" style="flex:1;" title="只能传五张" vueId="{{'28b0b5c0-5'+','+'28b0b5c0-1'}}"></more>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title" style="color:transparent;">其他资料：</view>
+                <uni-forms-item bind:__l="__l" class="uploadImgDes uni-forms-item" name="otherDetails" vueId="{{'28b0b5c0-6'+','+'28b0b5c0-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!false}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','otherDetails','$event',[] ],['formData'] ] ] ] ]}}" type="text" value="{{formData.otherDetails}}" vueId="{{'28b0b5c0-7'+','+'28b0b5c0-6'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <view class="flex">
+                <view class="font-two zi-four title">小程序名：</view>
+                <uni-forms-item bind:__l="__l" class="uni-forms-item" name="xcxname" vueId="{{'28b0b5c0-8'+','+'28b0b5c0-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','xcxname','$event',[] ],['formData'] ] ] ] ]}}" value="{{formData.xcxname}}" vueId="{{'28b0b5c0-9'+','+'28b0b5c0-8'}}"></uni-easyinput>
+                </uni-forms-item>
+            </view>
+            <button bindtap="__e" class="color-one" data-event-opts="{{[ [ 'tap',[ [ 'submit',['$event'] ] ] ] ]}}">提交</button>
+        </uni-forms>
+    </view>
+</view>

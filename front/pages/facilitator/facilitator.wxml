@@ -1,0 +1,403 @@
+<view hidden="{{!(get_p!=1)}}">
+    <view class="head">
+        <view class=" flex average center" style="font-size:22rpx;">
+            <view class="{{[procedure>index&&item?'head_zi':'']}}" wx:for="{{step}}" wx:key="index">
+                <view class="flex average" style="width:88rpx;" wx:if="{{item}}">
+                    <view class="yuan_1" style="{{procedure>index?'background-color:#5686ED':'background-color:#999999'}}"></view>
+                </view>
+                <view style="{{procedure>index?'color:#5686ED':'color:#999999'}}" wx:else>--------</view>
+            </view>
+        </view>
+        <view class="flex side center" style="font-size:22rpx;">
+            <view class="{{[procedure>index&&item?'head_zi':'']}}" style="width:88rpx;" wx:for="{{step}}" wx:key="index">
+                <view>{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="details">
+        <view class="body_one" hidden="{{!(procedure==1)}}">
+            <uni-forms bind:__l="__l" class="first vue-ref" data-ref="form_first" modelValue="{{first}}" rules="{{form_first}}" vueId="616240b4-1" vueSlots="{{['default']}}">
+                <uni-forms-item bind:__l="__l" class="e" name="license_copy" vueId="{{'616240b4-2'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <view class="groud_1">营业执照(必填)</view>
+                    <view class="color-eight zi license">必须上传营业执照.自动识别录入商户
+						名称、统一信用代码、需年检章齐全 当年注册除外</view>
+                    <view bindtap="__e" class="flex" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="license_copy" data-name="first">
+                        <image src="../../static/MP-WEIXIN/24.png" style="width:176rpx;height:176rpx;" wx:if="{{!first.license_copy_link}}"></image>
+                        <image class="img" src="{{https+first.license_copy_link}}" wx:if="{{first.license_copy_link}}"></image>
+                    </view>
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','license_copy','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.license_copy}}" vueId="{{'616240b4-3'+','+'616240b4-2'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="license_copy_link" vueId="{{'616240b4-4'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','license_copy_link','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.license_copy_link}}" vueId="{{'616240b4-5'+','+'616240b4-4'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="settlement_id" vueId="{{'616240b4-6'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','settlement_id','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.settlement_id}}" vueId="{{'616240b4-7'+','+'616240b4-6'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="qualification_type" vueId="{{'616240b4-8'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','qualification_type','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.qualification_type}}" vueId="{{'616240b4-9'+','+'616240b4-8'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="incoming_part_id" vueId="{{'616240b4-10'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','incoming_part_id','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.incoming_part_id}}" vueId="{{'616240b4-11'+','+'616240b4-10'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" class="firsts" label="商户名称" labelWidth="90" name="merchant_name" vueId="{{'616240b4-12'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','merchant_name','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.merchant_name}}" vueId="{{'616240b4-13'+','+'616240b4-12'}}"></uni-easyinput>
+                    <view class="zi color-eight">若营业执照上商户名称为“空”或为“无”，请填写“个 体工商户+经营者姓名”，如“个体户张三”</view>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" class="firsts" label="统一信用代码" name="license_number" vueId="{{'616240b4-14'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','license_number','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.license_number}}" vueId="{{'616240b4-15'+','+'616240b4-14'}}"></uni-easyinput>
+                    <view class="color-eight zi">请仔细核对营业执照上的统一社会信用代码</view>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" class="firsts" label="商户简称" name="merchant_shortname" vueId="{{'616240b4-16'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','merchant_shortname','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.merchant_shortname}}" vueId="{{'616240b4-17'+','+'616240b4-16'}}"></uni-easyinput>
+                    <view class="color-eight zi">在支付完成页面向买家展示，需与微信经营类目相同</view>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" class="firsts" label="客服电话" name="service_phone" vueId="{{'616240b4-18'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','service_phone','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.service_phone}}" vueId="{{'616240b4-19'+','+'616240b4-18'}}"></uni-easyinput>
+                    <view class="color-eight zi">请填写真实有效电话，将在交易中向买家展示，提供咨询 服务</view>
+                </uni-forms-item>
+                <view class="flex vertical">
+                    <view class="zi-two title">经营类目</view>
+                    <picker bindchange="__e" class="picker" data-event-opts="{{[ [ 'change',[ [ 'category',['$event'] ] ] ] ]}}" mode="selector" range="{{array}}" rangeKey="qualification_type" style="{{picker[0]?picker[0]+'position: relative;':'position: relative;'}}" value="{{index}}">
+                        <uni-icons bind:__l="__l" color="{{picker[0]?'#dd524d':'#CACACA'}}" size="24" style="position:absolute;right:12rpx;top:4rpx;line-height:34px;" type="bottom" vueId="{{'616240b4-20'+','+'616240b4-1'}}"></uni-icons>
+                        <view class="uni-input">{{(first.qualification_type==''?'请选择经营类目':first.qualification_type)+''}}</view>
+                    </picker>
+                </view>
+                <view class="color-eight zi" style="margin-left:180rpx;">0.6%费率为微信支付官方标准费率
+					适用于餐饮、零售批发、网上综合超市、交通出行、生活 娱乐服务、培训教育机构民营医疗机构、缴费等业务</view>
+                <view class="zi-two  businessCategory">
+                    <view>开通服务费</view>
+                    <view style="color:red;font-size:20rpx;" wx:if="{{fixed}}">*此类目不支持参加优惠费率活动</view>
+                </view>
+                <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'currents',['$event'] ] ] ] ]}}" data-value="{{item.id}}" wx:for="{{items.set_meal}}" wx:key="id">
+                    <view class="flex side vertical">
+                        <uni-icons bind:__l="__l" color="#5686ED" size="18" type="checkbox-filled" vueId="{{'616240b4-21-'+index+','+'616240b4-1'}}" wx:if="{{first.incoming_part_id==item.id}}"></uni-icons>
+                        <uni-icons bind:__l="__l" color="#CACACA" size="18" type="circle" vueId="{{'616240b4-22-'+index+','+'616240b4-1'}}" wx:else></uni-icons>
+                        <view class="{{[first.incoming_part_id==item.id?'current flex side':'unselected flex side']}}">
+                            <view>{{item.rate}}</view>
+                            <view class="{{[first.incoming_part_id==item.id?'current_zi':'unselected_zi']}}" style="display:flex;align-items:center;">{{'￥'+item.cost+''}}<view style="margin-left:10rpx;">技术服务费</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{index>0}}">
+                    <view class="groud_1">特殊资质</view>
+                    <view class="reminder">{{array[index].special_qualifications}}</view>
+                    <uni-forms-item bind:__l="__l" class="a" name="qualifications" vueId="{{'616240b4-23'+','+'616240b4-1'}}" vueSlots="{{['default']}}" wx:if="{{array[index].special_qualifications!='无需特殊资质'}}">
+                        <view bindtap="__e" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="qualifications" data-name="first">
+                            <image src="../../static/MP-WEIXIN/25.png" style="width:176rpx;height:176rpx;" wx:if="{{!first.qualifications_link}}"></image>
+                            <image class="img" src="{{https+first.qualifications_link}}" wx:else></image>
+                        </view>
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '','qualifications','$event',[] ] ] ] ] ]}}" type="text" value="{{qualifications}}" vueId="{{'616240b4-24'+','+'616240b4-23'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="qualifications_link" vueId="{{'616240b4-25'+','+'616240b4-1'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','qualifications_link','$event',[] ],['first'] ] ] ] ]}}" type="text" value="{{first.qualifications_link}}" vueId="{{'616240b4-26'+','+'616240b4-25'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <view class="flex side">
+                    <button bindtap="__e" class="back" data-event-opts="{{[ [ 'tap',[ [ 'back',['$event'] ] ] ] ]}}">上一步</button>
+                    <button bindtap="__e" class="next" data-event-opts="{{[ [ 'tap',[ [ 'next',['form_first'] ] ] ] ]}}">下一步</button>
+                </view>
+            </uni-forms>
+        </view>
+        <view class="body_one thr" hidden="{{!(procedure==3)}}">
+            <view class="head2">
+                <view class="groud_1" style="margin-bottom:43rpx;">经营场景(至少选择一种)</view>
+                <view class="flex">
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'change',['$event'] ] ] ] ]}}" data-text="线下门店" data-val="SALES_SCENES_STORE">
+                        <uni-icons bind:__l="__l" color="#5686ED" size="18" type="checkbox-filled" vueId="616240b4-27" wx:if="{{STORE}}"></uni-icons>
+                        <uni-icons bind:__l="__l" color="#CACACA" size="18" type="circle" vueId="616240b4-28" wx:else></uni-icons>
+                        <view class="groud_2">线下门店</view>
+                    </view>
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'change',['$event'] ] ] ] ]}}" data-text="公众号" data-val="SALES_SCENES_MP">
+                        <uni-icons bind:__l="__l" color="#5686ED" size="18" type="checkbox-filled" vueId="616240b4-29" wx:if="{{MP}}"></uni-icons>
+                        <uni-icons bind:__l="__l" color="#CACACA" size="18" type="circle" vueId="616240b4-30" wx:else></uni-icons>
+                        <view class="groud_2">公众号</view>
+                    </view>
+                </view>
+            </view>
+            <uni-forms bind:__l="__l" class=" second vue-ref" data-ref="form_second" modelValue="{{second}}" rules="{{form_second}}" vueId="616240b4-31" vueSlots="{{['default']}}">
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="sales_scenes_type" vueId="{{'616240b4-32'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','sales_scenes_type','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.sales_scenes_type}}" vueId="{{'616240b4-33'+','+'616240b4-32'}}"></uni-easyinput>
+                </uni-forms-item>
+                <view wx:if="{{STORE}}">
+                    <view class="color-nine font-two zi-three">• 线下门店</view>
+                    <uni-forms-item bind:__l="__l" label="门店名称" labelPosition="top" name="biz_store_name" vueId="{{'616240b4-34'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','biz_store_name','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.biz_store_name}}" vueId="{{'616240b4-35'+','+'616240b4-34'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <view class="pick_title" style="box-sizing:border-box;flex-direction:row;align-items:center;width:65px;padding:5px 0;height:36px;line-height:36px;">门店省市</view>
+                    <view>
+                        <view bindtap="__e" class="pick zi-three" data-event-opts="{{[ [ 'tap',[ [ 'pick',['$event'] ] ] ] ]}}" style="{{picker[1]==''?'position: relative;':picker[1]+'position: relative;'}}">
+                            <uni-icons bind:__l="__l" color="{{picker[1]==''?'#B2B2B5':'#dd524d'}}" size="30" style="line-height:34px;position:absolute;right:0;padding-right:10px;" type="bottom" vueId="{{'616240b4-36'+','+'616240b4-31'}}"></uni-icons>
+                            <view style="line-height:68rpx;">{{citykd}}</view>
+                        </view>
+                        <view class="text" hidden="{{!text.store}}">请选择门店省市</view>
+                    </view>
+                    <uni-forms-item bind:__l="__l" class="uploadImgDes" name="biz_address_code" vueId="{{'616240b4-37'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','biz_address_code','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.biz_address_code}}" vueId="{{'616240b4-38'+','+'616240b4-37'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" class="f " data-custom-hidden="{{!img}}" label="门店详细地址" labelPosition="top" name="biz_store_address" vueId="{{'616240b4-39'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','biz_store_address','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.biz_store_address}}" vueId="{{'616240b4-40'+','+'616240b4-39'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <more bind:__l="__l" bind:del="__e" bind:moress="__e" body="请上传门店门头照片，要求门店招牌清晰可见" class="vue-ref" count="5" dat="store_entrance_pic" data-event-opts="{{[ [ '^moress',[ ['moress'] ] ],[ '^del',[ ['del'] ] ] ]}}" data-ref="more2" name_dat="second" title="门店门头照片" vueId="{{'616240b4-41'+','+'616240b4-31'}}"></more>
+                    <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="store_entrance_pic" vueId="{{'616240b4-42'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','store_entrance_pic','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.store_entrance_pic}}" vueId="{{'616240b4-43'+','+'616240b4-42'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" class="uploadImgDes" name="store_entrance_pic_link" vueId="{{'616240b4-44'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','store_entrance_pic_link','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.store_entrance_pic_link}}" vueId="{{'616240b4-45'+','+'616240b4-44'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <more bind:__l="__l" bind:del="__e" bind:moress="__e" body="请上传店内环境照片" class="vue-ref" count="5" dat="indoor_pic" data-event-opts="{{[ [ '^moress',[ ['moress'] ] ],[ '^del',[ ['del'] ] ] ]}}" data-ref="more3" name_dat="second" title="店内环境照片" vueId="{{'616240b4-46'+','+'616240b4-31'}}"></more>
+                    <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="indoor_pic" vueId="{{'616240b4-47'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','indoor_pic','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.indoor_pic}}" vueId="{{'616240b4-48'+','+'616240b4-47'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" class="uploadImgDes" name="indoor_pic_link" vueId="{{'616240b4-49'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','indoor_pic_link','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.indoor_pic_link}}" vueId="{{'616240b4-50'+','+'616240b4-49'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <view class="mp_body" wx:if="{{MP}}">
+                    <view class="color-nine font-two zi-three" style="margin-bottom:28rpx;">• 公众号</view>
+                    <uni-forms-item bind:__l="__l" class="mp_pics" name="sub_type" vueId="{{'616240b4-51'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-data-select bind:__l="__l" bind:change="__e" bind:input="__e" clear="{{false}}" data-event-opts="{{[ [ '^change',[ ['asdfg'] ] ],[ '^input',[ [ '__set_model',[ '$0','sub_type','$event',[] ],['second'] ] ] ] ]}}" localdata="{{selectRange}}" placeholder="请选择公众号类型" value="{{second.sub_type}}" vueId="{{'616240b4-52'+','+'616240b4-51'}}"></uni-data-select>
+                    </uni-forms-item>
+                    <view style="margin-top:31rpx;">
+                        <uni-forms-item bind:__l="__l" class="mp_pics" name="mp_appid" vueId="{{'616240b4-53'+','+'616240b4-31'}}" vueSlots="{{['default']}}" wx:if="{{second.sub_type==1}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','mp_appid','$event',[] ],['second'] ] ] ] ]}}" placeholder="请输入公众号APPID" type="text" value="{{second.mp_appid}}" vueId="{{'616240b4-54'+','+'616240b4-53'}}"></uni-easyinput>
+                        </uni-forms-item>
+                    </view>
+                    <more bind:__l="__l" bind:del="__e" bind:moress="__e" body="请提供展示商品/服务的页面截图/设计稿（最多5张），若小程序未建设完善或未上线请务必提供" class="vue-ref" count="5" dat="mp_pics" data-event-opts="{{[ [ '^moress',[ ['moress'] ] ],[ '^del',[ ['del'] ] ] ]}}" data-ref="more1" name_dat="second" title="公众号页面截图-可以上传营业执照代替" vueId="{{'616240b4-55'+','+'616240b4-31'}}"></more>
+                    <uni-forms-item bind:__l="__l" class="uploadImgDes" name="mp_pics_link" vueId="{{'616240b4-56'+','+'616240b4-31'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','mp_pics_link','$event',[] ],['second'] ] ] ] ]}}" type="text" value="{{second.mp_pics_link}}" vueId="{{'616240b4-57'+','+'616240b4-56'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <cityld bind:__l="__l" bind:success="__e" bind:value="__e" class="vue-ref" data-event-opts="{{[ [ '^success',[ ['val'] ] ],[ '^value',[ ['val_show'] ] ] ]}}" data-ref="citykd" vueId="{{'616240b4-58'+','+'616240b4-31'}}"></cityld>
+                <view class="flex side">
+                    <button bindtap="__e" class="back" data-event-opts="{{[ [ 'tap',[ [ 'back',['$event'] ] ] ] ]}}">上一步</button>
+                    <button bindtap="__e" class="next" data-event-opts="{{[ [ 'tap',[ [ 'next',['form_second'] ] ] ] ]}}">下一步</button>
+                </view>
+            </uni-forms>
+        </view>
+        <view class="body_one" hidden="{{!(procedure==5)}}">
+            <uni-forms bind:__l="__l" class="c vue-ref" data-ref="from_third" modelValue="{{third}}" rules="{{form_thrid}}" vueId="616240b4-59" vueSlots="{{['default']}}">
+                <view class="groud_1">法人身份证照片</view>
+                <view class="color-eight zi license">请上传彩色照片或彩色扫描件</view>
+                <view class="flex average" style="margin-bottom:60rpx;">
+                    <uni-forms-item bind:__l="__l" class="b" name="id_card_copy" vueId="{{'616240b4-60'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <view bindtap="__e" class="image-bolck" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="id_card_copy" data-name="third">
+                            <image class="image_1" src="../../static/MP-WEIXIN/27.png" wx:if="{{!third.id_card_copy_link}}"></image>
+                            <image class="image_1" src="{{https+third.id_card_copy_link}}" wx:if="{{third.id_card_copy_link}}"></image>
+                        </view>
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_copy','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.id_card_copy}}" vueId="{{'616240b4-61'+','+'616240b4-60'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="id_card_copy_link" vueId="{{'616240b4-62'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_copy_link','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.id_card_copy_link}}" vueId="{{'616240b4-63'+','+'616240b4-62'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" class="b" name="id_card_national" vueId="{{'616240b4-64'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <view bindtap="__e" class="image-bolck" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="id_card_national" data-name="third">
+                            <image class="image_1" src="../../static/MP-WEIXIN/26.png" wx:if="{{!third.id_card_national_link}}"></image>
+                            <image class="image_1" src="{{https+third.id_card_national_link}}" wx:if="{{third.id_card_national_link}}"></image>
+                        </view>
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_national','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.id_card_national}}" vueId="{{'616240b4-65'+','+'616240b4-64'}}"></uni-easyinput>
+                    </uni-forms-item>
+                    <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="id_card_national_link" vueId="{{'616240b4-66'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_national_link','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.id_card_national_link}}" vueId="{{'616240b4-67'+','+'616240b4-66'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <view class="groud_3">
+                    <uni-forms-item bind:__l="__l" label="法人姓名" labelWidth="0" name="id_card_name" vueId="{{'616240b4-68'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_name','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入法人姓名" type="text" value="{{third.id_card_name}}" vueId="{{'616240b4-69'+','+'616240b4-68'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <view class="groud_3">
+                    <uni-forms-item bind:__l="__l" label="法人身份证号码" labelWidth="0" name="id_card_number" vueId="{{'616240b4-70'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_number','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入法人身份证号码" type="text" value="{{third.id_card_number}}" vueId="{{'616240b4-71'+','+'616240b4-70'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <view class="groud_3">
+                    <uni-forms-item bind:__l="__l" label="身份证居住地址" labelWidth="0" name="id_card_address" vueId="{{'616240b4-72'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_address','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入身份证居住地址" type="text" value="{{third.id_card_address}}" vueId="{{'616240b4-73'+','+'616240b4-72'}}"></uni-easyinput>
+                    </uni-forms-item>
+                </view>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="contact_type" vueId="{{'616240b4-74'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_type','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.contact_type}}" vueId="{{'616240b4-75'+','+'616240b4-74'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="card_period_begin" vueId="{{'616240b4-76'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','card_period_begin','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.card_period_begin}}" vueId="{{'616240b4-77'+','+'616240b4-76'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="card_period_end" vueId="{{'616240b4-78'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','card_period_end','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.card_period_end}}" vueId="{{'616240b4-79'+','+'616240b4-78'}}"></uni-easyinput>
+                </uni-forms-item>
+                <view class="flex" style="padding:16rpx 0 17rpx 0;">
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['indata',true] ] ] ] ]}}" style="margin-right:60rpx;">
+                        <uni-icons bind:__l="__l" color="{{indata?'#5686ED':'#CACACA'}}" size="20" type="{{indata?'checkbox-filled':'circle'}}" vueId="{{'616240b4-80'+','+'616240b4-59'}}"></uni-icons>
+                        <view class="groud_4">定期</view>
+                    </view>
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['indata',false] ] ] ] ]}}">
+                        <uni-icons bind:__l="__l" color="{{!indata?'#5686ED':'#CACACA'}}" size="20" type="{{!indata?'checkbox-filled':'circle'}}" vueId="{{'616240b4-81'+','+'616240b4-59'}}"></uni-icons>
+                        <view class="groud_4">长期有效</view>
+                    </view>
+                </view>
+                <view class="datetime">
+                    <view class="zi-two day_title">证件生效日期</view>
+                    <uni-datetime-picker bind:__l="__l" bind:change="__e" clearIcon="{{false}}" color="{{time[0]}}" data-event-opts="{{[ [ '^change',[ ['day_head'] ] ] ]}}" type="date" value="{{third.card_period_begin}}" vueId="{{'616240b4-82'+','+'616240b4-59'}}"></uni-datetime-picker>
+                </view>
+                <view class="datetime" wx:if="{{indata}}">
+                    <view class="zi-two day_title">证件失效日期</view>
+                    <uni-datetime-picker bind:__l="__l" bind:change="__e" clearIcon="{{false}}" color="{{time[1]}}" data-event-opts="{{[ [ '^change',[ ['day_last'] ] ] ]}}" type="date" value="{{third.card_period_end}}" vueId="{{'616240b4-83'+','+'616240b4-59'}}"></uni-datetime-picker>
+                </view>
+                <view class="flex" style="padding:16rpx 0 17rpx 0;">
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['root',false] ] ] ] ]}}" style="margin-right:60rpx;">
+                        <uni-icons bind:__l="__l" color="{{!root?'#5686ED':'#CACACA'}}" size="20" type="{{!root?'checkbox-filled':'circle'}}" vueId="{{'616240b4-84'+','+'616240b4-59'}}"></uni-icons>
+                        <view class="groud_4">法定代表人/经营者</view>
+                    </view>
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['root',true] ] ] ] ]}}">
+                        <uni-icons bind:__l="__l" color="{{root?'#5686ED':'#CACACA'}}" size="20" type="{{root?'checkbox-filled':'circle'}}" vueId="{{'616240b4-85'+','+'616240b4-59'}}"></uni-icons>
+                        <view class="groud_4">经办人</view>
+                    </view>
+                </view>
+                <view class="groud_3">
+                    <uni-forms-item bind:__l="__l" label="手机号码" labelWidth="0" name="mobile_phone" vueId="{{'616240b4-86'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','mobile_phone','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入手机号码" type="text" value="{{third.mobile_phone}}" vueId="{{'616240b4-87'+','+'616240b4-86'}}"></uni-easyinput>
+                        <view class="color-eight" style="font-size:10px;line-height:35rpx;margin-top:24rpx;">用于接收微信支付的重要管理信息及日常操作验证码，超管签约时可自助修改手机号，并通过短信验证</view>
+                    </uni-forms-item>
+                </view>
+                <view class="groud_3">
+                    <uni-forms-item bind:__l="__l" label="联系邮箱" labelWidth="0" name="contact_email" vueId="{{'616240b4-88'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                        <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_email','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入邮箱地址" type="text" value="{{third.contact_email}}" vueId="{{'616240b4-89'+','+'616240b4-88'}}"></uni-easyinput>
+                        <view class="color-eight" style="font-size:10px;line-height:35rpx;margin-top:24rpx;">用于接收微信支付的开户邮件及日常业务通知</view>
+                    </uni-forms-item>
+                </view>
+                <view wx:if="{{root}}">
+                    <view class="color-eight" style="margin-left:24rpx;font-size:20rpx;">请上传彩色照片或彩色扫描件</view>
+                    <view class="flex average">
+                        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="business_authorization_letter_link" vueId="{{'616240b4-90'+','+'616240b4-59'}}" vueSlots="{{['default']}}" wx:if="{{root}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','business_authorization_letter_link','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.business_authorization_letter_link}}" vueId="{{'616240b4-91'+','+'616240b4-90'}}"></uni-easyinput>
+                        </uni-forms-item>
+                        <uni-forms-item bind:__l="__l" class="b" name="contact_id_doc_copy" vueId="{{'616240b4-92'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <view bindtap="__e" class="image-bolck" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="contact_id_doc_copy" data-name="third">
+                                <image class="image_1" src="../../static/MP-WEIXIN/27.png" wx:if="{{!third.contact_id_doc_copy_link}}"></image>
+                                <image class="image_1" src="{{https+third.contact_id_doc_copy_link}}" wx:if="{{third.contact_id_doc_copy_link}}"></image>
+                            </view>
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_id_doc_copy','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.contact_id_doc_copy}}" vueId="{{'616240b4-93'+','+'616240b4-92'}}"></uni-easyinput>
+                        </uni-forms-item>
+                        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="contact_id_doc_copy_link" vueId="{{'616240b4-94'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_id_doc_copy_link','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.contact_id_doc_copy_link}}" vueId="{{'616240b4-95'+','+'616240b4-94'}}"></uni-easyinput>
+                        </uni-forms-item>
+                        <uni-forms-item bind:__l="__l" class="b" name="contact_id_doc_copy_back" vueId="{{'616240b4-96'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <view bindtap="__e" class="image-bolck" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="contact_id_doc_copy_back" data-name="third">
+                                <image class="image_1" src="../../static/MP-WEIXIN/27.png" wx:if="{{!third.contact_id_doc_copy_back_link}}"></image>
+                                <image class="image_1" src="{{https+third.contact_id_doc_copy_back_link}}" wx:if="{{third.contact_id_doc_copy_back_link}}"></image>
+                                <uni-easyinput bind:__l="__l" bind:input="__e" data-custom-hidden="{{!img}}" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_id_doc_copy_back','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.contact_id_doc_copy_back}}" vueId="{{'616240b4-97'+','+'616240b4-96'}}"></uni-easyinput>
+                            </view>
+                        </uni-forms-item>
+                        <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="contact_id_doc_copy_back_link" vueId="{{'616240b4-98'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_id_doc_copy_back_link','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.contact_id_doc_copy_back_link}}" vueId="{{'616240b4-99'+','+'616240b4-98'}}"></uni-easyinput>
+                        </uni-forms-item>
+                    </view>
+                    <view class="groud_3">
+                        <uni-forms-item bind:__l="__l" label="超管姓名" name="contact_name" vueId="{{'616240b4-100'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_name','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入超级管理员姓名" type="text" value="{{third.contact_name}}" vueId="{{'616240b4-101'+','+'616240b4-100'}}"></uni-easyinput>
+                        </uni-forms-item>
+                    </view>
+                    <view class="groud_3">
+                        <uni-forms-item bind:__l="__l" label="超管身份证号" name="contact_id_number" vueId="{{'616240b4-102'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','contact_id_number','$event',[] ],['third'] ] ] ] ]}}" placeholder="请输入超级管理员身份证号码" type="text" value="{{third.contact_id_number}}" vueId="{{'616240b4-103'+','+'616240b4-102'}}"></uni-easyinput>
+                        </uni-forms-item>
+                    </view>
+                    <view class="groud_3">
+                        <uni-forms-item bind:__l="__l" label="证件生效日期" name="contact_period_begin" vueId="{{'616240b4-104'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-datetime-picker bind:__l="__l" bind:change="__e" clearIcon="{{false}}" color="{{time[0]}}" data-event-opts="{{[ [ '^change',[ ['day_head'] ] ] ]}}" type="date" value="{{third.contact_period_begin}}" vueId="{{'616240b4-105'+','+'616240b4-104'}}"></uni-datetime-picker>
+                        </uni-forms-item>
+                    </view>
+                    <view class="groud_3">
+                        <uni-forms-item bind:__l="__l" label="证件失效日期" name="contact_period_end" vueId="{{'616240b4-106'+','+'616240b4-59'}}" vueSlots="{{['default']}}">
+                            <uni-datetime-picker bind:__l="__l" bind:change="__e" clearIcon="{{false}}" color="{{time[1]}}" data-event-opts="{{[ [ '^change',[ ['day_last'] ] ] ]}}" type="date" value="{{third.contact_period_end}}" vueId="{{'616240b4-107'+','+'616240b4-106'}}"></uni-datetime-picker>
+                        </uni-forms-item>
+                    </view>
+                    <view class="groud_3">
+                        <uni-forms-item bind:__l="__l" label="业务办理授权照片" name="business_authorization_letter" vueId="{{'616240b4-108'+','+'616240b4-59'}}" vueSlots="{{['default']}}" wx:if="{{root}}">
+                            <view bindtap="__e" class="image-bolck" data-event-opts="{{[ [ 'tap',[ [ 'put',['$event'] ] ] ] ]}}" data-img="business_authorization_letter" data-name="third">
+                                <image src="../../static/MP-WEIXIN/25.png" style="width:176rpx;height:176rpx;" wx:if="{{!third.business_authorization_letter_link}}"></image>
+                                <image src="{{https+third.business_authorization_letter_link}}" wx:if="{{third.business_authorization_letter_link}}"></image>
+                            </view>
+                            <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','id_card_national','$event',[] ],['third'] ] ] ] ]}}" type="text" value="{{third.id_card_national}}" vueId="{{'616240b4-109'+','+'616240b4-108'}}" wx:if="{{img}}"></uni-easyinput>
+                        </uni-forms-item>
+                    </view>
+                </view>
+                <view class="flex side">
+                    <button bindtap="__e" class="back" data-event-opts="{{[ [ 'tap',[ [ 'back',['$event'] ] ] ] ]}}">上一步</button>
+                    <button bindtap="__e" class="next" data-event-opts="{{[ [ 'tap',[ [ 'next',['from_third'] ] ] ] ]}}">下一步</button>
+                </view>
+            </uni-forms>
+        </view>
+        <view class="body_one" hidden="{{!(procedure==7)}}">
+            <uni-forms bind:__l="__l" class="fourth vue-ref" data-ref="form_fourth" modelValue="{{fourth}}" rules="{{form_fourth}}" vueId="616240b4-110" vueSlots="{{['default']}}">
+                <view class="zi-three fourth_title">账户信息</view>
+                <view class="flex" style="padding:16rpx 0 17rpx 0;">
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['bank_account',false] ] ] ] ]}}" style="margin-right:60rpx;" wx:if="{{type=='SUBJECT_TYPE_INDIVIDUAL'}}">
+                        <uni-icons bind:__l="__l" color="{{!bank_account?'#5686ED':'#CACACA'}}" size="20" type="{{!bank_account?'checkbox-filled':'circle'}}" vueId="{{'616240b4-111'+','+'616240b4-110'}}"></uni-icons>
+                        <view class="groud_4">个人银行账户</view>
+                    </view>
+                    <view bindtap="__e" class="flex vertical" data-event-opts="{{[ [ 'tap',[ [ 'radios',['bank_account',true] ] ] ] ]}}">
+                        <uni-icons bind:__l="__l" color="{{bank_account?'#5686ED':'#CACACA'}}" size="20" type="{{bank_account?'checkbox-filled':'circle'}}" vueId="{{'616240b4-112'+','+'616240b4-110'}}"></uni-icons>
+                        <view class="groud_4">对公银行账户</view>
+                    </view>
+                </view>
+                <uni-forms-item bind:__l="__l" label="{{bank_account?'开户名称（单位全称）':'开户名称（法人姓名）'}}" name="account_name" vueId="{{'616240b4-113'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','account_name','$event',[] ],['fourth'] ] ] ] ]}}" disabled="{{!bank_account}}" placeholder="{{bank_account?third.id_card_name:first.merchant_name}}" type="text" value="{{fourth.account_name}}" vueId="{{'616240b4-114'+','+'616240b4-113'}}"></uni-easyinput>
+                </uni-forms-item>
+                <view class="zi-one title bank_title">开户银行</view>
+                <view class="bank_picker" style="{{17>bank_val&&picker[2]?picker[2]:''}}">
+                    <picker bindchange="__e" class="bank_pick" data-event-opts="{{[ [ 'change',[ [ 'bank_body',['$event'] ] ] ] ]}}" mode="selector" range="{{bank}}" style="position:relative;" value="{{bank_val}}">
+                        <uni-icons bind:__l="__l" color="{{17>bank_val&&picker[2]?'#dd524d':'#B2B2B5'}}" size="24" style="position:absolute;right:0;top:0;" type="bottom" vueId="{{'616240b4-115'+','+'616240b4-110'}}"></uni-icons>
+                        <view class="uni-input">{{bank[bank_val]}}</view>
+                        <view class="hint" wx:if="{{bank_val===''}}">请选择开户银行</view>
+                    </picker>
+                </view>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="account_bank" vueId="{{'616240b4-116'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','account_bank','$event',[] ],['fourth'] ] ] ] ]}}" type="text" value="{{fourth.account_bank}}" vueId="{{'616240b4-117'+','+'616240b4-116'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="bank_name" vueId="{{'616240b4-118'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','bank_name','$event',[] ],['fourth'] ] ] ] ]}}" type="text" value="{{fourth.bank_name}}" vueId="{{'616240b4-119'+','+'616240b4-118'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="bank_account_type" vueId="{{'616240b4-120'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','bank_account_type','$event',[] ],['fourth'] ] ] ] ]}}" type="text" value="{{fourth.bank_account_type}}" vueId="{{'616240b4-121'+','+'616240b4-120'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-forms-item bind:__l="__l" data-custom-hidden="{{!img}}" name="bank_address_code" vueId="{{'616240b4-122'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','bank_address_code','$event',[] ],['fourth'] ] ] ] ]}}" type="text" value="{{fourth.bank_address_code}}" vueId="{{'616240b4-123'+','+'616240b4-122'}}"></uni-easyinput>
+                </uni-forms-item>
+                <view class="pick_title bank_title">开户银行省市</view>
+                <view bindtap="__e" class="pick zi-three" data-event-opts="{{[ [ 'tap',[ [ 'address',['$event'] ] ] ] ]}}" style="{{picker[3]?picker[3]+'position: relative;':'position: relative;'}}">
+                    <uni-icons bind:__l="__l" color="{{picker[3]?'#dd524d':'#B2B2B5'}}" size="24" style="position:absolute;right:20rpx;line-height:34px;" type="bottom" vueId="{{'616240b4-124'+','+'616240b4-110'}}"></uni-icons>
+                    <view style="line-height:68rpx;">{{cityky}}</view>
+                    <view class="hint" wx:if="{{!cityky}}">请选择开户银行支行省市</view>
+                </view>
+                <view bindtap="__e" class="popup_scroll" data-event-opts="{{[ [ 'tap',[ [ 'open',['$event'] ] ] ] ]}}" style="{{17<=bank_val&&picker[2]?picker[2]:fourth.bank_name==''?'color: #999999;':'color:#000000'}}" wx:if="{{bank_val==17}}">{{fourth.bank_name==''?'选择开户支行':fourth.bank_name}}</view>
+                <view style="color:#DD524D;font-size:12px;line-height:22px;" wx:if="{{17<=bank_val&&picker[2]}}">请选择开户银行支行</view>
+                <view class="bank_title zi-one">银行账号</view>
+                <uni-forms-item bind:__l="__l" class="number" name="account_number" vueId="{{'616240b4-125'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <uni-easyinput bind:__l="__l" bind:input="__e" data-event-opts="{{[ [ '^input',[ [ '__set_model',[ '$0','account_number','$event',[] ],['fourth'] ] ] ] ]}}" placeholder="请输入银行账号" type="text" value="{{fourth.account_number}}" vueId="{{'616240b4-126'+','+'616240b4-125'}}"></uni-easyinput>
+                </uni-forms-item>
+                <uni-popup bind:__l="__l" class="vue-ref" data-ref="popup" type="bottom" vueId="{{'616240b4-127'+','+'616240b4-110'}}" vueSlots="{{['default']}}">
+                    <view class="search">
+                        <uni-search-bar bind:__l="__l" bind:cancel="__e" cancelButton="always" cancelText="搜索" data-event-opts="{{[ [ '^cancel',[ ['search'] ] ] ]}}" vueId="{{'616240b4-128'+','+'616240b4-127'}}"></uni-search-bar>
+                        <scroll-view scrollY="true" style="height:75%;">
+                            <uni-list bind:__l="__l" vueId="{{'616240b4-129'+','+'616240b4-127'}}" vueSlots="{{['default']}}">
+                                <uni-list-item bind:__l="__l" bind:click="__e" clickable="{{true}}" data-event-opts="{{[ [ '^click',[ [ 'list',['$0'],[ [ ['arr_list','',key,'name'] ] ] ] ] ] ]}}" title="{{item.name}}" vueId="{{'616240b4-130-'+key+','+'616240b4-129'}}" wx:for="{{arr_list}}" wx:for-index="key" wx:key="key"></uni-list-item>
+                            </uni-list>
+                        </scroll-view>
+                    </view>
+                </uni-popup>
+                <cityld bind:__l="__l" bind:success="__e" bind:value="__e" class="vue-ref" data-event-opts="{{[ [ '^success',[ ['region_value'] ] ],[ '^value',[ ['value_show'] ] ] ]}}" data-ref="cityky" vueId="{{'616240b4-131'+','+'616240b4-110'}}"></cityld>
+                <view class="flex side">
+                    <button bindtap="__e" class="back" data-event-opts="{{[ [ 'tap',[ [ 'back',['$event'] ] ] ] ]}}">上一步</button>
+                    <button bindtap="__e" class="next" data-event-opts="{{[ [ 'tap',[ [ 'next',['form_fourth'] ] ] ] ]}}">下一步</button>
+                </view>
+            </uni-forms>
+        </view>
+    </view>
+    <navigator class="agreement" hoverClass="none" url="/pages/agreement/agreement">《用户服务协议》《隐私协议》</navigator>
+    <uni-popup bind:__l="__l" class="vue-ref" data-ref="popups" vueId="616240b4-132" vueSlots="{{['default']}}">
+        <item-moive bind:__l="__l" bind:handlePopup="__e" body="{{popup.body}}" class="vue-ref" data-event-opts="{{[ [ '^handlePopup',[ ['handlePopup'] ] ] ]}}" data-ref="itemMoive" no="{{popup.no}}" ok="{{popup.ok}}" s_style="{{popup.style}}" title="{{popup.title}}" vueId="{{'616240b4-133'+','+'616240b4-132'}}"></item-moive>
+    </uni-popup>
+    <compress bind:__l="__l" bind:base="__e" class="vue-ref" data-event-opts="{{[ [ '^base',[ ['compress'] ] ] ]}}" data-ref="compress" vueId="616240b4-134"></compress>
+    <compress bind:__l="__l" bind:base="__e" class="vue-ref" data-event-opts="{{[ [ '^base',[ ['compre'] ] ] ]}}" data-ref="compre" vueId="616240b4-135"></compress>
+</view>

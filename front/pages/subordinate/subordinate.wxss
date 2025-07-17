@@ -1,0 +1,35 @@
+.head {
+    background: #fff;
+}
+
+.create_time {
+    color: #a3a3a3;
+    font-size: 24rpx;
+    padding-left: 74rpx;
+}
+
+.head_img {
+    width: 58rpx;
+    border-radius: 50%;
+    margin-right: 16rpx;
+    height: auto;
+}
+
+.body {
+    width: 642rpx;
+    height: 82rpx;
+    border-radius: 10rpx;
+    background: #fff;
+    margin: auto;
+    padding: 26rpx;
+    margin-top: 28rpx;
+}
+
+.nickname {
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.all_retail_num {
+    color: red;
+}

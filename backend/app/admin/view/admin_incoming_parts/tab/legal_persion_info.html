@@ -1,0 +1,152 @@
+<div class="layui-form-item id_card_copy_link">
+    <label class="layui-form-label">法人身份证人像面</label>
+    <div class="layui-input-block layuimini-upload">
+        <input name="id_card_copy_link" class="layui-input layui-col-xs6" readonly lay-verify="required"
+            placeholder="请上传身份证人像面" value="">
+        <div class="layuimini-upload-btn">
+            <span><a href="javaScript:void(0);" class="layui-btn" id="id_card_copy_link"><i class="fa fa-upload"></i>
+                    上传</a></span>
+        </div>
+    </div>
+</div>
+<div class="layui-form-item id_card_national_link">
+    <label class="layui-form-label">法人身份证国徽面</label>
+    <div class="layui-input-block layuimini-upload">
+        <input name="id_card_national_link" class="layui-input layui-col-xs6" readonly lay-verify="required"
+            placeholder="请上传身份证国徽面" value="">
+        <div class="layuimini-upload-btn">
+            <span><a href="javaScript:void(0);" class="layui-btn" id="id_card_national_link"><i
+                        class="fa fa-upload"></i> 上传</a></span>
+        </div>
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">法人姓名</label>
+    <div class="layui-input-block">
+        <input type="text" name="id_card_name" class="layui-input" lay-verify="required" placeholder="请输入姓名" value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">法人身份证号</label>
+    <div class="layui-input-block">
+        <input type="text" name="id_card_number" class="layui-input" lay-verify="required" placeholder="请输入身份证号"
+            value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">身份证居住地址</label>
+    <div class="layui-input-block">
+        <input type="text" name="id_card_address" class="layui-input" lay-verify="required" placeholder="请输入身份证居住地址"
+            value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">证件时效</label>
+    <div class="layui-input-block">
+        <input type="radio" lay-filter="id_card_type" name="id_card_type" value="0" title="定期" checked>
+        <input type="radio" lay-filter="id_card_type" name="id_card_type" value="1" title="长期有效">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">证件生效日期</label>
+    <div class="layui-input-block">
+        <input type="text" name="card_period_begin" placeholder="请选择日期" class="layui-input" id="card_period_begin">
+    </div>
+</div>
+
+<div class="layui-form-item card_period_end">
+    <label class="layui-form-label">证件失效日期</label>
+    <div class="layui-input-block">
+        <input type="text" name="card_period_end" placeholder="请选择日期" class="layui-input" id="card_period_end">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">超管类型</label>
+    <div class="layui-input-block">
+        <input type="radio" lay-filter="contact_type" name="contact_type" value="0" title="法定代表人/经营者" checked>
+        <input type="radio" lay-filter="contact_type" name="contact_type" value="1" title="经办人">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">手机号</label>
+    <div class="layui-input-block">
+        <input type="text" name="mobile_phone" class="layui-input" lay-verify="required" placeholder="请输入手机号" value="">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">联系邮箱</label>
+    <div class="layui-input-block">
+        <input type="text" name="contact_email" class="layui-input" lay-verify="required,email" placeholder="请输入联系邮箱"
+            value="">
+    </div>
+</div>
+
+<div class="contact_type_1 contact_id_doc_copy_link">
+    <div class="layui-form-item">
+        <label class="layui-form-label">超管身份证人像面照片</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="contact_id_doc_copy_link" readonly class="layui-input layui-col-xs6" placeholder="请上传身份证人像面" value="">
+            <div class="layuimini-upload-btn">
+                <span><a class="layui-btn" href="javaScript:void(0);" id="contact_id_doc_copy_link"><i
+                            class="fa fa-upload"></i> 上传</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item contact_id_doc_copy_back_link">
+        <label class="layui-form-label">超管身份证国徽面照片</label>
+        <div class="layui-input-block layuimini-upload">
+            <input name="contact_id_doc_copy_back_link" readonly class="layui-input layui-col-xs6" placeholder="请上传身份证国徽面"
+                value="">
+            <div class="layuimini-upload-btn">
+                <span><a href="javaScript:void(0);" class="layui-btn" id="contact_id_doc_copy_back_link"><i
+                            class="fa fa-upload"></i> 上传</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">超级姓名</label>
+        <div class="layui-input-block">
+            <input type="text" name="contact_name" class="layui-input" placeholder="请输入超级管理员姓名" value="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">超级身份证号</label>
+        <div class="layui-input-block">
+            <input type="text" name="contact_id_number" class="layui-input" placeholder="请输入超级管理员身份证号" value="">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">超级身份证生效日期</label>
+        <div class="layui-input-block">
+            <input type="text" name="contact_period_begin" placeholder="请选择日期" class="layui-input"
+                id="contact_period_begin">
+        </div>
+    </div>
+
+    <div class="layui-form-item contact_period_end">
+        <label class="layui-form-label">超级身份证失效日期</label>
+        <div class="layui-input-block">
+            <input type="text" name="contact_period_end" placeholder="请选择日期" class="layui-input"
+                id="contact_period_end">
+        </div>
+    </div>
+</div>
+
+
+<div class="hr-line"></div>
+<div class="layui-form-item text-center">
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm oncstep" data-stab="2"
+        data-refresh="false">上一步</button>
+    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm oncstep" data-stab="4"
+        data-refresh="false">下一步</button>
+</div>
+<style>
+    .contact_type_1 {
+        display: none;
+    }
+</style>

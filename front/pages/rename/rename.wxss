@@ -1,0 +1,104 @@
+.color-one {
+    margin-top: 50px;
+}
+
+.upload {
+    border: 1rpx solid #acc0ff;
+    display: flex;
+    border-radius: 10rpx;
+    width: 240rpx;
+    color: #123dc7;
+    padding: 6rpx 20rpx;
+    margin-bottom: 40rpx;
+}
+
+.answer>image {
+    width: 80rpx;
+    margin-right: 20rpx;
+}
+
+.answer {
+    padding: 20rpx 0;
+}
+
+.block {
+    padding: 20rpx;
+}
+
+page {
+    background-color: #f0f8ff;
+}
+
+.frame {
+    background-color: #fff;
+    width: 710rpx;
+    margin: 30rpx auto;
+    border-radius: 25rpx;
+    padding: 40rpx 0;
+}
+
+.frame_one {
+    background-color: #fff;
+    width: 710rpx;
+    margin: 30rpx auto;
+    border-radius: 25rpx;
+    padding: 20rpx 0;
+}
+
+.frame_one>view {
+    padding: 0 20rpx;
+}
+
+.input {
+    border: 1rpx solid #acc0ff;
+    border-radius: 10rpx;
+    margin-bottom: 44rpx;
+}
+
+.title {
+    line-height: 72rpx!important;
+}
+
+uni-forms>view {
+    padding: 0 20rpx;
+}
+
+.zi-four {
+    line-height: 50rpx;
+}
+
+.uni-forms-item {
+    flex: 1;
+}
+
+button {
+    background-color: #123dc7;
+    width: 600rpx;
+    height: 70rpx;
+    border-radius: 36rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    line-height: 70rpx;
+}
+
+uni-segmented-control .segmented-control__text {
+    font-size: 32rpx!important;
+}
+
+.content {
+    padding-top: 20rpx;
+    margin-top: 10rpx;
+    border-top: 1rpx solid #acc0ff;
+}
+
+.uploadImgDes .uni-forms-item__inner {
+    height: 0!important;
+    overflow: hidden;
+}
+
+.explain {
+    padding: 0 30rpx;
+    padding-bottom: 40rpx;
+    font-size: 40rpx;
+    color: red;
+}

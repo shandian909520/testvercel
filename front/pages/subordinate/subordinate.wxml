@@ -1,0 +1,17 @@
+<view>
+    <view class="head">
+        <uni-search-bar bind:__l="__l" bind:cancel="__e" cancelButton="always" cancelText="搜索" data-event-opts="{{[ [ '^cancel',[ ['search'] ] ] ]}}" radius="20" vueId="7de846e6-1"></uni-search-bar>
+    </view>
+    <view class="body" wx:for="{{arr}}" wx:key="index">
+        <view class="flex vertical side">
+            <view>
+                <view class="flex vertical">
+                    <image class="head_img" mode="widthFix" src="{{item.head}}"></image>
+                    <view class="nickname">{{item.nickname}}</view>
+                </view>
+                <view class="create_time">{{item.create_time}}</view>
+            </view>
+            <view class="all_retail_num">{{'+'+item.all_retail_num}}</view>
+        </view>
+    </view>
+</view>

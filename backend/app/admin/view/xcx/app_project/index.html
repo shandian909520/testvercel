@@ -1,0 +1,32 @@
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <h3>授权信息：</h3>
+        <hr>
+        <div>
+            {if count($info) lt 2}
+            <p>无</p>
+            {else}
+            <div>
+                <div class="layui-col-md1">
+                    <p> appid: </p>
+                </div>
+                <div>
+                    <p> {$info['app_id']} </p>
+                </div>
+            </div>
+            <div>
+                <div class="layui-col-md1">
+                    <p> 主体名称: </p>
+                </div>
+                <div>
+                    <p> {$info['name']} </p>
+                </div>
+            </div>
+            {/if}
+        </div>
+        {if $auth_url}
+        <a class="layui-btn" href="{$auth_url}">{if count($info) lt 2}开始授权{else}重新授权{/if}</a> {else}
+        <p>暂时无法授权,请等待微信票据推送, 大概10分钟。</p>
+        {/if}
+    </div>
+</div>

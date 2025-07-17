@@ -1,0 +1,36 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <input type="hidden" name="now_group" value="baidu">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">百度识别开关</label>
+        <div class="layui-input-block">
+            <input type="radio" name="baidu_status{:session('admin.id')}" value="0" title="关" {if sysconfig( 'baidu', 'baidu_status'.session('admin.id'))==0 } checked {/if}>
+            <input type="radio" name="baidu_status{:session('admin.id')}" value="1" title="开" {if sysconfig( 'baidu', 'baidu_status'.session('admin.id'))==1} checked {/if}>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">百度ApiKey</label>
+        <div class="layui-input-block">
+            <input type="text" name="baidu_api_key{:session('admin.id')}" class="layui-input" lay-verify="required" placeholder="请输入百度ApiKey" value="{:sysconfig('baidu','baidu_api_key'.session('admin.id'))}">
+            <tip>填写百度ApiKey。</tip>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">百度ApiSecret</label>
+        <div class="layui-input-block">
+            <input type="text" name="baidu_api_secret{:session('admin.id')}" class="layui-input" lay-verify="required" placeholder="请输入百度ApiSecret" value="{:sysconfig('baidu','baidu_api_secret'.session('admin.id'))}">
+            <tip>填写百度ApiSecret。</tip>
+        </div>
+    </div>
+
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save" data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>

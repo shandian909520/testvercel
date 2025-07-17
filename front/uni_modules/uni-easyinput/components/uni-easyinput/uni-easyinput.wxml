@@ -1,0 +1,19 @@
+<view class="{{['uni-easyinput','data-v-271129ea',msg?'uni-easyinput-error':'']}}" style="{{'color:'+(inputBorder&&msg?'#e43d33':styles.color)+';'}}">
+    <view class="{{['uni-easyinput__content','data-v-271129ea',inputBorder?'is-input-border':'',inputBorder&&msg?'is-input-error-border':'',type==='textarea'?'is-textarea':'',disabled?'is-disabled':'']}}" style="{{'border-color:'+(inputBorder&&msg?'#dd524d':styles.borderColor)+';'+'background-color:'+(disabled?styles.disableColor:'')+';'}}">
+        <uni-icons bind:__l="__l" bind:click="__e" class="content-clear-icon data-v-271129ea" color="#c0c4cc" data-event-opts="{{[ [ '^click',[ [ 'onClickIcon',['prefix'] ] ] ] ]}}" type="{{prefixIcon}}" vueId="d0425c22-1" wx:if="{{prefixIcon}}"></uni-icons>
+        <textarea autoHeight="{{autoHeight}}" bindblur="__e" bindconfirm="__e" bindfocus="__e" bindinput="__e" class="{{['uni-easyinput__content-textarea','data-v-271129ea',inputBorder?'input-padding':'']}}" data-event-opts="{{[ [ 'input',[ [ 'onInput',['$event'] ] ] ],[ 'blur',[ [ 'onBlur',['$event'] ] ] ],[ 'focus',[ [ 'onFocus',['$event'] ] ] ],[ 'confirm',[ [ 'onConfirm',['$event'] ] ] ] ]}}" disabled="{{disabled}}" focus="{{focused}}" maxlength="{{inputMaxlength}}" name="{{name}}" placeholder="{{placeholder}}" placeholderClass="uni-easyinput__placeholder-class" placeholderStyle="{{placeholderStyle}}" value="{{val}}" wx:if="{{type==='textarea'}}"></textarea>
+        <input bindblur="__e" bindconfirm="__e" bindfocus="__e" bindinput="__e" class="uni-easyinput__content-input data-v-271129ea" confirmType="{{confirmType}}" data-event-opts="{{[ [ 'focus',[ [ 'onFocus',['$event'] ] ] ],[ 'blur',[ [ 'onBlur',['$event'] ] ] ],[ 'input',[ [ 'onInput',['$event'] ] ] ],[ 'confirm',[ [ 'onConfirm',['$event'] ] ] ] ]}}" disabled="{{disabled}}" focus="{{focused}}" maxlength="{{inputMaxlength}}" name="{{name}}" password="{{!showPassword&&type==='password'}}" placeholder="{{placeholder}}" placeholderClass="uni-easyinput__placeholder-class" placeholderStyle="{{placeholderStyle}}" style="{{'padding-right:'+(type==='password'||clearable||prefixIcon?'':'10px')+';'+'padding-left:'+(prefixIcon?'':'10px')+';'}}" type="{{type==='password'?'text':type}}" value="{{val}}" wx:else></input>
+        <block wx:if="{{type==='password'&&passwordIcon}}">
+            <uni-icons bind:__l="__l" bind:click="__e" class="{{['content-clear-icon','data-v-271129ea',type==='textarea'?'is-textarea-icon':'']}}" color="#c0c4cc" data-event-opts="{{[ [ '^click',[ ['onEyes'] ] ] ]}}" size="{{18}}" type="{{showPassword?'eye-slash-filled':'eye-filled'}}" vueId="d0425c22-2" wx:if="{{val!=''}}"></uni-icons>
+        </block>
+        <block wx:else>
+            <block wx:if="{{suffixIcon}}">
+                <uni-icons bind:__l="__l" bind:click="__e" class="content-clear-icon data-v-271129ea" color="#c0c4cc" data-event-opts="{{[ [ '^click',[ [ 'onClickIcon',['suffix'] ] ] ] ]}}" type="{{suffixIcon}}" vueId="d0425c22-3" wx:if="{{suffixIcon}}"></uni-icons>
+            </block>
+            <block wx:else>
+                <uni-icons bind:__l="__l" bind:click="__e" class="{{['content-clear-icon','data-v-271129ea',type==='textarea'?'is-textarea-icon':'']}}" color="#c0c4cc" data-event-opts="{{[ [ '^click',[ ['onClear'] ] ] ]}}" size="{{clearSize}}" type="clear" vueId="d0425c22-4" wx:if="{{clearable&&val&&!disabled}}"></uni-icons>
+            </block>
+        </block>
+        <slot name="right"></slot>
+    </view>
+</view>

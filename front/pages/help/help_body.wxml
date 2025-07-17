@@ -1,0 +1,5 @@
+<view>
+    <view>
+        <rich-text nodes="{{array.content}}"></rich-text>
+    </view>
+</view>

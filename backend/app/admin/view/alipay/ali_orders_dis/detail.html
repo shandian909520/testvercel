@@ -1,0 +1,110 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">小程序类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="type" lay-filter='type' value="1" title="个人" {eq name='info.type' value='1' } checked {/eq}>
+                <input type="radio" name="type" lay-filter='type' value="2" title="企业" {eq name='info.type' value='2' } checked {/eq}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label id="name" class="layui-form-label required">{eq name='info.type' value='1' }个人{else}企业{/eq}名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input" value="{$info.name}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label id="wx_type" class="layui-form-label required">法人微信号</label>
+            <div class="layui-input-block">
+                <input type="text" name="wx_code" class="layui-input" value="{$info.wx_code}">
+            </div>
+        </div>
+        <div id="company" {eq name='info.type' value='1' }class="layui-hide" {/eq}>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">识别营业执照</label>
+                <div class="layui-input-block">
+                    <a href="javaScript:void(0);" class="layui-btn layui-bg-blue" id="business_pic">
+                        <i class="layui-icon layui-icon-upload"></i> 上传图片
+                    </a>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label required">企业代码类型</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="code_type" value="18" title="统一社会信用代码(18位)" {eq name='info.code_type' value='18' } checked {/eq}>
+                    <input type="radio" name="code_type" value="9" title="组织机构代码(9位)" {eq name='info.code_type' value='9' } checked {/eq}>
+                    <input type="radio" name="code_type" value="15" title="营业执照注册号(15位)" {eq name='info.code_type' value='15' } checked {/eq}>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">企业代码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="code" class="layui-input" value="{$info.code}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">法人姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="person_name" class="layui-input" value="{$info.person_name}">
+                </div>
+            </div>
+        </div>
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+
+    </form>
+</div>
+
+
+<script>
+    var form = layui.form
+    form.on('radio(type)', function(data) {
+        if (data.value == '1') {
+            $('#wx_type').html('个人微信号')
+            $('#name').html('个人名称')
+            $('input[name=code_type]').attr('checked', false);
+            $('input[name=name]').val('')
+            $('input[name=code]').val('')
+            $('input[name=person_name]').val('')
+            form.render()
+            $('#company').addClass('layui-hide')
+        } else {
+            $('#wx_type').html('法人微信号')
+            $('#name').html('企业名称')
+            $('#company').removeClass('layui-hide')
+        }
+    })
+    var upload = layui.upload;
+    //执行实例
+    var uploadInst = upload.render({
+        elem: '#business_pic' //绑定元素
+            ,
+        url: 'get_business_info' //上传接口
+            ,
+        done: function(res) {
+            if (res.code) {
+                layer.msg(res.message, {
+                    icon: 1
+                })
+                $('input[name=code_type][value=' + res.data.code_type + ']').attr('checked', true);
+                $('input[name=name]').val(res.data.name)
+                $('input[name=code]').val(res.data.code)
+                $('input[name=person_name]').val(res.data.person_name)
+                form.render()
+            } else {
+                layer.msg(res.message, {
+                    icon: 2
+                })
+            }
+        },
+        error: function(err) {},
+
+    });
+</script>

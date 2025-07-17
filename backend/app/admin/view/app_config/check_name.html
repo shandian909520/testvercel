@@ -1,0 +1,19 @@
+<form id="app-form" class="layui-form layuimini-form">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">次数限制</label>
+        <div class="layui-input-block">
+            <input type="number" name="check_name_times" class="layui-input" lay-verify="required" placeholder="请输入百度ApiKey" value="{:sysconfig('check_name','check_name_times')}">
+            <tip>每人每日使用限制，限制填写数字；留空或者填写0则不做限制</tip>
+        </div>
+    </div>
+
+
+
+    <div class="hr-line"></div>
+    <div class="layui-form-item text-center">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="app_config/save" data-refresh="false">确认</button>
+        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+    </div>
+
+</form>

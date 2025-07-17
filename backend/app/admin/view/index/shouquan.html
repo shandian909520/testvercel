@@ -1,0 +1,84 @@
+<style>
+    .version {
+        text-align: center;
+        background: #fff;
+        padding: 25px 14px;
+        font-size: 23px;
+    }
+    
+    .getnew_version {
+        background: #0097a7;
+        color: #fff;
+        padding: 3px 14px;
+        border-radius: 5px;
+        margin-top: 30px;
+        display: block;
+        width: 35vh;
+        font-size: 16px;
+        margin: 29px auto;
+    }
+    
+    .msg {
+        text-align: center;
+        padding: 18px 0px;
+    }
+    
+    .desc {
+        text-align: center;
+    }
+</style>
+<style type="text/css">
+    .form3>ul>li div {
+        line-height: 36px;
+        display: inline-block;
+    }
+    
+    .shouq {
+        padding: 0.5rem 1rem;
+        background-color: #4877E7;
+        color: #fff;
+        margin-left: 1rem;
+    }
+</style>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <h3 class="content-header-title mb-0 pull-left">系统授权</h3>
+        <hr>
+        <div class="layui-card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="form1 form3 font-size-large">
+                        <ul class="row">
+                            <li class="col-sm-10 col-xs-12">
+                                <span>产品名称：</span>
+                                <div>{if $data}{$data['app_name']}{/if}</div>
+                            </li>
+                            <li class="col-sm-10 col-xs-12">
+                                <span>版本号：</span>
+                                <div>V{if $data}{$data['version']}{/if}</div>
+                            </li>
+                            <li class="col-sm-10 col-xs-12">
+                                <span>授权域名：</span>
+                                <div>{if $data}{$data['auth_host']}{/if}</div>
+                            </li>
+                            <!--								<li class="col-sm-10 col-xs-12">-->
+                            <!--									<span>授权：</span>-->
+                            <!--									<div>{if $data}{$data['ip']}{/if}</div>-->
+                            <!--								</li>-->
+                            <li class="col-sm-10 col-xs-12">
+                                <span>授权状态：</span>
+                                <div>{if $data}{$data['expire_status']}{/if}</div>
+                            </li>
+                            <li class="col-sm-10 col-xs-12">
+                                <span>到期时间：</span>
+                                <div>{if $data}{$data['expire_time']}{/if}</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
